@@ -1,0 +1,2 @@
+link ve client-server
+https://www.lifewire.com/web-browsers-and-web-servers-communicate-817764
