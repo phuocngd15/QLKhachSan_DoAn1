@@ -15,7 +15,7 @@ namespace Hotel.Models
             DichVus = new HashSet<DichVu>();
         }
         [Key]
-        public int IdLoaiDichVu { get; set; }
+        public int LoaiDichVuId { get; set; }
         public string TenLoaiDichVu { get; set; }
 
         public ICollection<DichVu> DichVus { get; set; }

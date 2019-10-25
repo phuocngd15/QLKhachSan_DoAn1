@@ -9,7 +9,7 @@ namespace Hotel.Models
     public class Phong
     {
         [Key]
-        public int IdPhong { get; set; }
+        public int PhongId { get; set; }
 
         public string TenPhong { get; set; }
 
@@ -24,11 +24,10 @@ namespace Hotel.Models
         //0: Phong can clean, 1: phong San sang, 2: Phong co nguoi, 3: PhongDaDatCoc
         public int TinhTrangPhong { get; set; }
 
-        public int IdLoaiPhong { get; set; }
+        public int LoaiPhongId { get; set; }
         public LoaiPhong LoaiPhongs { get; set; }
 
 
-        /
-        public ICollection<PhieuDatPhong> PhieuDatPhongs { get; set; }
+        
     }
 }

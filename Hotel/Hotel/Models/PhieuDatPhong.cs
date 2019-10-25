@@ -11,7 +11,7 @@ namespace Hotel.Models
     public class PhieuDatPhong
     {
         [Key]
-        public int IdPhieuDatPhong { get; set; }
+        public int PhieuDatPhongId { get; set; }
 
         // tinh trang = 0: chua nhan,,,,,, Tinh trang = 1: da nhan phong
         public bool TinhTrang { get; set; }
@@ -25,8 +25,8 @@ namespace Hotel.Models
         public DateTime NgayTraDuTinh { get; set; }
 
         [DefaultValue(0)]
-        public int IdUser { get; set; }
-        public Account NguoiLapPhieu { get; set; }
+        public int UserId { get; set; }
+        public Account Account { get; set; }
 
         //Dieu kien de tim phong 
         // getRoomByRangeDate
@@ -36,7 +36,7 @@ namespace Hotel.Models
         //-----------------------TruongHop1-----------------------------  ||  ----------------------------TruongHop2------------------------
         //=========[NewDayNhan............NewDayTra]==========[OldNhan.........OldTra]=========[NewDayNhan............NewDayTra]
 
-        public ICollection<Phong> Phongs { get; set; }
+      
 
 
 

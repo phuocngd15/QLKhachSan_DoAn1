@@ -9,13 +9,13 @@ namespace Hotel.Models
     public class User
     {
         [Key]
-        public int IdNguoiDung { get; set; }
+        public int NguoiDungId { get; set; }
         public string HoTenNguoiDung { get; set; }
         public string CmndNguoiDung { get; set; }
         public string SdtNguoiDung { get; set; }
         public string EmailNguoiDung { get; set; }
 
-        public int IdAccount { get; set; }
+        public int AccountId { get; set; }
 
     }
 }

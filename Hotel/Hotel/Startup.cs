@@ -2,13 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hotel.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Microsoft.EntityFrameworkCore;
 namespace Hotel
 {
     public class Startup
@@ -24,6 +27,7 @@ namespace Hotel
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<HotelDataContext>(opt=>opt.UseSqlServer(Configuration.GetConnectionString("HotelDataContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

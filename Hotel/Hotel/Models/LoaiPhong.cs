@@ -15,7 +15,7 @@ namespace Hotel.Models
         }
         
         [Key]
-        public int IdLoaiPhong { get; set; }
+        public int LoaiPhongId { get; set; }
 
         public string TenLoaiPhong { get; set; }
 

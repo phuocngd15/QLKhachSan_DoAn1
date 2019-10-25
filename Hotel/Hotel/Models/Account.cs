@@ -9,7 +9,7 @@ namespace Hotel.Models
     public class Account
     {
         [Key]
-        public int IdAccount { get; set; }
+        public int AccountId { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [StringLength(20)]
@@ -23,7 +23,7 @@ namespace Hotel.Models
         public DateTime NgayDangKy { get; set; }
         
         // tham chieu toi user
-        public int IdNguoiDat { get; set; }
+        public int NguoiDungId { get; set; }
 
         //mot account co nhieu phieu dat phong
         public ICollection<PhieuDatPhong> PhieuDatPhongs { get; set; }

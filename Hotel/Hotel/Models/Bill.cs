@@ -8,8 +8,8 @@ namespace Hotel.Models
 {
     public class Bill
     {
-        
-        public int IdPhieuDatPhong { get; set; }
+        [Key]
+        public int BillId { get; set; }
  
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
@@ -21,5 +21,7 @@ namespace Hotel.Models
 
         public decimal TienDatCoc { get; set; }
         public decimal TongTienThanhToan { get; set; }
+
+        public int PhieuDatPhongId { get; set; }
     }
 }

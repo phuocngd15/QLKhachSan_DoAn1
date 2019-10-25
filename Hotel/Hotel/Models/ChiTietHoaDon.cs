@@ -9,12 +9,14 @@ namespace Hotel.Models
 {
     public class ChiTietHoaDon
     {
-       
+        [Key]
         public int IdBill { get; set; }
         public Bill Bill { get; set; }
 
         public string TenDichVu { get; set; }
         public int SoLuong { get; set; }
         public decimal GiaTienDichVuDecimal { get; set; }
+
+        public int PhieuDatPhongId { get; set; }
     }
 }
