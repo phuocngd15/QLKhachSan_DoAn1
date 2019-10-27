@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JackieLeIV\\Desktop\\DoAn1\\Hotel\\Hotel\\Hotel.csproj": {}
+    "E:\\GitHub\\QLKhachSan_DoAn1\\Hotel\\Hotel\\Hotel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JackieLeIV\\Desktop\\DoAn1\\Hotel\\Hotel\\Hotel.csproj": {
+    "E:\\GitHub\\QLKhachSan_DoAn1\\Hotel\\Hotel\\Hotel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JackieLeIV\\Desktop\\DoAn1\\Hotel\\Hotel\\Hotel.csproj",
+        "projectUniqueName": "E:\\GitHub\\QLKhachSan_DoAn1\\Hotel\\Hotel\\Hotel.csproj",
         "projectName": "Hotel",
-        "projectPath": "C:\\Users\\JackieLeIV\\Desktop\\DoAn1\\Hotel\\Hotel\\Hotel.csproj",
-        "packagesPath": "C:\\Users\\JackieLeIV\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JackieLeIV\\Desktop\\DoAn1\\Hotel\\Hotel\\obj\\",
+        "projectPath": "E:\\GitHub\\QLKhachSan_DoAn1\\Hotel\\Hotel\\Hotel.csproj",
+        "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
+        "outputPath": "E:\\GitHub\\QLKhachSan_DoAn1\\Hotel\\Hotel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\JackieLeIV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"

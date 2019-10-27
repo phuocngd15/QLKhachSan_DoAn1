@@ -24,6 +24,7 @@ namespace Hotel.Models
         
         // tham chieu toi user
         public int NguoiDungId { get; set; }
+        public User User { get; set; }
 
         //mot account co nhieu phieu dat phong
         public ICollection<PhieuDatPhong> PhieuDatPhongs { get; set; }
