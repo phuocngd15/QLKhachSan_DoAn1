@@ -8,6 +8,7 @@ namespace Hotel.Models
 {
     public class Account
     {
+        // luu thong khach hang dang ki phong
         [Key]
         public int AccountId { get; set; }
 

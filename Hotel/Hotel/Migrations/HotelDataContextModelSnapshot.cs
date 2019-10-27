@@ -263,6 +263,9 @@ namespace Hotel.Migrations
 
                     b.HasKey("NguoiDungId");
 
+                    b.HasIndex("AccountId")
+                        .IsUnique();
+
                     b.ToTable("Users");
                 });
 
@@ -309,6 +312,15 @@ namespace Hotel.Migrations
                     b.HasOne("Hotel.Models.LoaiPhong", "LoaiPhongs")
                         .WithMany("Phongs")
                         .HasForeignKey("LoaiPhongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Hotel.Models.User", b =>
+                {
+                    b.HasOne("Hotel.Models.Account", "Account")
+                        .WithOne("User")
+                        .HasForeignKey("Hotel.Models.User", "AccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

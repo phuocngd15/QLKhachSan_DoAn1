@@ -8,6 +8,7 @@ namespace Hotel.Models
 {
     public class User
     {
+        //luu tai khoan khach hang, nhan vien
         [Key]
         public int NguoiDungId { get; set; }
         public string HoTenNguoiDung { get; set; }

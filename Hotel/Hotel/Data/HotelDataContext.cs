@@ -44,6 +44,7 @@ namespace Hotel.Data
 
         
         }
+        public DbSet<Hotel.Models.SystemAccount> SystemAccount { get; set; }
 
     }
 }

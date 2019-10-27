@@ -340,3 +340,5 @@ E:\GitHub\QLKhachSan_DoAn1\Hotel\Hotel\obj\Debug\netcoreapp3.0\Hotel.Views.pdb
 E:\GitHub\QLKhachSan_DoAn1\Hotel\Hotel\obj\Debug\netcoreapp3.0\Hotel.csproj.CopyComplete
 E:\GitHub\QLKhachSan_DoAn1\Hotel\Hotel\obj\Debug\netcoreapp3.0\Hotel.dll
 E:\GitHub\QLKhachSan_DoAn1\Hotel\Hotel\obj\Debug\netcoreapp3.0\Hotel.pdb
+E:\GitHub\QLKhachSan_DoAn1\Hotel\Hotel\obj\Debug\netcoreapp3.0\Razor\Views\DangNhaps\_DangNhapView.cshtml.g.cs
+E:\GitHub\QLKhachSan_DoAn1\Hotel\Hotel\obj\Debug\netcoreapp3.0\Razor\Views\DangNhaps\EditSYSACC.cshtml.g.cs

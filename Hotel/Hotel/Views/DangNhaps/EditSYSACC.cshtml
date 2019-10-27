@@ -1,0 +1,39 @@
+﻿@model Hotel.Models.SystemAccount
+
+@{
+    ViewData["Title"] = "EditSYSACC";
+}
+
+<h1>EditSYSACC</h1>
+
+<h4>SystemAccount</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditSYSACC">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SystemAccountId" />
+            <div class="form-group">
+                <label asp-for="SystemAccountName" class="control-label"></label>
+                <input asp-for="SystemAccountName" class="form-control" />
+                <span asp-validation-for="SystemAccountName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemAccountPassWords" class="control-label"></label>
+                <input asp-for="SystemAccountPassWords" class="form-control" />
+                <span asp-validation-for="SystemAccountPassWords" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

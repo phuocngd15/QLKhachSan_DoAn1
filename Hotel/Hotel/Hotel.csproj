@@ -7,6 +7,10 @@
   <ItemGroup>
     <Compile Remove="Migrations\20191025170231_InitialCreate2.cs" />
     <Compile Remove="Migrations\20191025170231_InitialCreate2.Designer.cs" />
+    <Compile Remove="Migrations\20191027062231_ver.cs" />
+    <Compile Remove="Migrations\20191027062231_ver.Designer.cs" />
+    <Compile Remove="Migrations\20191027081301_AddSystemAccount.cs" />
+    <Compile Remove="Migrations\20191027081301_AddSystemAccount.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
