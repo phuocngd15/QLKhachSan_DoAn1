@@ -8081,25 +8081,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thanh\\.nuget\\packages\\": {},
+    "C:\\Users\\JackieLeIV\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Học Kì 5\\Lập trình web\\KTCT7\\KTCT7\\KTCT7.csproj",
+      "projectUniqueName": "D:\\MyGit\\QLKhachSan_DoAn1\\DemoPartialView\\KTCT7\\KTCT7.csproj",
       "projectName": "KTCT7",
-      "projectPath": "E:\\Học Kì 5\\Lập trình web\\KTCT7\\KTCT7\\KTCT7.csproj",
-      "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-      "outputPath": "E:\\Học Kì 5\\Lập trình web\\KTCT7\\KTCT7\\obj\\",
+      "projectPath": "D:\\MyGit\\QLKhachSan_DoAn1\\DemoPartialView\\KTCT7\\KTCT7.csproj",
+      "packagesPath": "C:\\Users\\JackieLeIV\\.nuget\\packages\\",
+      "outputPath": "D:\\MyGit\\QLKhachSan_DoAn1\\DemoPartialView\\KTCT7\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\JackieLeIV\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"

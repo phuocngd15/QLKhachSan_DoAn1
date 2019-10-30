@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "E:\\GitHub\\QLKhachSan_DoAn1\\MVC-Demo\\MVC-Demo.csproj": {}
+    "D:\\MyGit\\QLKhachSan_DoAn1\\MVC-Demo\\MVC-Demo.csproj": {}
   },
   "projects": {
-    "E:\\GitHub\\QLKhachSan_DoAn1\\MVC-Demo\\MVC-Demo.csproj": {
+    "D:\\MyGit\\QLKhachSan_DoAn1\\MVC-Demo\\MVC-Demo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GitHub\\QLKhachSan_DoAn1\\MVC-Demo\\MVC-Demo.csproj",
+        "projectUniqueName": "D:\\MyGit\\QLKhachSan_DoAn1\\MVC-Demo\\MVC-Demo.csproj",
         "projectName": "MVC-Demo",
-        "projectPath": "E:\\GitHub\\QLKhachSan_DoAn1\\MVC-Demo\\MVC-Demo.csproj",
-        "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "E:\\GitHub\\QLKhachSan_DoAn1\\MVC-Demo\\obj\\",
+        "projectPath": "D:\\MyGit\\QLKhachSan_DoAn1\\MVC-Demo\\MVC-Demo.csproj",
+        "packagesPath": "C:\\Users\\JackieLeIV\\.nuget\\packages\\",
+        "outputPath": "D:\\MyGit\\QLKhachSan_DoAn1\\MVC-Demo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JackieLeIV\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
