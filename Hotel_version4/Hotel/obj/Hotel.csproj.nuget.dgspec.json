@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Học Kì 5\\Đồ án 1\\Hotel_copy\\Hotel\\Hotel.csproj": {}
+    "C:\\Users\\JackieLeIV\\Desktop\\Hotel_version4\\Hotel\\Hotel.csproj": {}
   },
   "projects": {
-    "E:\\Học Kì 5\\Đồ án 1\\Hotel_copy\\Hotel\\Hotel.csproj": {
+    "C:\\Users\\JackieLeIV\\Desktop\\Hotel_version4\\Hotel\\Hotel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Học Kì 5\\Đồ án 1\\Hotel_copy\\Hotel\\Hotel.csproj",
+        "projectUniqueName": "C:\\Users\\JackieLeIV\\Desktop\\Hotel_version4\\Hotel\\Hotel.csproj",
         "projectName": "Hotel",
-        "projectPath": "E:\\Học Kì 5\\Đồ án 1\\Hotel_copy\\Hotel\\Hotel.csproj",
-        "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "E:\\Học Kì 5\\Đồ án 1\\Hotel_copy\\Hotel\\obj\\",
+        "projectPath": "C:\\Users\\JackieLeIV\\Desktop\\Hotel_version4\\Hotel\\Hotel.csproj",
+        "packagesPath": "C:\\Users\\JackieLeIV\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JackieLeIV\\Desktop\\Hotel_version4\\Hotel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JackieLeIV\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -41,8 +41,10 @@ namespace Hotel.Data
         {
             modelBuilder.Entity<PhieuDatPhong_Phong>()
                 .HasKey(c => new {c.PhieuDatPhongId, c.PhongId});
+            modelBuilder.Entity<ChiTietHoaDon>().HasNoKey();
 
-        
+
+
         }
         public DbSet<Hotel.Models.SystemAccount> SystemAccount { get; set; }
 

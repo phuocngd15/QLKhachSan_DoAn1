@@ -9,7 +9,6 @@ namespace Hotel.Models
 {
     public class ChiTietHoaDon
     {
-        
         public int BillId { get; set; }
         public Bill Bill { get; set; }
 
