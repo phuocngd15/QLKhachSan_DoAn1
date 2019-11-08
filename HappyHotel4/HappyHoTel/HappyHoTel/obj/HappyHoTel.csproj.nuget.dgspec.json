@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JackieLeIV\\Desktop\\MyHotel\\HappyHotel4\\HappyHoTel\\HappyHoTel\\HappyHoTel.csproj": {}
+    "E:\\GitHub\\QLKhachSan_DoAn1\\HappyHotel4\\HappyHoTel\\HappyHoTel\\HappyHoTel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JackieLeIV\\Desktop\\MyHotel\\HappyHotel4\\HappyHoTel\\HappyHoTel\\HappyHoTel.csproj": {
+    "E:\\GitHub\\QLKhachSan_DoAn1\\HappyHotel4\\HappyHoTel\\HappyHoTel\\HappyHoTel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JackieLeIV\\Desktop\\MyHotel\\HappyHotel4\\HappyHoTel\\HappyHoTel\\HappyHoTel.csproj",
+        "projectUniqueName": "E:\\GitHub\\QLKhachSan_DoAn1\\HappyHotel4\\HappyHoTel\\HappyHoTel\\HappyHoTel.csproj",
         "projectName": "HappyHoTel",
-        "projectPath": "C:\\Users\\JackieLeIV\\Desktop\\MyHotel\\HappyHotel4\\HappyHoTel\\HappyHoTel\\HappyHoTel.csproj",
-        "packagesPath": "C:\\Users\\JackieLeIV\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JackieLeIV\\Desktop\\MyHotel\\HappyHotel4\\HappyHoTel\\HappyHoTel\\obj\\",
+        "projectPath": "E:\\GitHub\\QLKhachSan_DoAn1\\HappyHotel4\\HappyHoTel\\HappyHoTel\\HappyHoTel.csproj",
+        "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
+        "outputPath": "E:\\GitHub\\QLKhachSan_DoAn1\\HappyHotel4\\HappyHoTel\\HappyHoTel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\JackieLeIV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
