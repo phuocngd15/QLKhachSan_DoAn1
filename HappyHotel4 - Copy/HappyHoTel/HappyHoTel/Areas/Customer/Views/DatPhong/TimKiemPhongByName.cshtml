@@ -1,0 +1,64 @@
+﻿
+@model IEnumerable<HappyHoTel.Models.Phong>
+@* Tìm kiếm phòng by name *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenPhong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoNguoiOToiDa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoTaPhong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CachTinhTien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhuThu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TinhTrangPhong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoaiPhongs)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenPhong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoNguoiOToiDa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTaPhong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CachTinhTien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhuThu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TinhTrangPhong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoaiPhongs.TenLoaiPhong)
+                </td>
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.PhongId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.PhongId">Details</a> |*@
+                    <a asp-action="DatPhong" asp-route-id="@item.PhongId">Đặt Phòng</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

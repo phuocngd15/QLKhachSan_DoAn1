@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HappyHoTel.Models.DichVu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenDichVu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaBan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaNhap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoaiDichVu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDichVu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaNhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiDichVu.LoaiDichVuId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DichVuId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DichVuId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DichVuId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
