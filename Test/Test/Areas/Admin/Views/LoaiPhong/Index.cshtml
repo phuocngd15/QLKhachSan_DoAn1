@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Test.Models.LoaiPhong>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br /><br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Danh Sách Loại Phòng</h2>
+    </div>
+    <div class="col-6 text-center">
+        <a asp-action="Create" class="btn btn-info">&nbsp;Loại Phòng Mới</a>
+    </div>
+</div>
+
+<br />
+<div>
+     <table class="table table-striped border">
+         <tr class="table-info">
+             <th>
+                 @Html.DisplayNameFor(m=>m.TenLoaiPhong)
+             </th>
+             <th>
+                 @Html.DisplayNameFor(m=>m.MoTaLoaiPhong)
+             </th>
+             <th></th>
+         </tr>
+         @foreach(var item in Model)
+          {
+             <tr>
+                 <td>
+                     @Html.DisplayFor(m=>item.TenLoaiPhong)
+                 </td>
+                 <td>
+                     @Html.DisplayFor(m=>item.MoTaLoaiPhong)
+                 </td>
+                 <td>
+                     <partial name="_TableButtonPartial" model="item.LoaiPhongId" />
+                 </td>
+             </tr>
+          }
+     </table>
+</div>
