@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Test.Models.Phong>
+@{ 
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Danh Sách Phòng</h2>
+    </div>
+    <div class="col-6 text-center">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp;Phòng Mới</a>
+    </div>
+</div>
+
+<br />
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.TenPhong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.SoNguoiOToiDa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.MoTaPhong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.CachTinhTien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.PhuThu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.TinhTrangPhong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.LoaiPhongs)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+         <tr>
+        <td>
+            @Html.DisplayFor(m => item.TenPhong)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.SoNguoiOToiDa)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.MoTaPhong)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.CachTinhTien)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.PhuThu)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.TinhTrangPhong)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.LoaiPhongs.TenLoaiPhong)
+        </td>
+        <td>
+            <partial name="_TableButtonPartial" model="item.PhongId" />
+        </td>
+    </tr>
+        }
+    </table>
+</div>

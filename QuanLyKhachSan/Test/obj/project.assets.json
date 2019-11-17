@@ -8478,11 +8478,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Học Kì 5\\Lập trình web\\Test\\Test\\Test.csproj",
+      "projectUniqueName": "C:\\Users\\thanh\\Documents\\GitHub\\QLKhachSan_DoAn1\\QuanLyKhachSan\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "E:\\Học Kì 5\\Lập trình web\\Test\\Test\\Test.csproj",
+      "projectPath": "C:\\Users\\thanh\\Documents\\GitHub\\QLKhachSan_DoAn1\\QuanLyKhachSan\\Test\\Test.csproj",
       "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-      "outputPath": "E:\\Học Kì 5\\Lập trình web\\Test\\Test\\obj\\",
+      "outputPath": "C:\\Users\\thanh\\Documents\\GitHub\\QLKhachSan_DoAn1\\QuanLyKhachSan\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
