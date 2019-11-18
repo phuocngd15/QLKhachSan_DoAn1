@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MyGit\\QLKhachSan_DoAn1\\QLKS\\Test\\Test\\Test.csproj": {}
+    "C:\\Users\\JackieLeIV\\Desktop\\QLKS\\Test\\Test\\Test.csproj": {}
   },
   "projects": {
-    "D:\\MyGit\\QLKhachSan_DoAn1\\QLKS\\Test\\Test\\Test.csproj": {
+    "C:\\Users\\JackieLeIV\\Desktop\\QLKS\\Test\\Test\\Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyGit\\QLKhachSan_DoAn1\\QLKS\\Test\\Test\\Test.csproj",
+        "projectUniqueName": "C:\\Users\\JackieLeIV\\Desktop\\QLKS\\Test\\Test\\Test.csproj",
         "projectName": "Test",
-        "projectPath": "D:\\MyGit\\QLKhachSan_DoAn1\\QLKS\\Test\\Test\\Test.csproj",
+        "projectPath": "C:\\Users\\JackieLeIV\\Desktop\\QLKS\\Test\\Test\\Test.csproj",
         "packagesPath": "C:\\Users\\JackieLeIV\\.nuget\\packages\\",
-        "outputPath": "D:\\MyGit\\QLKhachSan_DoAn1\\QLKS\\Test\\Test\\obj\\",
+        "outputPath": "C:\\Users\\JackieLeIV\\Desktop\\QLKS\\Test\\Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

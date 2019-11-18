@@ -38,5 +38,9 @@ namespace Test.Models
 
         [Display(Name = "Loại phòng")]
         public virtual LoaiPhong LoaiPhongs { get; set; }
+
+
+        public virtual ICollection<PhongPhieuDatPhong> PhongPhieuDatPhongs { get; set; }
+
     }
 }

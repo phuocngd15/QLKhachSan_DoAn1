@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20191113151233_Phong.cs" />
     <Compile Remove="Data\Migrations\20191113151233_Phong.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191117214917_ManyToMannyPhongPhieuDatPhong.cs" />
+    <Compile Remove="Data\Migrations\20191117214917_ManyToMannyPhongPhieuDatPhong.Designer.cs" />
   </ItemGroup>
 
 

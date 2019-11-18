@@ -21,16 +21,18 @@ namespace Test.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Ngày nhận dự tính")]
 
-        public DateTime NgayNhanDuTinh { get; set; }
+        public DateTime NgayNhanDuTinh { get; set; } 
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Ngày trả dự tính")]
 
-        public DateTime NgayTraDuTinh { get; set; }
+        public DateTime NgayTraDuTinh { get; set; }  
 
         [DefaultValue(0)]
         public int UserId { get; set; }
         public Account Account { get; set; }
+
+        public virtual ICollection<PhongPhieuDatPhong> PhongPhieuDatPhongs { get; set; }
     }
 }
