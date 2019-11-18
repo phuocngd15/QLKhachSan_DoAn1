@@ -13,6 +13,20 @@ namespace Test.Data
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<PhongPhieuDatPhong>()
+                .HasKey(bc => new { bc.PhongId, bc.PhieuDatPhongId });
+            modelBuilder.Entity<PhongPhieuDatPhong>()
+                .HasOne(bc => bc.phong)
+                .WithMany(b => b.PhongPhieuDatPhongs)
+                .HasForeignKey(bc => bc.PhongId);
+            modelBuilder.Entity<PhongPhieuDatPhong>()
+                .HasOne(bc => bc.phieuDatPhong)
+                .WithMany(c => c.PhongPhieuDatPhongs)
+                .HasForeignKey(bc => bc.PhieuDatPhongId);
+        }
         public DbSet<Phong> Phong { get; set; }
         public DbSet<LoaiPhong> LoaiPhong { get; set; }
         public DbSet<DichVu> DichVu { get; set; }
@@ -21,8 +35,8 @@ namespace Test.Data
         public DbSet<Account> Account { get; set; }
         public DbSet<PhieuDatPhong> PhieuDatPhong { get; set; }
         public DbSet<ChiTietHoaDon> ChiTietHoaDon { get; set; }
-        public DbSet<PhieuDatPhong_Phong> PhieuDatPhong_Phong { get; set; }
         public DbSet<User> User { get; set; }
+        public  DbSet<PhongPhieuDatPhong> ChiTietPhieuDatPhongs { get; set; }
 
     }
 }

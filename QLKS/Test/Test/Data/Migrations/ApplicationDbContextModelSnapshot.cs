@@ -389,28 +389,6 @@ namespace Test.Data.Migrations
                     b.ToTable("PhieuDatPhong");
                 });
 
-            modelBuilder.Entity("Test.Models.PhieuDatPhong_Phong", b =>
-                {
-                    b.Property<int>("PhongId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("PhieuDatPhongId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PhongsPhongId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PhongId");
-
-                    b.HasIndex("PhieuDatPhongId");
-
-                    b.HasIndex("PhongsPhongId");
-
-                    b.ToTable("PhieuDatPhong_Phong");
-                });
-
             modelBuilder.Entity("Test.Models.Phong", b =>
                 {
                     b.Property<int>("PhongId")
@@ -447,6 +425,21 @@ namespace Test.Data.Migrations
                     b.HasIndex("LoaiPhongId");
 
                     b.ToTable("Phong");
+                });
+
+            modelBuilder.Entity("Test.Models.PhongPhieuDatPhong", b =>
+                {
+                    b.Property<int>("PhongId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PhieuDatPhongId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PhongId", "PhieuDatPhongId");
+
+                    b.HasIndex("PhieuDatPhongId");
+
+                    b.ToTable("ChiTietPhieuDatPhongs");
                 });
 
             modelBuilder.Entity("Test.Models.User", b =>
@@ -553,24 +546,26 @@ namespace Test.Data.Migrations
                         .HasForeignKey("AccountId");
                 });
 
-            modelBuilder.Entity("Test.Models.PhieuDatPhong_Phong", b =>
-                {
-                    b.HasOne("Test.Models.PhieuDatPhong", "PhieuDatPhongs")
-                        .WithMany()
-                        .HasForeignKey("PhieuDatPhongId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Test.Models.Phong", "Phongs")
-                        .WithMany()
-                        .HasForeignKey("PhongsPhongId");
-                });
-
             modelBuilder.Entity("Test.Models.Phong", b =>
                 {
                     b.HasOne("Test.Models.LoaiPhong", "LoaiPhongs")
                         .WithMany("Phongs")
                         .HasForeignKey("LoaiPhongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Test.Models.PhongPhieuDatPhong", b =>
+                {
+                    b.HasOne("Test.Models.PhieuDatPhong", "phieuDatPhong")
+                        .WithMany("PhongPhieuDatPhongs")
+                        .HasForeignKey("PhieuDatPhongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Test.Models.Phong", "phong")
+                        .WithMany("PhongPhieuDatPhongs")
+                        .HasForeignKey("PhongId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
