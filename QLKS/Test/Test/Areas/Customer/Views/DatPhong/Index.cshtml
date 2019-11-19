@@ -22,7 +22,7 @@
 
         <input type="submit" value="Filter" />
         @*Ngày : <input type="text" asp-for="SearchString" />
-            <input type="submit" value="Filter" />*@
+        <input type="submit" value="Filter" />*@
     </p>
 </form>
 @*<p>
@@ -46,9 +46,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Phongs[0].PhuThu)
             </th>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.Phongs[0].TinhTrangPhong)
-                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Phongs[0].TinhTrangPhong)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Phongs[0].LoaiPhongs)
             </th>
@@ -74,9 +74,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.PhuThu)
                 </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.TinhTrangPhong)
-                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.TinhTrangPhong)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.LoaiPhongs.TenLoaiPhong)
                 </td>
@@ -88,20 +88,5 @@
             </tr>
         }
     </tbody>
-    <tbody>
-        @foreach (var item in Model.ListPhongDat)
-        {
-            @*<tr>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.TenPhong)+
-        </td>
-        @*<td>
-                <a asp-action="Edit" asp-route-id="@item.PhongId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.PhongId">Details</a> |
-                <a asp-action="DatPhong" asp-route-id="@item.PhongId">Đặt Phòng</a>
-            </td>*@
-        @*</tr>*@
-    }
+</table>
 
-        </tbody>
-    </table>
