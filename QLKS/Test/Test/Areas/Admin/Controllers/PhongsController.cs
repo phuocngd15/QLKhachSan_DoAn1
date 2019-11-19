@@ -31,7 +31,7 @@ namespace Test.Areas.Admin.Controllers
         // GET: Admin/Phongs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            if (id == null) 
             {
                 return NotFound();
             }

@@ -35,6 +35,11 @@ namespace Test
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromMinutes(1);
+                option.Cookie.HttpOnly = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +63,7 @@ namespace Test
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

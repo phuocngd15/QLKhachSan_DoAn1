@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Test.Models;
 
 namespace Test.Models.ViewModel
@@ -14,6 +15,8 @@ namespace Test.Models.ViewModel
         public string LoaiPhong { get; set; }
         public string SearchString { get; set; }
         public PhieuDatPhong PhieuDatPhong { get; set; }
+
+        public List<Phong> ListPhongDat { get; set; }
 
     }
 }
