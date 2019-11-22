@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 namespace CaChepFinal.Models.IDataModels
 {
-    public interface IDichVu
+    public interface IQueryBasic<T>
     {
-        IQueryable<DichVu> GetAll();
-        DichVu GetById(int id);
-        void New(DichVu dv);
-        void Edit(DichVu dv);
+        IQueryable<T> GetAll();
+        T GetById(int id);
+        void New(T LoaiDv);
+        void Edit(T LoaiDv);
         void Delete(int id);
     }
 }

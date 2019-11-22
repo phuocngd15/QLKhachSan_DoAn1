@@ -9043,7 +9043,7 @@
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.Razor",
-        "Documentation": null,
+        "Documentation": "\n            <summary>\n            <see cref=\"T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper\" /> implementation targeting elements containing attributes with URL expected values.\n            </summary>\n            <remarks>Resolves URLs starting with '~/' (relative to the application's 'webroot' setting) that are not\n            targeted by other <see cref=\"T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper\" />s. Runs prior to other <see cref=\"T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper\" />s to ensure\n            application-relative URLs are resolved.</remarks>\n        ",
         "TagOutputHint": null,
         "CaseSensitive": false,
         "TagMatchingRules": [
@@ -14464,6 +14464,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Areas/Cus/_ViewImports.cshtml",
+      "TargetPath": "Areas/Cus/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Areas/Cus/Views/Home/Index.cshtml",
+      "TargetPath": "Areas/Cus/Views/Home/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Areas/Admin/Views/HoaDonPhong/Edit.cshtml",
       "TargetPath": "Areas/Admin/Views/HoaDonPhong/Edit.cshtml",
       "FileKind": "mvc"
@@ -14521,6 +14531,11 @@
     {
       "FilePath": "Areas/Admin/Views/ChiTietDatPhong/Edit.cshtml",
       "TargetPath": "Areas/Admin/Views/ChiTietDatPhong/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Areas/Cus/_ViewSart.cshtml",
+      "TargetPath": "Areas/Cus/_ViewSart.cshtml",
       "FileKind": "mvc"
     },
     {

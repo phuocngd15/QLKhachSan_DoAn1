@@ -1,14 +1,14 @@
 using CaChepFinal.Models.DataModels;
 using System.Collections.Generic;
-
+using System.Linq;
 namespace CaChepFinal.Models.IDataModels
 {
     public interface IHoaDon
     {
-        IEnumerable<HoaDon> GetAll();
+        IQueryable<HoaDon> GetAll();
         HoaDon GetById(int id);
-        void NewHoaDon(HoaDon DatPhong);
-        void EditHoaDon(HoaDon DatPhong);
-        void DeleteHoaDon(int id);
+        void New(HoaDon DatPhong);
+        void Edit(HoaDon DatPhong);
+        void Delete(int id);
     }
 }

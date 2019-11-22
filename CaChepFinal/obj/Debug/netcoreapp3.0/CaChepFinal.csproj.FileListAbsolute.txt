@@ -214,3 +214,6 @@
 /home/phuocngd15/Desktop/CaChepFinal/obj/Debug/netcoreapp3.0/Razor/Areas/Admin/_ViewStart.cshtml.g.cs
 /home/phuocngd15/Desktop/CaChepFinal/obj/Debug/netcoreapp3.0/Razor/Areas/Admin/Views/DatPhong/Index.cshtml.g.cs
 /home/phuocngd15/Desktop/CaChepFinal/obj/Debug/netcoreapp3.0/Razor/Areas/Admin/Views/DatPhong/Create.cshtml.g.cs
+/home/phuocngd15/Desktop/CaChepFinal/obj/Debug/netcoreapp3.0/Razor/Areas/Cus/Views/Home/Index.cshtml.g.cs
+/home/phuocngd15/Desktop/CaChepFinal/obj/Debug/netcoreapp3.0/Razor/Areas/Cus/_ViewImports.cshtml.g.cs
+/home/phuocngd15/Desktop/CaChepFinal/obj/Debug/netcoreapp3.0/Razor/Areas/Cus/_ViewSart.cshtml.g.cs
