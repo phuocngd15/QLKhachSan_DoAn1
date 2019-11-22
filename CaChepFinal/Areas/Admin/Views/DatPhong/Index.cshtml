@@ -1,0 +1,116 @@
+@model DatPhongTongHop
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Dat Phong</h1>
+
+<p>
+    <a asp-controller="DatPhong" asp-action="Create">Create PhieuDatPhong</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.datPhongs[0].TenNguoiDat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datPhongs[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datPhongs[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datPhongs[0].CMND)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datPhongs[0].SDT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datPhongs[0].TienDatCoc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datPhongs[0].ThoiGianNhanPhongDuKien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datPhongs[0].ThoiGianTraPhongDuKien)
+            </th>dichvu
+            <th>
+                @Html.DisplayNameFor(model => model.datPhongs[0].UserId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.datPhongs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNguoiDat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CMND)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TienDatCoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianNhanPhongDuKien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianTraPhongDuKien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.chiTietDatPhongs[0].TongSoNgay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.chiTietDatPhongs[0].GiaTienMotNgay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.chiTietDatPhongs[0].Phong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.chiTietDatPhongs[0].DatPhong)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.chiTietDatPhongs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongSoNgay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaTienMotNgay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phong.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatPhong.Id)
+            </td>
+        
+        </tr>
+}
+    </tbody>
+</table>
