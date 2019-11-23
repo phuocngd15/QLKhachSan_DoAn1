@@ -1,14 +1,14 @@
 using CaChepFinal.Models.DataModels;
 using System.Collections.Generic;
-
+using System.Linq;
 namespace CaChepFinal.Models.IDataModels
 {
     public interface ILoaiDv
     {
-        IEnumerable<LoaiDV> GetAll();
+        IQueryable<LoaiDV> GetAll();
         LoaiDV GetById(int id);
-        void NewLoaiDv(LoaiDV LoaiDv);
-        void EditLoaiDv(LoaiDV LoaiDv);
-        void DeleteLoaiDv(int id);
+        void New(LoaiDV LoaiDv);
+        void Edit(LoaiDV LoaiDv);
+        void Delete(int id);
     }
 }

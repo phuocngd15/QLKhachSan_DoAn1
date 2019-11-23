@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace CaChepFinal.Service
 {
-    public class DichVuService : IDichVu
+    public class DichVuService : IQueryByName<DichVu>,IQueryBasic<DichVu>
     {
         private readonly ApplicationDbContext _context;
 
@@ -19,7 +19,7 @@ namespace CaChepFinal.Service
             _context = context;
         }
 
-		public void DeleteDichVu(int id)
+		public void Delete(int id)
 		{
             var dv = GetById(id);
             if(dv == null)
@@ -30,14 +30,14 @@ namespace CaChepFinal.Service
             _context.SaveChanges();
 		}
 
-		public void EditDichVu(DichVu dv)
+		public void Edit(DichVu dv)
         {
             var model = _context.dichVus.First(f => f.Id == dv.Id);
             _context.Entry<DichVu>(model).State = EntityState.Detached;
             _context.Update(dv);
             _context.SaveChanges();
         }
-		public IEnumerable<DichVu> GetAll()
+		public IQueryable<DichVu> GetAll()
         {
             return _context.dichVus
                 .Include(dv => dv.GetLoaiDV );
@@ -48,10 +48,23 @@ namespace CaChepFinal.Service
             return GetAll().FirstOrDefault(dv => dv.Id == id);
         }
 
-        public void NewDichVu(DichVu dv)
+        public void New(DichVu dv)
         {
             _context.Add(dv);
             _context.SaveChanges();
+        }
+         public IQueryable<DichVu> SearchByName(string dv)
+        {
+            return _context.dichVus.Where(d=>d.Name.Contains(dv));
+           
+        }
+        public IQueryable<DichVu> getLDatPhongByCMND(string CMND)
+        {
+            return _context.dichVus;
+        }
+        public IQueryable<DichVu> getLDatPhongBySDT(string SDT)
+        {
+            return _context.dichVus;
         }
     }
 }
