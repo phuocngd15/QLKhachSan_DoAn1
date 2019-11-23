@@ -28,27 +28,20 @@ using CaChepFinal.Models;
 #nullable disable
 #nullable restore
 #line 3 "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/_ViewImports.cshtml"
-using CaChepFinal.Models.DataModels;
+using CaChepFinal.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/_ViewImports.cshtml"
-using CaChepFinal.Models.IDataModels;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/_ViewImports.cshtml"
 using CaChepFinal.Models.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c3fab492e80d42a0ec3aba2b0749a95828f4f2ae", @"/Areas/Admin/Views/DatPhong/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8542b4fa8845d4972c8f5ac8823a877328851fff", @"/Areas/Admin/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"04fe9ca4697153b17025ce082f6a8478ee9a951a", @"/Areas/Admin/_ViewImports.cshtml")]
     public class Areas_Admin_Views_DatPhong_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DatPhongTongHop>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -86,7 +79,7 @@ using CaChepFinal.Models.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("<h1>Dat Phong</h1>\n\n<p>\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3fab492e80d42a0ec3aba2b0749a95828f4f2ae4417", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3fab492e80d42a0ec3aba2b0749a95828f4f2ae4223", async() => {
                 WriteLiteral("Create PhieuDatPhong");
             }
             );

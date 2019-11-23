@@ -1,16 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using CaChepFinal.Models.DataModels;
-using CaChepFinal.Models.IDataModels;
+
 using CaChepFinal.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-
+using System.Threading.Tasks;
 namespace CaChepFinal.Service
 {
-    public class DichVuService : IQueryByName<DichVu>,IQueryBasic<DichVu>
+    public class DichVuService : IDichVu
     {
         private readonly ApplicationDbContext _context;
 
@@ -19,7 +18,7 @@ namespace CaChepFinal.Service
             _context = context;
         }
 
-		public void Delete(int id)
+		public void  Delete(int id)
 		{
             var dv = GetById(id);
             if(dv == null)
@@ -27,15 +26,15 @@ namespace CaChepFinal.Service
                 throw new ArgumentException();
             }
             _context.Remove(dv);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
 		}
 
-		public void Edit(DichVu dv)
+		public  void Edit(DichVu dv)
         {
             var model = _context.dichVus.First(f => f.Id == dv.Id);
             _context.Entry<DichVu>(model).State = EntityState.Detached;
             _context.Update(dv);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
 		public IQueryable<DichVu> GetAll()
         {
@@ -48,10 +47,10 @@ namespace CaChepFinal.Service
             return GetAll().FirstOrDefault(dv => dv.Id == id);
         }
 
-        public void New(DichVu dv)
+        public  void New(DichVu dv)
         {
             _context.Add(dv);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
          public IQueryable<DichVu> SearchByName(string dv)
         {

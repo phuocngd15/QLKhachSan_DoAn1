@@ -1,16 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using CaChepFinal.Models.DataModels;
-using CaChepFinal.Models.IDataModels;
 using CaChepFinal.Data;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-
+using System.Threading.Tasks;
 namespace CaChepFinal.Service
 {
-    public class ChiTietDatPhongService : IQueryBasic<ChiTietDatPhong>
+    public class ChiTietDatPhongService : IChiTietDatPhong
     {
         private readonly ApplicationDbContext _context;
 
@@ -18,10 +13,10 @@ namespace CaChepFinal.Service
         {
             _context = context;
         }
-        public void New(ChiTietDatPhong dp)
+        public   void New(ChiTietDatPhong dp)
         {
             _context.Add(dp);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
         public  void Delete(int id)
         {
@@ -31,7 +26,7 @@ namespace CaChepFinal.Service
                 throw new ArgumentException();
             }
             _context.Remove(dp);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
 
         public void Edit(ChiTietDatPhong dp)
@@ -39,7 +34,7 @@ namespace CaChepFinal.Service
             var model = _context.chiTietDatPhongs.First(f => f.Id == dp.Id);
             _context.Entry<ChiTietDatPhong>(model).State = EntityState.Detached;
             _context.Update(dp);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
         public IQueryable<ChiTietDatPhong> GetAll()
         {
@@ -50,9 +45,6 @@ namespace CaChepFinal.Service
         {
             return GetAll().FirstOrDefault(dp => dp.Id == id);
         }
-
-
-       
 
     }
 }

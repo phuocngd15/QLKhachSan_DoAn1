@@ -28,27 +28,13 @@ using CaChepFinal.Models;
 #nullable disable
 #nullable restore
 #line 3 "/home/phuocngd15/Desktop/CaChepFinal/Areas/Cus/_ViewImports.cshtml"
-using CaChepFinal.Models.DataModels;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "/home/phuocngd15/Desktop/CaChepFinal/Areas/Cus/_ViewImports.cshtml"
-using CaChepFinal.Models.IDataModels;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "/home/phuocngd15/Desktop/CaChepFinal/Areas/Cus/_ViewImports.cshtml"
-using CaChepFinal.Models.ViewModels;
+using CaChepFinal.Data;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e331ade8af58532eb4c880ac10951fa004cf600", @"/Areas/Cus/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8542b4fa8845d4972c8f5ac8823a877328851fff", @"/Areas/Cus/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3f34fbab2dc62319e945aa6a648edd53815d2c73", @"/Areas/Cus/_ViewImports.cshtml")]
     public class Areas_Cus_Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

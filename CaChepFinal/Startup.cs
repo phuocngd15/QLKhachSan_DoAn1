@@ -12,7 +12,7 @@ using CaChepFinal.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using CaChepFinal.Service;
 namespace CaChepFinal
 {
     public class Startup
@@ -38,6 +38,11 @@ namespace CaChepFinal
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+            services.AddTransient<IDatPhong, DatPhongService>();
+            services.AddTransient<IChiTietDatPhong, ChiTietDatPhongService>();
+         //   services.AddTransient<IOrder, OrderService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

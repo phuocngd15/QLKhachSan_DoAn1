@@ -1,16 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using CaChepFinal.Models.DataModels;
-using CaChepFinal.Models.IDataModels;
+
 using CaChepFinal.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-
+using System.Threading.Tasks;
 namespace CaChepFinal.Service
 {
-    public class PhongService : IQueryBasic<Phong>,IQueryByName<Phong>
+    public class PhongService : IPhong
     {
         private readonly ApplicationDbContext _context;
 
@@ -18,12 +17,12 @@ namespace CaChepFinal.Service
         {
             _context = context;
         }
-        public void New(Phong dp)
+        public  void New(Phong dp)
         {
             _context.Add(dp);
-            _context.SaveChanges();
+              _context.SaveChangesAsync();
         }
-        public void Delete(int id)
+        public  void Delete(int id)
         {
             var dp = GetById(id);
             if (dp == null)
@@ -31,15 +30,15 @@ namespace CaChepFinal.Service
                 throw new ArgumentException();
             }
             _context.Remove(dp);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
 
-        public void Edit(Phong dp)
+        public  void Edit(Phong dp)
         {
             var model = _context.phongs.First(f => f.Id == dp.Id);
             _context.Entry<Phong>(model).State = EntityState.Detached;
             _context.Update(dp);
-            _context.SaveChanges();
+             _context.SaveChangesAsync();
         }
         public IQueryable<Phong> GetAll()
         {

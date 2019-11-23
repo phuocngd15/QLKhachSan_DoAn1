@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CaChepFinal.Data;
-using CaChepFinal.Models.DataModels;
 
 namespace CaChepFinal.Areas.Admin.Controllers
 {

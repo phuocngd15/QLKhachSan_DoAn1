@@ -14344,308 +14344,308 @@
   "RootNamespace": "CaChepFinal",
   "Documents": [
     {
-      "FilePath": "Areas/Admin/Views/LoaiPhong/Index.cshtml",
-      "TargetPath": "Areas/Admin/Views/LoaiPhong/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/LoaiPhong/Delete.cshtml",
-      "TargetPath": "Areas/Admin/Views/LoaiPhong/Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Shared/_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views/Shared/_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/_ViewStart.cshtml",
-      "TargetPath": "Views/_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/DatPhong2/Delete.cshtml",
-      "TargetPath": "Areas/Admin/Views/DatPhong2/Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Home/Index.cshtml",
-      "TargetPath": "Views/Home/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Home/Privacy.cshtml",
-      "TargetPath": "Views/Home/Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/ChiTietHoaDon/Details.cshtml",
-      "TargetPath": "Areas/Admin/Views/ChiTietHoaDon/Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/TrangThai/Create.cshtml",
-      "TargetPath": "Areas/Admin/Views/TrangThai/Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/Phong/Delete.cshtml",
-      "TargetPath": "Areas/Admin/Views/Phong/Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/ChiTietDatPhong/Index.cshtml",
-      "TargetPath": "Areas/Admin/Views/ChiTietDatPhong/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/Phong/Create.cshtml",
-      "TargetPath": "Areas/Admin/Views/Phong/Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/TrangThai/Details.cshtml",
-      "TargetPath": "Areas/Admin/Views/TrangThai/Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/LoaiPhong/Create.cshtml",
-      "TargetPath": "Areas/Admin/Views/LoaiPhong/Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/HoaDonPhong/Index.cshtml",
-      "TargetPath": "Areas/Admin/Views/HoaDonPhong/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/ChiTietHoaDon/Delete.cshtml",
-      "TargetPath": "Areas/Admin/Views/ChiTietHoaDon/Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/LoaiDV/Create.cshtml",
-      "TargetPath": "Areas/Admin/Views/LoaiDV/Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/DichVu/Index.cshtml",
-      "TargetPath": "Areas/Admin/Views/DichVu/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/ChiTietDatPhong/Create.cshtml",
-      "TargetPath": "Areas/Admin/Views/ChiTietDatPhong/Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/TrangThai/Delete.cshtml",
-      "TargetPath": "Areas/Admin/Views/TrangThai/Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/TrangThai/Index.cshtml",
-      "TargetPath": "Areas/Admin/Views/TrangThai/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/Phong/Details.cshtml",
-      "TargetPath": "Areas/Admin/Views/Phong/Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/LoaiDV/Delete.cshtml",
-      "TargetPath": "Areas/Admin/Views/LoaiDV/Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/DatPhong2/Details.cshtml",
-      "TargetPath": "Areas/Admin/Views/DatPhong2/Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Cus/_ViewImports.cshtml",
-      "TargetPath": "Areas/Cus/_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Cus/Views/Home/Index.cshtml",
-      "TargetPath": "Areas/Cus/Views/Home/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/HoaDonPhong/Edit.cshtml",
-      "TargetPath": "Areas/Admin/Views/HoaDonPhong/Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/HoaDonPhong/Delete.cshtml",
-      "TargetPath": "Areas/Admin/Views/HoaDonPhong/Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/DichVu/Delete.cshtml",
-      "TargetPath": "Areas/Admin/Views/DichVu/Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/LoaiPhong/Edit.cshtml",
-      "TargetPath": "Areas/Admin/Views/LoaiPhong/Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/_ViewImports.cshtml",
-      "TargetPath": "Views/_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/TrangThai/Edit.cshtml",
-      "TargetPath": "Areas/Admin/Views/TrangThai/Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/LoaiDV/Details.cshtml",
-      "TargetPath": "Areas/Admin/Views/LoaiDV/Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/DichVu/Edit.cshtml",
-      "TargetPath": "Areas/Admin/Views/DichVu/Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/Phong/Edit.cshtml",
-      "TargetPath": "Areas/Admin/Views/Phong/Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/DatPhong2/Edit.cshtml",
-      "TargetPath": "Areas/Admin/Views/DatPhong2/Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/DichVu/Details.cshtml",
-      "TargetPath": "Areas/Admin/Views/DichVu/Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/ChiTietDatPhong/Edit.cshtml",
-      "TargetPath": "Areas/Admin/Views/ChiTietDatPhong/Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Cus/_ViewSart.cshtml",
-      "TargetPath": "Areas/Cus/_ViewSart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/LoaiPhong/Details.cshtml",
-      "TargetPath": "Areas/Admin/Views/LoaiPhong/Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Shared/Error.cshtml",
-      "TargetPath": "Views/Shared/Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/LoaiDV/Edit.cshtml",
-      "TargetPath": "Areas/Admin/Views/LoaiDV/Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/_ViewImports.cshtml",
-      "TargetPath": "Areas/Admin/_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/ChiTietDatPhong/Delete.cshtml",
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/ChiTietDatPhong/Delete.cshtml",
       "TargetPath": "Areas/Admin/Views/ChiTietDatPhong/Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas/Admin/Views/DatPhong/Index.cshtml",
-      "TargetPath": "Areas/Admin/Views/DatPhong/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/DichVu/Create.cshtml",
-      "TargetPath": "Areas/Admin/Views/DichVu/Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/ChiTietHoaDon/Index.cshtml",
-      "TargetPath": "Areas/Admin/Views/ChiTietHoaDon/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/ChiTietHoaDon/Edit.cshtml",
-      "TargetPath": "Areas/Admin/Views/ChiTietHoaDon/Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/DatPhong2/Index.cshtml",
-      "TargetPath": "Areas/Admin/Views/DatPhong2/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/LoaiDV/Index.cshtml",
-      "TargetPath": "Areas/Admin/Views/LoaiDV/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Identity/Pages/_ViewStart.cshtml",
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Identity/Pages/_ViewStart.cshtml",
       "TargetPath": "Areas/Identity/Pages/_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas/Admin/Views/ChiTietHoaDon/Create.cshtml",
-      "TargetPath": "Areas/Admin/Views/ChiTietHoaDon/Create.cshtml",
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/ChiTietHoaDon/Edit.cshtml",
+      "TargetPath": "Areas/Admin/Views/ChiTietHoaDon/Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas/Admin/Views/DatPhong/Create.cshtml",
-      "TargetPath": "Areas/Admin/Views/DatPhong/Create.cshtml",
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DichVu/Details.cshtml",
+      "TargetPath": "Areas/Admin/Views/DichVu/Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Shared/_LoginPartial.cshtml",
-      "TargetPath": "Views/Shared/_LoginPartial.cshtml",
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/LoaiPhong/Delete.cshtml",
+      "TargetPath": "Areas/Admin/Views/LoaiPhong/Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas/Admin/Views/HoaDonPhong/Details.cshtml",
-      "TargetPath": "Areas/Admin/Views/HoaDonPhong/Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/ChiTietDatPhong/Details.cshtml",
-      "TargetPath": "Areas/Admin/Views/ChiTietDatPhong/Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/Views/DatPhong2/Create.cshtml",
-      "TargetPath": "Areas/Admin/Views/DatPhong2/Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas/Admin/_ViewStart.cshtml",
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/_ViewStart.cshtml",
       "TargetPath": "Areas/Admin/_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Shared/_Layout.cshtml",
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/Phong/Create.cshtml",
+      "TargetPath": "Areas/Admin/Views/Phong/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/LoaiDV/Index.cshtml",
+      "TargetPath": "Areas/Admin/Views/LoaiDV/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Views/Shared/Error.cshtml",
+      "TargetPath": "Views/Shared/Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/TrangThai/Create.cshtml",
+      "TargetPath": "Areas/Admin/Views/TrangThai/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/LoaiPhong/Details.cshtml",
+      "TargetPath": "Areas/Admin/Views/LoaiPhong/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DatPhong2/Index.cshtml",
+      "TargetPath": "Areas/Admin/Views/DatPhong2/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/ChiTietDatPhong/Create.cshtml",
+      "TargetPath": "Areas/Admin/Views/ChiTietDatPhong/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views/Shared/_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DichVu/Create.cshtml",
+      "TargetPath": "Areas/Admin/Views/DichVu/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Cus/Views/Home/Index.cshtml",
+      "TargetPath": "Areas/Cus/Views/Home/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/LoaiPhong/Index.cshtml",
+      "TargetPath": "Areas/Admin/Views/LoaiPhong/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/ChiTietHoaDon/Index.cshtml",
+      "TargetPath": "Areas/Admin/Views/ChiTietHoaDon/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/Phong/Details.cshtml",
+      "TargetPath": "Areas/Admin/Views/Phong/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DatPhong2/Edit.cshtml",
+      "TargetPath": "Areas/Admin/Views/DatPhong2/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/ChiTietHoaDon/Details.cshtml",
+      "TargetPath": "Areas/Admin/Views/ChiTietHoaDon/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/Phong/Edit.cshtml",
+      "TargetPath": "Areas/Admin/Views/Phong/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DatPhong/Index.cshtml",
+      "TargetPath": "Areas/Admin/Views/DatPhong/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DatPhong2/Create.cshtml",
+      "TargetPath": "Areas/Admin/Views/DatPhong2/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/TrangThai/Details.cshtml",
+      "TargetPath": "Areas/Admin/Views/TrangThai/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views/Shared/_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas/Admin/Views/HoaDonPhong/Create.cshtml",
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/Phong/Delete.cshtml",
+      "TargetPath": "Areas/Admin/Views/Phong/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/Phong/Index.cshtml",
+      "TargetPath": "Areas/Admin/Views/Phong/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Views/Home/Privacy.cshtml",
+      "TargetPath": "Views/Home/Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Views/_ViewStart.cshtml",
+      "TargetPath": "Views/_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/HoaDonPhong/Delete.cshtml",
+      "TargetPath": "Areas/Admin/Views/HoaDonPhong/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/HoaDonPhong/Index.cshtml",
+      "TargetPath": "Areas/Admin/Views/HoaDonPhong/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/LoaiDV/Edit.cshtml",
+      "TargetPath": "Areas/Admin/Views/LoaiDV/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Views/_ViewImports.cshtml",
+      "TargetPath": "Views/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/LoaiDV/Details.cshtml",
+      "TargetPath": "Areas/Admin/Views/LoaiDV/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/ChiTietDatPhong/Edit.cshtml",
+      "TargetPath": "Areas/Admin/Views/ChiTietDatPhong/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/HoaDonPhong/Edit.cshtml",
+      "TargetPath": "Areas/Admin/Views/HoaDonPhong/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/TrangThai/Edit.cshtml",
+      "TargetPath": "Areas/Admin/Views/TrangThai/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/_ViewImports.cshtml",
+      "TargetPath": "Areas/Admin/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/LoaiPhong/Create.cshtml",
+      "TargetPath": "Areas/Admin/Views/LoaiPhong/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/LoaiDV/Create.cshtml",
+      "TargetPath": "Areas/Admin/Views/LoaiDV/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/HoaDonPhong/Create.cshtml",
       "TargetPath": "Areas/Admin/Views/HoaDonPhong/Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas/Admin/Views/Phong/Index.cshtml",
-      "TargetPath": "Areas/Admin/Views/Phong/Index.cshtml",
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/TrangThai/Index.cshtml",
+      "TargetPath": "Areas/Admin/Views/TrangThai/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Views/Home/Index.cshtml",
+      "TargetPath": "Views/Home/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/LoaiPhong/Edit.cshtml",
+      "TargetPath": "Areas/Admin/Views/LoaiPhong/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/HoaDonPhong/Details.cshtml",
+      "TargetPath": "Areas/Admin/Views/HoaDonPhong/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DatPhong2/Details.cshtml",
+      "TargetPath": "Areas/Admin/Views/DatPhong2/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DichVu/Delete.cshtml",
+      "TargetPath": "Areas/Admin/Views/DichVu/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DatPhong2/Delete.cshtml",
+      "TargetPath": "Areas/Admin/Views/DatPhong2/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/ChiTietDatPhong/Index.cshtml",
+      "TargetPath": "Areas/Admin/Views/ChiTietDatPhong/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Cus/_ViewImports.cshtml",
+      "TargetPath": "Areas/Cus/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DichVu/Edit.cshtml",
+      "TargetPath": "Areas/Admin/Views/DichVu/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DichVu/Index.cshtml",
+      "TargetPath": "Areas/Admin/Views/DichVu/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/ChiTietHoaDon/Create.cshtml",
+      "TargetPath": "Areas/Admin/Views/ChiTietHoaDon/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Views/Shared/_LoginPartial.cshtml",
+      "TargetPath": "Views/Shared/_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/LoaiDV/Delete.cshtml",
+      "TargetPath": "Areas/Admin/Views/LoaiDV/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DatPhong/Create.cshtml",
+      "TargetPath": "Areas/Admin/Views/DatPhong/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/TrangThai/Delete.cshtml",
+      "TargetPath": "Areas/Admin/Views/TrangThai/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/ChiTietHoaDon/Delete.cshtml",
+      "TargetPath": "Areas/Admin/Views/ChiTietHoaDon/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/ChiTietDatPhong/Details.cshtml",
+      "TargetPath": "Areas/Admin/Views/ChiTietDatPhong/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Cus/_ViewSart.cshtml",
+      "TargetPath": "Areas/Cus/_ViewSart.cshtml",
       "FileKind": "mvc"
     }
   ],

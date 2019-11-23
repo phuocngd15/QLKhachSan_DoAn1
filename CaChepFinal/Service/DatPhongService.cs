@@ -1,16 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using CaChepFinal.Models.DataModels;
-using CaChepFinal.Models.IDataModels;
+
 using CaChepFinal.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace CaChepFinal.Service
 {
-    public class DatPhongService : IQueryBasic<DatPhong>
+    public class DatPhongService : IDatPhong
     {
         private readonly ApplicationDbContext _context;
 
@@ -18,12 +18,12 @@ namespace CaChepFinal.Service
         {
             _context = context;
         }
-        public void New(DatPhong dp)
+        public  void New(DatPhong dp)
         {
             _context.Add(dp);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
-        public void Delete(int id)
+        public  void Delete(int id)
         {
             var dp = GetById(id);
             if (dp == null)
@@ -31,15 +31,15 @@ namespace CaChepFinal.Service
                 throw new ArgumentException();
             }
             _context.Remove(dp);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
 
-        public void Edit(DatPhong dp)
+        public   void Edit(DatPhong dp)
         {
             var model = _context.datPhongs.First(f => f.Id == dp.Id);
             _context.Entry<DatPhong>(model).State = EntityState.Detached;
             _context.Update(dp);
-            _context.SaveChanges();
+             _context.SaveChangesAsync();
         }
         public IQueryable<DatPhong> GetAll()
         {
@@ -65,6 +65,10 @@ namespace CaChepFinal.Service
         {
             return _context.datPhongs.Where(d => d.SDT.Contains(SDT));
         }
-
+        public IQueryable<ChiTietDatPhong> SearchChiTietDatPhongOfPhieuDP(DatPhong datPhong)
+        {
+            return _context.chiTietDatPhongs
+            .Where(d => d.DatPhong == datPhong);
+        }
     }
 }

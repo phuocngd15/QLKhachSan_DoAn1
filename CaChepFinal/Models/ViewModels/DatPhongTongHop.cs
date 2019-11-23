@@ -1,6 +1,5 @@
-using CaChepFinal.Models.DataModels;
 using  System.Collections.Generic;
-
+using CaChepFinal.Data;
 namespace CaChepFinal.Models.ViewModels
 {
     public class DatPhongTongHop
