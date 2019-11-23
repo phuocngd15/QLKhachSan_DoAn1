@@ -68,7 +68,6 @@ namespace CaChepFinal.Areas.Admin.Controllers
                     // _chitietDatPhong.New()
                  }
 
-
                 return RedirectToAction(nameof(Index));
             }
             return View(aModel.newDatPhong);

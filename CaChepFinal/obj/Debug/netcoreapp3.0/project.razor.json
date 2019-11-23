@@ -14554,6 +14554,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/DatPhong/DatPhongDetail.cshtml",
+      "TargetPath": "Areas/Admin/Views/DatPhong/DatPhongDetail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/phuocngd15/Desktop/CaChepFinal/Areas/Admin/Views/TrangThai/Index.cshtml",
       "TargetPath": "Areas/Admin/Views/TrangThai/Index.cshtml",
       "FileKind": "mvc"
