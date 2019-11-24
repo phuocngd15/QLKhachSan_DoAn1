@@ -25,10 +25,12 @@ namespace CaChepFinal.Data
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "ThoiGianNhan")]
         public DateTime ThoiGianNhanPhongDuKien { get; set; }
 
          [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+         [Display(Name = "ThoiGianTra")]
         public DateTime ThoiGianTraPhongDuKien { get; set; }
 
         public string UserId { get; set; } // nguoi dat phong

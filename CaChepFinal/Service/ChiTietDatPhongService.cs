@@ -20,7 +20,7 @@ namespace CaChepFinal.Service
         }
         public  void Delete(int id)
         {
-            var dp = GetById(id);
+            var dp = GetOneById(id);
             if (dp == null)
             {
                 throw new ArgumentException();
@@ -41,10 +41,13 @@ namespace CaChepFinal.Service
             return _context.chiTietDatPhongs;
         }
 
-        public ChiTietDatPhong GetById(int id)
+        public ChiTietDatPhong GetOneById(int? id)
         {
             return GetAll().FirstOrDefault(dp => dp.Id == id);
         }
-
+        public IQueryable<ChiTietDatPhong> GetByIDPhieuDatPhong(int? id)
+        {
+            return GetAll().Where(dp => dp.DatPhongId == id);
+        }
     }
 }

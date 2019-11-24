@@ -27,19 +27,52 @@ namespace CaChepFinal.Areas.Admin.Controllers
         }
 
         // Index gom nhieu thanh phan: DatPhong, ChiTietDatPhong,
-        public IActionResult Index()
+        public IActionResult Index(DatPhongTongHop datPhongTongHop)
         {
             // var datPhongs = await _context.datPhongs.ToListAsync();
-            var datPhongTongHop = new DatPhongTongHop
+            if (datPhongTongHop.chiTietDatPhongs == null && datPhongTongHop.datPhongs==null)
             {
-                datPhongs = _datphong.GetAll().ToList(),
-                chiTietDatPhongs = _chitietDatPhong.GetAll().ToList()
-            };
+                var newdatPhongTongHop = new DatPhongTongHop
+                {
+                    datPhongs = _datphong.GetAll().OrderByDescending(c => c.ThoiGianNhanPhongDuKien).ToList(),  
+                    chiTietDatPhongs = null
+                };
+                return View(newdatPhongTongHop);
+            }
             return View(datPhongTongHop);
 
         }
+
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            // tao 1 list dat phong, va them 1 dong record vao list;
+            var OnedatPhongFromDB = _datphong.GetOneById(id);
+            var newdatPhongs = new List<DatPhong>();
+            newdatPhongs.Add(OnedatPhongFromDB);
+
+            var chiTietDatPhong = _chitietDatPhong.GetByIDPhieuDatPhong(id);
+            var newchitietdatphong = chiTietDatPhong.ToList();
+
+
+            var datPhongTongHop = new DatPhongTongHop
+            {
+                datPhongs = newdatPhongs,
+                chiTietDatPhongs = newchitietdatphong
+            };
+
+            if (OnedatPhongFromDB == null)
+            {
+                return NotFound();
+            }
+
+            return View("DatPhongDetail", datPhongTongHop);
+        }
         //get :Admin/DatPhong/create
-        public IActionResult Create()
+        public IActionResult CreateDatPhong()
         {
             return View();
         }
@@ -47,31 +80,17 @@ namespace CaChepFinal.Areas.Admin.Controllers
         // POST: Admin/DatPhong2/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(DatPhongTongHop aModel, [Bind("Id,TenNguoiDat,Address,City,CMND,SDT,TienDatCoc,ThoiGianNhanPhongDuKien,ThoiGianTraPhongDuKien,UserId")] DatPhong datPhong)
+        public IActionResult CreateDatPhong(DatPhongTongHop aModel, [Bind("Id,TenNguoiDat,Address,City,CMND,SDT,TienDatCoc,ThoiGianNhanPhongDuKien,ThoiGianTraPhongDuKien,UserId")] DatPhong datPhong)
         {
-
             if (ModelState.IsValid)
             {
                 _datphong.New(aModel.newDatPhong);
-
-                var soNgayO = (datPhong.ThoiGianTraPhongDuKien.Date - datPhong.ThoiGianNhanPhongDuKien.Date).TotalDays;
-                while (soNgayO != 0)
-                {
-                    // Id
-                    // DatPhongId
-                    // PhongId
-                    // TongSoNgay { get; set; }
-                    // GiaTienMotNgay { get; set; }
-                    // Phong Phong { get; set; }
-                    // DatPhong DatPhong { get; set; }
-
-                    // _chitietDatPhong.New()
-                 }
-
                 return RedirectToAction(nameof(Index));
             }
             return View(aModel.newDatPhong);
         }
+
+        
 
 
     }

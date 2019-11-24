@@ -5,7 +5,7 @@ namespace CaChepFinal.Data
     public interface IDatPhong
     {
         IQueryable<DatPhong> GetAll();
-        DatPhong GetById(int id);
+        DatPhong GetOneById(int? id);
         void New(DatPhong DatPhong);
         void Edit(DatPhong DatPhong);
         void Delete(int id);

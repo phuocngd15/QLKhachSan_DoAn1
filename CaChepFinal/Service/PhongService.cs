@@ -24,7 +24,7 @@ namespace CaChepFinal.Service
         }
         public  void Delete(int id)
         {
-            var dp = GetById(id);
+            var dp = GetOneById(id);
             if (dp == null)
             {
                 throw new ArgumentException();
@@ -45,7 +45,7 @@ namespace CaChepFinal.Service
             return _context.phongs;
         }
 
-        public Phong GetById(int id)
+        public Phong GetOneById(int? id)
         {
             return GetAll().FirstOrDefault(dp => dp.Id == id);
         }

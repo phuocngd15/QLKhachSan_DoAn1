@@ -20,7 +20,7 @@ namespace CaChepFinal.Service
 
 		public void  Delete(int id)
 		{
-            var dv = GetById(id);
+            var dv = GetOneById(id);
             if(dv == null)
             {
                 throw new ArgumentException();
@@ -42,7 +42,7 @@ namespace CaChepFinal.Service
                 .Include(dv => dv.GetLoaiDV );
         }
 
-        public DichVu GetById(int id)
+        public DichVu GetOneById(int? id)
         {
             return GetAll().FirstOrDefault(dv => dv.Id == id);
         }
