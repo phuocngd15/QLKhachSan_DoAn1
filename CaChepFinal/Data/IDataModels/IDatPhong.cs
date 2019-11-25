@@ -13,5 +13,8 @@ namespace CaChepFinal.Data
         IQueryable<DatPhong> getLDatPhongByNow();
         IQueryable<DatPhong> getLDatPhongByCMND(string CMND);
         IQueryable<DatPhong> getLDatPhongBySDT(string SDT);
+       IQueryable<ChiTietDatPhong> getLDatPhongByTrangThai(TrangThaiDatPhong tinhtrang);
+        SelectList TinhTrangNameSelectList();
+
     }
 }

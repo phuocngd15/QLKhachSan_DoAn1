@@ -23,6 +23,7 @@ namespace CaChepFinal.Areas.Admin.Controllers
         // GET: Admin/TrangThai
         public async Task<IActionResult> Index()
         {
+            
             return View(await _context.trangThais.ToListAsync());
         }
 
