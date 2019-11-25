@@ -70,5 +70,19 @@ namespace CaChepFinal.Service
             return _context.chiTietDatPhongs
             .Where(d => d.DatPhong == datPhong);
         }
+        public IQueryable<ChiTietDatPhong> SearchDatPhongByTinhTrangName(TrangThaiDatPhong tinhtrang)
+        {
+            
+
+            return _context.datPhongs
+            .Where(x => x.tinh == aModel.TinhTrang);
+        }
+        SelectList TinhTrangNameSelectList()
+        {
+            IQueryable<string> tinhtrangNameQuery = from m in _context.TrangThaiDatPhong
+                                                    orderby m.TinhTrangName descending
+                                                    select m.TinhTrangName;
+            return tinhtrangNameQuery;       }
+
     }
 }

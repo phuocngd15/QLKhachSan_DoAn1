@@ -13,6 +13,7 @@ using CaChepFinal;
 namespace CaChepFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    // thieu authentization
     public class DatPhongController : Controller
     {
         private readonly IDatPhong _datphong;

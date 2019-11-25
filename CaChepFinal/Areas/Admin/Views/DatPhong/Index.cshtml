@@ -2,10 +2,10 @@
 @{
     ViewData["Title"] = "Index";
 }
-<h1>Danh Sach Phieu Dat Phong</h1>
+<h1>DS Phiếu đạt phòng</h1>
 
 <p>
-    <a asp-controller="Home" asp-action="index">Create PhieuDatPhong</a>
+    <a asp-controller="DatPhong" asp-action="create">Đặt Phòng </a>
 </p>
 <table class="table">
     <thead>
@@ -69,11 +69,11 @@
                 @Html.DisplayFor(modelItem => item.ThoiGianTraPhongDuKien)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserId)
+                <!-- @Html.DisplayFor(modelItem => item.UserId) -->
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Nhận Phòng</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Thêm Dịch vụ</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

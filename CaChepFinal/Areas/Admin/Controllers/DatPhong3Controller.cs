@@ -22,6 +22,7 @@ namespace CaChepFinal.Areas.Admin.Controllers
         // GET: Admin/DatPhong3
         public async Task<IActionResult> Index()
         {
+            
             return View(await _context.datPhongs.ToListAsync());
         }
 

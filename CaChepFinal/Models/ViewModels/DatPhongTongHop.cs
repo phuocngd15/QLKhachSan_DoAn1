@@ -7,6 +7,8 @@ namespace CaChepFinal.Models.ViewModels
         public  List<DatPhong> datPhongs{get;set;}
         public  List<ChiTietDatPhong> chiTietDatPhongs{get;set;}
         public  DatPhong newDatPhong{get;set;}
+        public TrangThaiDatPhong  trangThaiPhieudatphong {get;set;}
+
 
     }
 }
