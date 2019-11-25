@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace CaChepFinal2.Data
 {
-    public interface IChiTietDatPhong
+    public interface IChiTietPhongDatPhong
     {
         IQueryable<ChiTietPhongDatPhong> GetAll();
         ChiTietPhongDatPhong GetOneById(int? id);

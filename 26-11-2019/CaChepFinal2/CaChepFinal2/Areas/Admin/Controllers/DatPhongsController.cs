@@ -13,7 +13,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
     public class DatPhongsController : Controller
     {
         private readonly IDatPhong _datphongsv;
-        private readonly IChiTietDatPhong _chitietDatPhongsv;
+        private readonly IChiTietDichVuDatPhong _chitietDatPhongsv;
         private readonly ITrangThaiDatPhong _TrangThaiDatPhongsv;
         private readonly ITrangThai _TrangThaisv;
         private readonly ApplicationDbContext _context;

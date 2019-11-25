@@ -5,6 +5,21 @@
     <UserSecretsId>aspnet-CaChepFinal2-D1B23C21-AA4B-479C-AA61-91AC976B6F9E</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20191125164624_khaibaodatabase.cs" />
+    <Compile Remove="Data\Migrations\20191125164624_khaibaodatabase.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191125183037_EditPhieuDatPhong.cs" />
+    <Compile Remove="Data\Migrations\20191125183037_EditPhieuDatPhong.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191125194116_ver2.cs" />
+    <Compile Remove="Data\Migrations\20191125194116_ver2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191125195203_ver3.cs" />
+    <Compile Remove="Data\Migrations\20191125195203_ver3.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191125195738_khaibaodb.cs" />
+    <Compile Remove="Data\Migrations\20191125195738_khaibaodb.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191125204027_adddb.cs" />
+    <Compile Remove="Data\Migrations\20191125204027_adddb.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />

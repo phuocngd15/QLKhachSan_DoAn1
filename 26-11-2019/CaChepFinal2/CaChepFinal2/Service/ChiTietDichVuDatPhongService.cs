@@ -5,15 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace CaChepFinal2.Service
 {
-    public class ChiTietDatPhongService : IChiTietDatPhong
+    public class ChiTietDichVuDatPhongService : IChiTietDichVuDatPhong
     {
         private readonly ApplicationDbContext _context;
 
-        public ChiTietDatPhongService(ApplicationDbContext context)
+        public ChiTietDichVuDatPhongService(ApplicationDbContext context)
         {
             _context = context;
         }
-        public   void New(ChiTietPhongDatPhong dp)
+        public   void New(ChiTietDichVuDatPhong dp)
         {
             _context.Add(dp);
             _context.SaveChangesAsync();
@@ -29,23 +29,23 @@ namespace CaChepFinal2.Service
             _context.SaveChangesAsync();
         }
 
-        public void Edit(ChiTietPhongDatPhong dp)
+        public void Edit(ChiTietDichVuDatPhong dp)
         {
-            var model = _context.CaTietPhongDatPhongs.First(f => f.Id == dp.Id);
-            _context.Entry<ChiTietPhongDatPhong>(model).State = EntityState.Detached;
+            var model = _context.ChiTietDichVuDatPhongs.First(f => f.Id == dp.Id);
+            _context.Entry<ChiTietDichVuDatPhong>(model).State = EntityState.Detached;
             _context.Update(dp);
             _context.SaveChangesAsync();
         }
-        public IQueryable<ChiTietPhongDatPhong> GetAll()
+        public IQueryable<ChiTietDichVuDatPhong> GetAll()
         {
-            return _context.CaTietPhongDatPhongs;
+            return _context.ChiTietDichVuDatPhongs.Include(c => c.GetDatPhong).Include(c => c.GetDichVu); ;
         }
 
-        public ChiTietPhongDatPhong GetOneById(int? id)
+        public ChiTietDichVuDatPhong GetOneById(int? id)
         {
             return GetAll().FirstOrDefault(dp => dp.Id == id);
         }
-        public IQueryable<ChiTietPhongDatPhong> GetByIDPhieuDatPhong(int? id)
+        public IQueryable<ChiTietDichVuDatPhong> GetByIDPhieuDatPhong(int? id)
         {
             return GetAll().Where(dp => dp.DatPhongId == id);
         }

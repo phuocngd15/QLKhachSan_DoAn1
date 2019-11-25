@@ -34,8 +34,8 @@ namespace CaChepFinal2
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddTransient<IChiTietDatPhong, ChiTietDatPhongService>();
-            services.AddTransient<IChiTietHoaDon, ChiTietHoaDonService>();
+            services.AddTransient<IChiTietDichVuDatPhong, ChiTietDichVuDatPhongService>();
+            services.AddTransient<IChiTietPhongDatPhong, ChiTietPhongDatPhongService>();
             services.AddTransient<IDatPhong, DatPhongService>();
             services.AddTransient<IDichVu, DichVuService>();
             services.AddTransient<IHoaDon, HoaDonService>();
@@ -75,7 +75,7 @@ namespace CaChepFinal2
             {
                 endpoints.MapControllerRoute(
                     name: "MyArea",
-                    pattern: "{area=Admin}/{controller=DatPhong}/{action=Index}/{id?}");
+                    pattern: "{area=Admin}/{controller=DatPhong}/{action=index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

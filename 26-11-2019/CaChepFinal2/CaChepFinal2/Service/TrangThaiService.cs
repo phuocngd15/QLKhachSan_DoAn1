@@ -17,6 +17,14 @@ namespace CaChepFinal2.Service
             _context = context;
         }
 
+        public IQueryable<string> GetlistNameTrangThai()
+        {
+            IQueryable<string> listName = from m in _context.trangThais
+                orderby m.Name descending
+                select m.Name;
+            return listName;
+        }
+
         void ITrangThai.Delete(int id)
         {
             throw new NotImplementedException();

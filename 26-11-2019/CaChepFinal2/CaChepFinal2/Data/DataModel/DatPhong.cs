@@ -33,8 +33,9 @@ namespace CaChepFinal2.Data
          [Display(Name = "ThoiGianTra")]
         public DateTime ThoiGianTraPhongDuKien { get; set; }
 
-        public string UserId { get; set; } // nguoi dat phong
+       // public string UserId { get; set; } // nguoi dat phong
 
+        public int TrangThaiId { get; set; }
         public virtual TrangThai GetTrangThai { get; set; }
 
        // public ApplicationUser User { get; set; }

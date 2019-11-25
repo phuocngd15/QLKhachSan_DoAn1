@@ -9,5 +9,6 @@ namespace CaChepFinal2.Data
         void New(TrangThai a);
         void Edit(TrangThai a);
         void Delete(int id);
+        IQueryable<string>  GetlistNameTrangThai();
     }
 }

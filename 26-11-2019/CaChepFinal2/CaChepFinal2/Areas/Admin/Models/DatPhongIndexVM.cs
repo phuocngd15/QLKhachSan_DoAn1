@@ -14,5 +14,8 @@ namespace CaChepFinal2.Areas.Admin.Models
         public DatPhong newDatPhong { get; set; }
         public TrangThaiDatPhong trangThaiDatPhong { get; set; }
         public SelectList ListNameTrangThai { get; set; }
+        public string TrangThai { get; set; }
+
+
     }
 }

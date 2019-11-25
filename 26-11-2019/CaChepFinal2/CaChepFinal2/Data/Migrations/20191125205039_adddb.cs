@@ -3,26 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CaChepFinal2.Data.Migrations
 {
-    public partial class khaibaodatabase : Migration
+    public partial class adddb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "hoaDons",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TenNguoiTao = table.Column<string>(nullable: true),
-                    ThoiGianTao = table.Column<DateTime>(nullable: false),
-                    TongTien = table.Column<decimal>(nullable: false),
-                    UserId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_hoaDons", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "loaiDVs",
                 columns: table => new
@@ -77,18 +61,17 @@ namespace CaChepFinal2.Data.Migrations
                     Price = table.Column<decimal>(nullable: false),
                     ImageUrl = table.Column<string>(nullable: true),
                     InStock = table.Column<int>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false),
-                    GetLoaiDVId = table.Column<int>(nullable: true)
+                    LoaiDVId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_dichVus", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_dichVus_loaiDVs_GetLoaiDVId",
-                        column: x => x.GetLoaiDVId,
+                        name: "FK_dichVus_loaiDVs_LoaiDVId",
+                        column: x => x.LoaiDVId,
                         principalTable: "loaiDVs",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -129,45 +112,15 @@ namespace CaChepFinal2.Data.Migrations
                     TienDatCoc = table.Column<decimal>(nullable: false),
                     ThoiGianNhanPhongDuKien = table.Column<DateTime>(nullable: false),
                     ThoiGianTraPhongDuKien = table.Column<DateTime>(nullable: false),
-                    UserId = table.Column<string>(nullable: true),
-                    GetTrangThaiId = table.Column<int>(nullable: true)
+                    TrangThaiId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_datPhongs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_datPhongs_trangThais_GetTrangThaiId",
-                        column: x => x.GetTrangThaiId,
+                        name: "FK_datPhongs_trangThais_TrangThaiId",
+                        column: x => x.TrangThaiId,
                         principalTable: "trangThais",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "chiTietHoaDons",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    HoaDonId = table.Column<int>(nullable: false),
-                    DichVud = table.Column<int>(nullable: false),
-                    SoLuong = table.Column<int>(nullable: false),
-                    GiaTien = table.Column<decimal>(nullable: false),
-                    GetDichVuId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_chiTietHoaDons", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_chiTietHoaDons_dichVus_GetDichVuId",
-                        column: x => x.GetDichVuId,
-                        principalTable: "dichVus",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_chiTietHoaDons_hoaDons_HoaDonId",
-                        column: x => x.HoaDonId,
-                        principalTable: "hoaDons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -194,7 +147,35 @@ namespace CaChepFinal2.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "chiTietDatPhongs",
+                name: "ChiTietDichVuDatPhongs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DatPhongId = table.Column<int>(nullable: false),
+                    DichVuId = table.Column<int>(nullable: false),
+                    SoLuong = table.Column<int>(nullable: false),
+                    GiaTien = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChiTietDichVuDatPhongs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ChiTietDichVuDatPhongs_datPhongs_DatPhongId",
+                        column: x => x.DatPhongId,
+                        principalTable: "datPhongs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChiTietDichVuDatPhongs_dichVus_DichVuId",
+                        column: x => x.DichVuId,
+                        principalTable: "dichVus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ChiTietPhongDatPhongs",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -206,15 +187,15 @@ namespace CaChepFinal2.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_chiTietDatPhongs", x => x.Id);
+                    table.PrimaryKey("PK_ChiTietPhongDatPhongs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_chiTietDatPhongs_datPhongs_DatPhongId",
+                        name: "FK_ChiTietPhongDatPhongs_datPhongs_DatPhongId",
                         column: x => x.DatPhongId,
                         principalTable: "datPhongs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_chiTietDatPhongs_phongs_PhongId",
+                        name: "FK_ChiTietPhongDatPhongs_phongs_PhongId",
                         column: x => x.PhongId,
                         principalTable: "phongs",
                         principalColumn: "Id",
@@ -222,56 +203,127 @@ namespace CaChepFinal2.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TrangThaiDatPhong",
+                name: "hoaDons",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DatPhongId = table.Column<int>(nullable: false),
-                    TrangThaiId = table.Column<int>(nullable: false),
-                    ThoiGian = table.Column<DateTime>(nullable: false)
+                    TenNguoiTao = table.Column<string>(nullable: true),
+                    ThoiGianTao = table.Column<DateTime>(nullable: false),
+                    TongTien = table.Column<decimal>(nullable: false),
+                    UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TrangThaiDatPhong", x => x.Id);
+                    table.PrimaryKey("PK_hoaDons", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TrangThaiDatPhong_datPhongs_DatPhongId",
+                        name: "FK_hoaDons_datPhongs_DatPhongId",
                         column: x => x.DatPhongId,
                         principalTable: "datPhongs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TrangThaiDatPhong_trangThais_TrangThaiId",
-                        column: x => x.TrangThaiId,
-                        principalTable: "trangThais",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "loaiDVs",
+                columns: new[] { "Id", "Description", "ImageUrl", "Name" },
+                values: new object[,]
+                {
+                    { 1, "notthing", null, "Thuc An" },
+                    { 2, "notthing", null, "Nuoc Uong" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "loaiPhongs",
+                columns: new[] { "Id", "Description", "ImageUrl", "Name" },
+                values: new object[,]
+                {
+                    { 1, null, null, "Phong Don" },
+                    { 2, null, null, "Phong Doi" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "trangThais",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Chưa Nhận" },
+                    { 2, "Đã Nhận" },
+                    { 3, "Đã Thanh Toán" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "datPhongs",
+                columns: new[] { "Id", "Address", "CMND", "City", "SDT", "TenNguoiDat", "ThoiGianNhanPhongDuKien", "ThoiGianTraPhongDuKien", "TienDatCoc", "TrangThaiId" },
+                values: new object[,]
+                {
+                    { 1, "149", "281212914", null, "0937536545", "Nguyen Phuoc", new DateTime(2019, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), 0m, 1 },
+                    { 2, "149", "281212914", null, "01264079970", "Nguyen Truc", new DateTime(2019, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 0m, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "dichVus",
+                columns: new[] { "Id", "ImageUrl", "InStock", "LoaiDVId", "Name", "Price", "ShortDescription" },
+                values: new object[,]
+                {
+                    { 1, null, 100, 1, "NuocTangLuc", 15000m, null },
+                    { 2, null, 100, 1, "NuocSuoi", 15000m, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "phongs",
+                columns: new[] { "Id", "ImageUrl", "LoaiPhongId", "Name", "Price", "ShortDescription", "TrangThai" },
+                values: new object[,]
+                {
+                    { 1, null, 1, "A101", 150000m, null, 1 },
+                    { 2, null, 1, "A102", 150000m, null, 1 },
+                    { 3, null, 2, "A103", 150000m, null, 1 },
+                    { 4, null, 2, "A104", 170000m, null, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ChiTietDichVuDatPhongs",
+                columns: new[] { "Id", "DatPhongId", "DichVuId", "GiaTien", "SoLuong" },
+                values: new object[,]
+                {
+                    { 1, 1, 1, 0m, 2 },
+                    { 2, 1, 2, 0m, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ChiTietPhongDatPhongs",
+                columns: new[] { "Id", "DatPhongId", "GiaTienMotNgay", "PhongId", "TongSoNgay" },
+                values: new object[,]
+                {
+                    { 1, 1, 150000m, 1, 3 },
+                    { 2, 1, 150000m, 2, 2 }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_chiTietDatPhongs_DatPhongId",
-                table: "chiTietDatPhongs",
+                name: "IX_ChiTietDichVuDatPhongs_DatPhongId",
+                table: "ChiTietDichVuDatPhongs",
                 column: "DatPhongId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_chiTietDatPhongs_PhongId",
-                table: "chiTietDatPhongs",
+                name: "IX_ChiTietDichVuDatPhongs_DichVuId",
+                table: "ChiTietDichVuDatPhongs",
+                column: "DichVuId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChiTietPhongDatPhongs_DatPhongId",
+                table: "ChiTietPhongDatPhongs",
+                column: "DatPhongId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChiTietPhongDatPhongs_PhongId",
+                table: "ChiTietPhongDatPhongs",
                 column: "PhongId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_chiTietHoaDons_GetDichVuId",
-                table: "chiTietHoaDons",
-                column: "GetDichVuId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_chiTietHoaDons_HoaDonId",
-                table: "chiTietHoaDons",
-                column: "HoaDonId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_datPhongs_GetTrangThaiId",
+                name: "IX_datPhongs_TrangThaiId",
                 table: "datPhongs",
-                column: "GetTrangThaiId");
+                column: "TrangThaiId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_dichVuCartItems_DichVuId",
@@ -279,45 +331,38 @@ namespace CaChepFinal2.Data.Migrations
                 column: "DichVuId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_dichVus_GetLoaiDVId",
+                name: "IX_dichVus_LoaiDVId",
                 table: "dichVus",
-                column: "GetLoaiDVId");
+                column: "LoaiDVId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_hoaDons_DatPhongId",
+                table: "hoaDons",
+                column: "DatPhongId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_phongs_LoaiPhongId",
                 table: "phongs",
                 column: "LoaiPhongId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TrangThaiDatPhong_DatPhongId",
-                table: "TrangThaiDatPhong",
-                column: "DatPhongId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TrangThaiDatPhong_TrangThaiId",
-                table: "TrangThaiDatPhong",
-                column: "TrangThaiId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "chiTietDatPhongs");
+                name: "ChiTietDichVuDatPhongs");
 
             migrationBuilder.DropTable(
-                name: "chiTietHoaDons");
+                name: "ChiTietPhongDatPhongs");
 
             migrationBuilder.DropTable(
                 name: "dichVuCartItems");
 
             migrationBuilder.DropTable(
-                name: "TrangThaiDatPhong");
+                name: "hoaDons");
 
             migrationBuilder.DropTable(
                 name: "phongs");
-
-            migrationBuilder.DropTable(
-                name: "hoaDons");
 
             migrationBuilder.DropTable(
                 name: "dichVus");

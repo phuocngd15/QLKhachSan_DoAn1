@@ -8,7 +8,7 @@ namespace CaChepFinal2.Data
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
         public int InStock { get; set; }
-        public int CategoryId { get; set; }
+        public int LoaiDVId { get; set; }
         public virtual LoaiDV GetLoaiDV { get; set; }
     }
 }

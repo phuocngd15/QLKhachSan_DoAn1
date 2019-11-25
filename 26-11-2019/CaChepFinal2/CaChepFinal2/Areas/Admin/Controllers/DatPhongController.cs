@@ -6,6 +6,7 @@ using CaChepFinal2.Areas.Admin.Models;
 using CaChepFinal2.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CaChepFinal2.Areas.Admin.Controllers
 {
@@ -13,27 +14,31 @@ namespace CaChepFinal2.Areas.Admin.Controllers
     public class DatPhongController : Controller
     {
         private readonly IDatPhong _datphongsv;
-        private readonly IChiTietDatPhong _chitietDatPhongsv;
+        private readonly IChiTietDichVuDatPhong _chiTietDichVuDatPhongsv;
+        private readonly IChiTietPhongDatPhong _chiTietPhongDatPhongsv;
+
         private readonly ITrangThaiDatPhong _TrangThaiDatPhongsv;
         private readonly ITrangThai _TrangThaisv;
 
-        public DatPhongController(IDatPhong datPhong, IChiTietDatPhong chiTietDatPhong)
+        public DatPhongController(IDatPhong datPhong, IChiTietDichVuDatPhong chiTietDichVuDatPhong, IChiTietPhongDatPhong chiTietPhongDatPhong,ITrangThai trangThai)
         {
             _datphongsv = datPhong;
-            _chitietDatPhongsv = chiTietDatPhong;
-           // _mapper = new Mapper();
+            _chiTietDichVuDatPhongsv = chiTietDichVuDatPhong;
+            _chiTietPhongDatPhongsv = chiTietPhongDatPhong;
+            _TrangThaisv = trangThai;
+            // _mapper = new Mapper();
         }
         // GET: DatPhong
         public ActionResult Index(DatPhongIndexVM datPhongIndex)
         {
             // index chua search
-            if (datPhongIndex.chiTietDatPhongs == null && datPhongIndex.datPhongs == null)
+            if (datPhongIndex.datPhongs == null)
             {
                 var newdatPhongTongHop = new DatPhongIndexVM
                 {
                     datPhongs = _datphongsv.GetAll().OrderByDescending(c => c.ThoiGianNhanPhongDuKien).ToList(),
-                    chiTietDatPhongs = null
-
+                    chiTietDatPhongs = null,
+                    ListNameTrangThai =new SelectList(_TrangThaisv.GetlistNameTrangThai().ToList()),
                 };
                 return View(newdatPhongTongHop);
             }
@@ -42,14 +47,36 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         }
 
         // GET: DatPhong/Details/5
+
+        // online view
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            return View();
+
+            
+
+            var datPhongDetails = new DatPhongDetails
+            {
+                GetDatPhong= _datphongsv.GetOneById(id),
+                ChiTietPhongDatPhongs = _chiTietPhongDatPhongsv.GetByIDPhieuDatPhong(id).ToList(),
+                ChiTietDichVuDatPhongs = _chiTietDichVuDatPhongsv.GetByIDPhieuDatPhong(id).ToList(),
+               
+            };
+            if (datPhongDetails.GetDatPhong == null)
+            {
+                return NotFound();
+            }
+
+
+            //public DatPhong DatPhong { get; set; }
+
+            return View(datPhongDetails);
         }
+
+
 
         // GET: DatPhong/Create
         public ActionResult Create()
@@ -119,5 +146,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 return View();
             }
         }
+
     }
+
 }

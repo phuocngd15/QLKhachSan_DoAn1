@@ -65,10 +65,10 @@ namespace CaChepFinal2.Service
         {
             return _context.datPhongs.Where(d => d.SDT.Contains(SDT));
         }
-        public IQueryable<ChiTietPhongDatPhong> SearchChiTietDatPhongOfPhieuDP(DatPhong datPhong)
-        {
-            return _context.CaTietPhongDatPhongs
-            .Where(d => d.DatPhong == datPhong);
-        }
+        //public IQueryable<ChiTietPhongDatPhong> SearchChiTietDatPhongOfPhieuDP(DatPhong datPhong)
+        //{
+        //    return _context.CaTietPhongDatPhongs
+        //    .Where(d => d.DatPhong == datPhong);
+        //}
     }
 }

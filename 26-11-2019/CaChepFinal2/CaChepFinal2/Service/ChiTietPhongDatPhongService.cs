@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace CaChepFinal2.Service
 {
-    public class ChiTietHoaDonService : IChiTietHoaDon
+    public class ChiTietPhongDatPhongService : IChiTietPhongDatPhong
     {
         private readonly ApplicationDbContext _context;
 
-        public ChiTietHoaDonService(ApplicationDbContext context)
+        public ChiTietPhongDatPhongService(ApplicationDbContext context)
         {
             _context = context;
         }
-        public  void New(ChiTietDichVuDatPhong dp)
+        public  void New(ChiTietPhongDatPhong dp)
         {
             _context.Add(dp);
             _context.SaveChangesAsync();
@@ -34,21 +34,26 @@ namespace CaChepFinal2.Service
             _context.SaveChangesAsync();
         }
 
-        public   void Edit(ChiTietDichVuDatPhong dp)
+        public   void Edit(ChiTietPhongDatPhong dp)
         {
-            var model = _context.ChiTietDichVuDatPhongs.First(f => f.Id == dp.Id);
-            _context.Entry<ChiTietDichVuDatPhong>(model).State = EntityState.Detached;
+            var model = _context.ChiTietPhongDatPhongs.First(f => f.Id == dp.Id);
+            _context.Entry<ChiTietPhongDatPhong>(model).State = EntityState.Detached;
             _context.Update(dp);
              _context.SaveChangesAsync();
         }
-        public IQueryable<ChiTietDichVuDatPhong> GetAll()
+        public IQueryable<ChiTietPhongDatPhong> GetAll()
         {
-            return _context.ChiTietDichVuDatPhongs;
+            return _context.ChiTietPhongDatPhongs.Include(c => c.DatPhong).Include(c => c.Phong); ;
         }
 
-        public ChiTietDichVuDatPhong GetOneById(int? id)
+        public ChiTietPhongDatPhong GetOneById(int? id)
         {
             return GetAll().FirstOrDefault(dp => dp.Id == id);
+        }
+
+        public IQueryable<ChiTietPhongDatPhong> GetByIDPhieuDatPhong(int? id)
+        {
+            return GetAll().Where(dp => dp.DatPhongId == id);
         }
 
 
@@ -57,7 +62,7 @@ namespace CaChepFinal2.Service
         //     return _context.chiTietHoaDons
         //     .Where(d => d..Date == DateTime.Now.Date);
         // }
-        
-        
+
+
     }
 }

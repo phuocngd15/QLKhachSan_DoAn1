@@ -1,0 +1,43 @@
+﻿@model CaChepFinal2.Data.ChiTietDichVuDatPhong
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ChiTietDichVuDatPhong</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GiaTien)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GetDatPhong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GetDatPhong.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GetDichVu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GetDichVu.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
