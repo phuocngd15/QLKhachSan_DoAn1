@@ -12,5 +12,7 @@ namespace CaChepFinal2.Areas.Admin.Models
         public List<Phong> LsPhongDatPhongs { get; set; }
         public List<DichVu> LsDichVuDatPhongs { get; set; }
 
+        public int SoLuongDichVu { get; set; }
+
     }
 }

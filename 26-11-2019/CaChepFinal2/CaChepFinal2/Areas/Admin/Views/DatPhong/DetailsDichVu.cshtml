@@ -1,11 +1,14 @@
-﻿@model CaChepFinal2.Data.Phong
+﻿@model CaChepFinal2.Data.DichVu
 @using CaChepFinal2.Extensions
 @using Microsoft.AspNetCore.Http
-
 @inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "DetailsDichVu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <br />
-<h2 class="text-info">Product Details</h2>
+<h2 class="text-info">Dịch vụ Details</h2>
 
 <form method="post">
     <div class="p-4 border rounded row">
@@ -29,10 +32,10 @@
 
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="GetLoaiPhong"></label>
+                    <label asp-for="GetLoaiDV"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="GetLoaiPhong.Name" class="form-control" readonly />
+                    <input asp-for="GetLoaiDV.Name" class="form-control" readonly />
                 </div>
             </div>
             <div class="form-group row">
@@ -41,7 +44,7 @@
                 <div class="col-8">
                     @{
                         bool isInBag = false;
-                        List<int> lstCart = HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssShoppingCart");
+                        List<int> lstCart = HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssDichVuCart");
                         if (lstCart != null && lstCart.Contains(Model.Id))
                         {
                             isInBag = true;
@@ -72,4 +75,6 @@
         </div>
     </div>
 </form>
+
+
 

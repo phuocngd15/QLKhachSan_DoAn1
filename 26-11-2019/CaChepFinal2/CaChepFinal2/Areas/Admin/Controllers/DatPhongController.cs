@@ -36,8 +36,8 @@ namespace CaChepFinal2.Areas.Admin.Controllers
             _dichVusv = dichVu;
             _DatPhongCart = new DatPhongCartVM()
             {
-                LsPhongDatPhongs = null,
-                LsDichVuDatPhongs = null,
+                LsPhongDatPhongs =new List<Phong>(),
+                LsDichVuDatPhongs =new List<DichVu>(),
             };
             // _mapper = new Mapper();
         }
@@ -87,7 +87,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
         // GET: DatPhong/Details/5
         // online view
-        public ActionResult Details(int? id)
+        public ActionResult DetailsDatPhong(int? id)
         {
             if (id == null)
             {
@@ -116,23 +116,24 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
         public ActionResult CreateDatPhong()
         {
-            List<int> lstsDichVuCart = HttpContext.Session.Get<List<int>>("ssDichVuCart");
+            
             List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
-            if (lstsDichVuCart == null && lstsPhongCart == null) return View(_DatPhongCart);
+            if (lstsPhongCart == null) return View(_DatPhongCart);
             if (lstsPhongCart.Count > 0)
             {
                 foreach (int cartItem in lstsPhongCart)
                 {
-                    Phong listPhongDat = _phong.GetAll().Include(p => p.GetLoaiPhong.Name).Where(p => p.Id == cartItem).FirstOrDefault();
+                    Phong listPhongDat = _phong.GetOneById(cartItem);
                     _DatPhongCart.LsPhongDatPhongs.Add(listPhongDat);
                 }
             }
-            
+            List<int> lstsDichVuCart = HttpContext.Session.Get<List<int>>("ssDichVuCart");
+            if (lstsDichVuCart == null ) return View(_DatPhongCart);
             if (lstsDichVuCart.Count > 0)
             {
                 foreach (int cartItem in lstsDichVuCart)
                 {
-                    DichVu oneDichVu = _dichVusv.GetAll().Include(p => p.GetLoaiDV.Name).Where(p => p.Id == cartItem).FirstOrDefault();
+                    DichVu oneDichVu = _dichVusv.GetOneById(cartItem);
                     _DatPhongCart.LsDichVuDatPhongs.Add(oneDichVu);
                 }
             }
@@ -172,80 +173,71 @@ namespace CaChepFinal2.Areas.Admin.Controllers
           //  return View();
         }
 
-        public  IActionResult addPhong(int? id)
+        // từ addPhong -> DetailsPhong -> Addto Bag
+        public async  Task<IActionResult> IndexPhong()
         {
             //var listPhong =  _phong.GetAll().Include(m => m.GetLoaiPhong.Name);
-            var applicationDbContext = _phong.GetAll().Include(p => p.GetLoaiPhong);
+            var lsPhongs = _phong.GetAll().Include(p => p.GetLoaiPhong);
 
 
-            return View(applicationDbContext);
+            return View(await lsPhongs.ToListAsync());
 
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public  IActionResult addPhong(int id)
-        {
-            // xử lí session phòng
-            List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
-            if (lstsPhongCart == null)
-            {
-                lstsPhongCart = new List<int>();
-            }
-            lstsPhongCart.Add(id);
-            HttpContext.Session.Set("ssPhongCart", lstsPhongCart);
-
-            return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
-
-        }
-
-        public async Task<IActionResult> addDichVu(int? id)
-        {
-            var _ = await _phong.GetAll().Include(m => m.GetLoaiPhong.Name).Where(m => m.Id == id).FirstOrDefaultAsync();
-
-
-            return View();
-        }
-
-        [HttpPost, ActionName("addDichVu")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> addDichVu(int id)
-        {
-            // xử lí sessiong dịch vụ
-            List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
-            if (lstsPhongCart == null)
-            {
-                lstsPhongCart = new List<int>();
-            }
-            lstsPhongCart.Add(id);
-            HttpContext.Session.Set("ssPhongCart", lstsPhongCart);
-
-            return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
-
-        }
-
+        } 
         public async Task<IActionResult> DetailsPhong(int id)
         {
-            var product = await _phong.GetAll().Include(m => m.GetLoaiPhong.Name).Where(m => m.Id == id).FirstOrDefaultAsync();
+            var product = _phong.GetOneById(id);
 
             return View(product);
         }
 
-        [HttpPost, ActionName("Details")]
+        [HttpPost, ActionName("DetailsPhong")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DetailsPost(int id)
         {
-            List<int> lstShoppingCart = HttpContext.Session.Get<List<int>>("ssShoppingCart");
+            List<int> lstShoppingCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
             if (lstShoppingCart == null)
             {
                 lstShoppingCart = new List<int>();
             }
             lstShoppingCart.Add(id);
-            HttpContext.Session.Set("ssShoppingCart", lstShoppingCart);
+            HttpContext.Session.Set("ssPhongCart", lstShoppingCart);
 
-            return RedirectToAction("Index", "Home", new { area = "Customer" });
+            return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
 
         }
+        
+
+        public async Task<IActionResult> IndexDichVu()
+        {
+            var lsDichVus = _dichVusv.GetAll().Include(p => p.GetLoaiDV);
+            return View(await lsDichVus.ToListAsync());
+        }
+
+        
+        public async Task<IActionResult> DetailsDichVu(int id)
+        {
+            var dichVu = _dichVusv.GetOneById(id);
+
+            return View(dichVu);
+        }
+
+        [HttpPost, ActionName("DetailsDichVu")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DetailsDichVuDetails(int id)
+        {
+            List<int> lsDichvuCart = HttpContext.Session.Get<List<int>>("ssDichVuCart");
+            if (lsDichvuCart == null)
+            {
+                lsDichvuCart = new List<int>();
+            }
+            lsDichvuCart.Add(id);
+            HttpContext.Session.Set("ssDichVuCart", lsDichvuCart);
+
+            //return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
+            return RedirectToAction();
+
+        }
+
     }
 
 }

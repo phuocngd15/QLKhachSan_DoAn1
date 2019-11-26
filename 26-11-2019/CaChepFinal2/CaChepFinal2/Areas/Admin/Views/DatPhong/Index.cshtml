@@ -1,5 +1,5 @@
 ﻿@model CaChepFinal2.Areas.Admin.Models.DatPhongIndexVM
-
+@* Trang Index, trang chu hiển thị các phiếu đặt phòng *@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -91,7 +91,7 @@
                 @Html.DisplayFor(modelItem => item.GetTrangThai.Name)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="DetailsDatPhong" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

@@ -1,4 +1,5 @@
 ﻿@model CaChepFinal2.Areas.Admin.Models.DatPhongCartVM
+@* Trang create phiếu đặt phòng, có giao diện giống chi tiết phiếu đặt phòng (Details) *@
 @{
     ViewData["Title"] = "CreateDatPhong";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -72,7 +73,7 @@
 @* Bang Phong *@
 <h2>Danh sách Phòng</h2>
 <p>
-    <a asp-action="addPhong">Them Phong</a>
+    <a asp-action="IndexPhong">Them Phong</a>
 </p>
 @if (Model.LsPhongDatPhongs != null)
 {
@@ -89,32 +90,36 @@
                     @Html.DisplayNameFor(model => model.LsPhongDatPhongs[0].GetLoaiPhong.Name)
                 </th>
                 <th>
-                   Số Lượng
+                  
                 </th>
 
-                <th></th>
+                <th>
+
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.LsPhongDatPhongs)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GetLoaiPhong.Name)
-                    </td>
-
-                    <td>
-                        @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete Bớt</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GetLoaiPhong.Name)
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
@@ -122,7 +127,7 @@
 @* Bang DichVu *@
 
 <h2>Danh sách Dịch Vụ</h2>
-<p><a asp-action="addDichVu">Them Dich Vu</a></p>
+<p><a asp-action="IndexDichVu">Them Dich Vu</a></p>
 
 @if (Model.LsDichVuDatPhongs != null)
 {
@@ -135,7 +140,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.LsDichVuDatPhongs[0].Price)
             </th>
-            <th></th>
+            <th>
+                Số Lượng
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -149,9 +156,13 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
+                    <input type="text" asp-for="SoLuongDichVu" />
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                     @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                             <a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
                 </td>
             </tr>
         }
