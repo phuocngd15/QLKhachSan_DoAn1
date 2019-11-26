@@ -86,7 +86,6 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         }
 
         // GET: DatPhong/Details/5
-
         // online view
         public ActionResult Details(int? id)
         {
@@ -94,7 +93,6 @@ namespace CaChepFinal2.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
 
 
             var datPhongDetails = new DatPhongDetails
@@ -114,32 +112,6 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
             return View(datPhongDetails);
         }
-
-
-
-        // GET: DatPhong/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: DatPhong/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
 
 
         public ActionResult CreateDatPhong()
@@ -164,7 +136,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                     _DatPhongCart.LsDichVuDatPhongs.Add(oneDichVu);
                 }
             }
-
+            
             return View(_DatPhongCart);
 
         }
@@ -210,10 +182,11 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
         }
 
-        [HttpPost, ActionName("addPhong")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public  IActionResult addPhong(int id)
         {
+            // xử lí session phòng
             List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
             if (lstsPhongCart == null)
             {
@@ -238,6 +211,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> addDichVu(int id)
         {
+            // xử lí sessiong dịch vụ
             List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
             if (lstsPhongCart == null)
             {
@@ -250,53 +224,28 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
         }
 
-
-        // GET: DatPhong/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> DetailsPhong(int id)
         {
-            return View();
+            var product = await _phong.GetAll().Include(m => m.GetLoaiPhong.Name).Where(m => m.Id == id).FirstOrDefaultAsync();
+
+            return View(product);
         }
 
-        // POST: DatPhong/Edit/5
-        [HttpPost]
+        [HttpPost, ActionName("Details")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> DetailsPost(int id)
         {
-            try
+            List<int> lstShoppingCart = HttpContext.Session.Get<List<int>>("ssShoppingCart");
+            if (lstShoppingCart == null)
             {
-                // TODO: Add update logic here
+                lstShoppingCart = new List<int>();
+            }
+            lstShoppingCart.Add(id);
+            HttpContext.Session.Set("ssShoppingCart", lstShoppingCart);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index", "Home", new { area = "Customer" });
+
         }
-
-        // GET: DatPhong/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: DatPhong/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
     }
 
 }
