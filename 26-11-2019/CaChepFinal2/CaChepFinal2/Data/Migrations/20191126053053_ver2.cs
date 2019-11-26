@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CaChepFinal2.Data.Migrations
 {
-    public partial class adddb : Migration
+    public partial class ver2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -258,8 +258,9 @@ namespace CaChepFinal2.Data.Migrations
                 columns: new[] { "Id", "Address", "CMND", "City", "SDT", "TenNguoiDat", "ThoiGianNhanPhongDuKien", "ThoiGianTraPhongDuKien", "TienDatCoc", "TrangThaiId" },
                 values: new object[,]
                 {
-                    { 1, "149", "281212914", null, "0937536545", "Nguyen Phuoc", new DateTime(2019, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), 0m, 1 },
-                    { 2, "149", "281212914", null, "01264079970", "Nguyen Truc", new DateTime(2019, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 0m, 1 }
+                    { 1, "149", "281212911", null, "0937536545", "Nguyen Phuoc", new DateTime(2019, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), 0m, 1 },
+                    { 2, "149", "281212910", null, "01264079970", "Nguyen Truc", new DateTime(2019, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 0m, 1 },
+                    { 3, "22", "281212915", null, "01264079970", "Nguyen Truc2", new DateTime(2019, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 0m, 2 }
                 });
 
             migrationBuilder.InsertData(

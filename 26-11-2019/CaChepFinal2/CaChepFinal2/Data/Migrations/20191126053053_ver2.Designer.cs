@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CaChepFinal2.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191125205039_adddb")]
-    partial class adddb
+    [Migration("20191126053053_ver2")]
+    partial class ver2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -158,7 +158,7 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 1,
                             Address = "149",
-                            CMND = "281212914",
+                            CMND = "281212911",
                             SDT = "0937536545",
                             TenNguoiDat = "Nguyen Phuoc",
                             ThoiGianNhanPhongDuKien = new DateTime(2019, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -170,13 +170,25 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 2,
                             Address = "149",
-                            CMND = "281212914",
+                            CMND = "281212910",
                             SDT = "01264079970",
                             TenNguoiDat = "Nguyen Truc",
                             ThoiGianNhanPhongDuKien = new DateTime(2019, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ThoiGianTraPhongDuKien = new DateTime(2019, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TienDatCoc = 0m,
                             TrangThaiId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "22",
+                            CMND = "281212915",
+                            SDT = "01264079970",
+                            TenNguoiDat = "Nguyen Truc2",
+                            ThoiGianNhanPhongDuKien = new DateTime(2019, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ThoiGianTraPhongDuKien = new DateTime(2019, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TienDatCoc = 0m,
+                            TrangThaiId = 2
                         });
                 });
 

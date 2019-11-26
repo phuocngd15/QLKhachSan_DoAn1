@@ -44,9 +44,14 @@ namespace CaChepFinal2
             services.AddTransient<IPhong, PhongService>();
             services.AddTransient<ITrangThaiDatPhong, TrangThaiDatPhongService>();
             services.AddTransient<ITrangThai, TrangThaiService>();
-
+           
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,7 +75,7 @@ namespace CaChepFinal2
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

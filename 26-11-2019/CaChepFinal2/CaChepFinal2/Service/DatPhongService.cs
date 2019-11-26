@@ -52,10 +52,10 @@ namespace CaChepFinal2.Service
         }
 
 
-        public IQueryable<DatPhong> getLDatPhongByNow()
+        public IQueryable<DatPhong> getLDatPhongByTimeNhanDuKien(DateTime dp)
         {
             return _context.datPhongs
-            .Where(d => d.ThoiGianNhanPhongDuKien.Date == DateTime.Now.Date);
+            .Where(d => d.ThoiGianNhanPhongDuKien.Date == dp.Date);
         }
         public IQueryable<DatPhong> getLDatPhongByCMND(string CMND)
         {

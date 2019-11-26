@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 namespace CaChepFinal2.Data
@@ -10,7 +11,7 @@ namespace CaChepFinal2.Data
         void Edit(DatPhong DatPhong);
         void Delete(int id);
 
-        IQueryable<DatPhong> getLDatPhongByNow();
+        IQueryable<DatPhong> getLDatPhongByTimeNhanDuKien(DateTime dp);
         IQueryable<DatPhong> getLDatPhongByCMND(string CMND);
         IQueryable<DatPhong> getLDatPhongBySDT(string SDT);
     }

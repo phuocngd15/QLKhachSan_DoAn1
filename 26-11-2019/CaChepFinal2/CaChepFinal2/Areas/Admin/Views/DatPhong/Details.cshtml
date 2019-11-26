@@ -4,12 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @* DatPhongdeTails *@
-<h1>Details</h1>
+<h1>Chi Tiết Phiếu đặt Phòng</h1>
 
-<h1>Details</h1>
 
 <div>
     <h4>DatPhong</h4>
+    <div>
+        @*<a asp-action="Edit" asp-route-id="@Model.GetDatPhong.Id">Edit</a> |*@
+        <a asp-action="Index">Back to List</a>
+    </div>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -60,17 +63,14 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.GetDatPhong.ThoiGianTraPhongDuKien)
         </dd>
-        
+
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.GetDatPhong.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 
 @* Bang Phong *@
-
+<h2>Danh sách Phòng</h2>
 <p>
     <a asp-action="Create">Them Phong</a>
 </p>
@@ -119,11 +119,11 @@
 </table>
 
 @* Bang DichVu *@
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Them Dich Vu</a>
-</p>
+<h2>Danh sách Dịch Vụ</h2>
+<p><a asp-action="Create">Them Dich Vu</a></p>
+
+
 <table class="table">
     <thead>
     <tr>

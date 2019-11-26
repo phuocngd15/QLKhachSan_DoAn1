@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using CaChepFinal2.Areas.Admin.Models;
 using CaChepFinal2.Data;
+using CaChepFinal2.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace CaChepFinal2.Areas.Admin.Controllers
 {
@@ -16,34 +18,71 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         private readonly IDatPhong _datphongsv;
         private readonly IChiTietDichVuDatPhong _chiTietDichVuDatPhongsv;
         private readonly IChiTietPhongDatPhong _chiTietPhongDatPhongsv;
-
+        private readonly IPhong _phong;
         private readonly ITrangThaiDatPhong _TrangThaiDatPhongsv;
         private readonly ITrangThai _TrangThaisv;
+        private readonly IDichVu _dichVusv;
 
-        public DatPhongController(IDatPhong datPhong, IChiTietDichVuDatPhong chiTietDichVuDatPhong, IChiTietPhongDatPhong chiTietPhongDatPhong,ITrangThai trangThai)
+        [BindProperty]
+        public DatPhongCartVM _DatPhongCart { get; set; }
+
+        public DatPhongController(IDatPhong datPhong, IChiTietDichVuDatPhong chiTietDichVuDatPhong, IChiTietPhongDatPhong chiTietPhongDatPhong, ITrangThai trangThai,IPhong phong,IDichVu dichVu)
         {
             _datphongsv = datPhong;
             _chiTietDichVuDatPhongsv = chiTietDichVuDatPhong;
             _chiTietPhongDatPhongsv = chiTietPhongDatPhong;
             _TrangThaisv = trangThai;
+            _phong = phong;
+            _dichVusv = dichVu;
+            _DatPhongCart = new DatPhongCartVM()
+            {
+                LsPhongDatPhongs = null,
+                LsDichVuDatPhongs = null,
+            };
             // _mapper = new Mapper();
         }
         // GET: DatPhong
         public ActionResult Index(DatPhongIndexVM datPhongIndex)
         {
             // index chua search
-            if (datPhongIndex.datPhongs == null)
+            if (datPhongIndex.newDatPhong == null)
             {
                 var newdatPhongTongHop = new DatPhongIndexVM
                 {
-                    datPhongs = _datphongsv.GetAll().OrderByDescending(c => c.ThoiGianNhanPhongDuKien).ToList(),
+                    datPhongs = _datphongsv.GetAll().Include(i => i.GetTrangThai).ToList(),
                     chiTietDatPhongs = null,
-                    ListNameTrangThai =new SelectList(_TrangThaisv.GetlistNameTrangThai().ToList()),
+                    ListNameTrangThai = new SelectList(_TrangThaisv.GetlistNameTrangThai().ToList()),
                 };
                 return View(newdatPhongTongHop);
             }
+            // tìm kiếm theo trạng thái
+            var datphong = _datphongsv.GetAll();
+            if (!string.IsNullOrEmpty(datPhongIndex.CMND))
+            {
+                datphong = datphong.Where(s => s.CMND.Contains(datPhongIndex.CMND));
+            }
+            if (!string.IsNullOrEmpty(datPhongIndex.TrangThai)) // giả tạo một tí, giả trình trạng phòng là kiểu string.
+            {
+                datphong = datphong.Where(u => u.GetTrangThai.Name == datPhongIndex.TrangThai);
+            }
 
-            return View(datPhongIndex);
+            if (datPhongIndex.newDatPhong.ThoiGianNhanPhongDuKien != default)
+            {
+                datphong = datphong
+                    .Where(u => u.ThoiGianNhanPhongDuKien == datPhongIndex.newDatPhong.ThoiGianNhanPhongDuKien.Date)
+                    .Include(i => i.GetTrangThai);
+
+            }
+
+            var newdatPhong = new DatPhongIndexVM
+            {
+                datPhongs = datphong.ToList(),
+                chiTietDatPhongs = null,
+                ListNameTrangThai = new SelectList(_TrangThaisv.GetlistNameTrangThai().ToList()),
+            };
+            return View(newdatPhong);
+
+            //   return View(datPhongIndex);
         }
 
         // GET: DatPhong/Details/5
@@ -56,14 +95,14 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            
+
 
             var datPhongDetails = new DatPhongDetails
             {
-                GetDatPhong= _datphongsv.GetOneById(id),
+                GetDatPhong = _datphongsv.GetOneById(id),
                 ChiTietPhongDatPhongs = _chiTietPhongDatPhongsv.GetByIDPhieuDatPhong(id).ToList(),
                 ChiTietDichVuDatPhongs = _chiTietDichVuDatPhongsv.GetByIDPhieuDatPhong(id).ToList(),
-               
+
             };
             if (datPhongDetails.GetDatPhong == null)
             {
@@ -100,6 +139,117 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 return View();
             }
         }
+
+
+
+        public ActionResult CreateDatPhong()
+        {
+            List<int> lstsDichVuCart = HttpContext.Session.Get<List<int>>("ssDichVuCart");
+            List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
+            if (lstsDichVuCart == null && lstsPhongCart == null) return View(_DatPhongCart);
+            if (lstsPhongCart.Count > 0)
+            {
+                foreach (int cartItem in lstsPhongCart)
+                {
+                    Phong listPhongDat = _phong.GetAll().Include(p => p.GetLoaiPhong.Name).Where(p => p.Id == cartItem).FirstOrDefault();
+                    _DatPhongCart.LsPhongDatPhongs.Add(listPhongDat);
+                }
+            }
+            
+            if (lstsDichVuCart.Count > 0)
+            {
+                foreach (int cartItem in lstsDichVuCart)
+                {
+                    DichVu oneDichVu = _dichVusv.GetAll().Include(p => p.GetLoaiDV.Name).Where(p => p.Id == cartItem).FirstOrDefault();
+                    _DatPhongCart.LsDichVuDatPhongs.Add(oneDichVu);
+                }
+            }
+
+            return View(_DatPhongCart);
+
+        }
+
+        // POST: DatPhong/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateDatPhong([Bind("Id,TenNguoiDat,Address,City,CMND,SDT,TienDatCoc,ThoiGianNhanPhongDuKien,ThoiGianTraPhongDuKien,UserId")] DatPhong datPhong)
+        {
+            var newdatPhongTongHop = new DatPhongDetails
+            {
+                GetDatPhong = datPhong,
+                ChiTietDichVuDatPhongs = null,
+                ChiTietPhongDatPhongs = null,
+            };
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _datphongsv.New(datPhong);
+                   // await _context.SaveChangesAsync();
+                   
+                }
+                return RedirectToAction(nameof(Index));
+
+            }
+            catch
+            {
+                return View(newdatPhongTongHop);
+            }
+
+          //  return View();
+        }
+
+        public  IActionResult addPhong(int? id)
+        {
+            //var listPhong =  _phong.GetAll().Include(m => m.GetLoaiPhong.Name);
+            var applicationDbContext = _phong.GetAll().Include(p => p.GetLoaiPhong);
+
+
+            return View(applicationDbContext);
+
+        }
+
+        [HttpPost, ActionName("addPhong")]
+        [ValidateAntiForgeryToken]
+        public  IActionResult addPhong(int id)
+        {
+            List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
+            if (lstsPhongCart == null)
+            {
+                lstsPhongCart = new List<int>();
+            }
+            lstsPhongCart.Add(id);
+            HttpContext.Session.Set("ssPhongCart", lstsPhongCart);
+
+            return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
+
+        }
+
+        public async Task<IActionResult> addDichVu(int? id)
+        {
+            var _ = await _phong.GetAll().Include(m => m.GetLoaiPhong.Name).Where(m => m.Id == id).FirstOrDefaultAsync();
+
+
+            return View();
+        }
+
+        [HttpPost, ActionName("addDichVu")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> addDichVu(int id)
+        {
+            List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
+            if (lstsPhongCart == null)
+            {
+                lstsPhongCart = new List<int>();
+            }
+            lstsPhongCart.Add(id);
+            HttpContext.Session.Set("ssPhongCart", lstsPhongCart);
+
+            return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
+
+        }
+
 
         // GET: DatPhong/Edit/5
         public ActionResult Edit(int id)

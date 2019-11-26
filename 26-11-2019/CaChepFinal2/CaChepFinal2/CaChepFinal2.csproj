@@ -18,6 +18,10 @@
     <Compile Remove="Data\Migrations\20191125195738_khaibaodb.Designer.cs" />
     <Compile Remove="Data\Migrations\20191125204027_adddb.cs" />
     <Compile Remove="Data\Migrations\20191125204027_adddb.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191125205039_adddb.cs" />
+    <Compile Remove="Data\Migrations\20191125205039_adddb.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191126050859_ver2.cs" />
+    <Compile Remove="Data\Migrations\20191126050859_ver2.Designer.cs" />
   </ItemGroup>
 
 
