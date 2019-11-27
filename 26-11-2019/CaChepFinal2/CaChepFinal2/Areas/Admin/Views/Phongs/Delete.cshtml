@@ -1,58 +1,79 @@
-﻿@model CaChepFinal2.Data.Phong
+﻿@model CaChepFinal2.Data.DataModel.ViewModel.PhongViewModel
+@using CaChepFinal2.Extensions
 
 @{
     ViewData["Title"] = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Phong</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShortDescription)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TrangThai)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GetLoaiPhong)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GetLoaiPhong.Id)
-        </dd class>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+<br />
+<h2 class="text-info">Delete Product</h2>
+
+<form method="post">
+    <div class="p-4 border rounded row">
+        <input hidden asp-for="phongs.Id" />
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="phongs.Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="phongs.Name" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="phongs.Price"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="phongs.Price" readonly class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="loaiphongs"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="phongs.GetLoaiPhong.Name" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="phongs.ShortDescription"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="phongs.ShortDescription" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="phongs.TrangThai"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="phongs.TrangThai" readonly class="form-control" />
+                </div>
+            </div>
+          
+        </div>
+        <div class="col-1">
+
+        </div>
+        <div class="col-3">
+            <img src="@Model.phongs.ImageUrl" width="100%" style="border-radius:5px; border:1px solid #bbb9b9;" />
+        </div>
+
+
+        <br />
+        <div class="form-group">
+            <input type="submit" class="btn btn-danger" value="Delete" />
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

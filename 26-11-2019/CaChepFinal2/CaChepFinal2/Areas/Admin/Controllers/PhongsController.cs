@@ -1,75 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using CaChepFinal2.Data;
+using CaChepFinal2.Data.DataModel.ViewModel;
+using CaChepFinal2.Utility;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting.Internal;
 
 namespace CaChepFinal2.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class PhongsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _db;
+        private readonly IWebHostEnvironment _iwebhostenvironment;
 
-        public PhongsController(ApplicationDbContext context)
+        [BindProperty]
+        public PhongViewModel PhongVM { get; set; }
+        public PhongsController(ApplicationDbContext db, IWebHostEnvironment iwebHostEnvironment)
         {
-            _context = context;
+            _db = db;
+            _iwebhostenvironment = iwebHostEnvironment;
+            PhongVM = new PhongViewModel()
+            {
+                loaiphongs = _db.loaiPhongs.ToList(),
+                phongs = new Data.Phong()
+            };
         }
-
-        // GET: Admin/Phongs
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.phongs.Include(p => p.GetLoaiPhong);
-            return View(await applicationDbContext.ToListAsync());
+            var phongs = _db.phongs.Include(m => m.GetLoaiPhong);
+            return View(await phongs.ToListAsync());
         }
 
-        // GET: Admin/Phongs/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var phong = await _context.phongs
-                .Include(p => p.GetLoaiPhong)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (phong == null)
-            {
-                return NotFound();
-            }
 
-            return View(phong);
-        }
-
-        // GET: Admin/Phongs/Create
         public IActionResult Create()
         {
-            ViewData["LoaiPhongId"] = new SelectList(_context.loaiPhongs, "Id", "Id");
-            return View();
+            return View(PhongVM);
         }
-
-        // POST: Admin/Phongs/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Create")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ShortDescription,Price,ImageUrl,TrangThai,LoaiPhongId")] Phong phong)
+        public async Task<IActionResult> CreatePOST()
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Add(phong);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View(PhongVM);
             }
-            ViewData["LoaiPhongId"] = new SelectList(_context.loaiPhongs, "Id", "Id", phong.LoaiPhongId);
-            return View(phong);
+
+            _db.phongs.Add(PhongVM.phongs);
+            await _db.SaveChangesAsync();
+
+            //Image being saved
+
+            string webRootPath = _iwebhostenvironment.WebRootPath;
+            var files = HttpContext.Request.Form.Files;
+
+            var phongsFromDb = _db.phongs.Find(PhongVM.phongs.Id);
+
+            if (files.Count != 0)
+            {
+                //Image has been uploaded
+                var uploads = Path.Combine(webRootPath, SD.ImageFolder);
+                var extension = Path.GetExtension(files[0].FileName);
+
+                using (var filestream = new FileStream(Path.Combine(uploads, PhongVM.phongs.Id + extension), FileMode.Create))
+                {
+                    files[0].CopyTo(filestream);
+                }
+                phongsFromDb.ImageUrl = @"\" + SD.ImageFolder + @"\" + PhongVM.phongs.Id + extension;
+            }
+            else
+            {
+                //when user does not upload image
+                var uploads = Path.Combine(webRootPath, SD.ImageFolder + @"\" + SD.DefaultProductImage);
+                System.IO.File.Copy(uploads, webRootPath + @"\" + SD.ImageFolder + @"\" + PhongVM.phongs.Id + ".png");
+                phongsFromDb.ImageUrl = @"\" + SD.ImageFolder + @"\" + PhongVM.phongs.Id + ".png";
+            }
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+
         }
 
-        // GET: Admin/Phongs/Edit/5
+        //GET : Edit
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,52 +95,83 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var phong = await _context.phongs.FindAsync(id);
-            if (phong == null)
+            PhongVM.phongs = await _db.phongs.Include(m => m.GetLoaiPhong).SingleOrDefaultAsync(m => m.Id == id);
+
+            if (PhongVM.phongs == null)
             {
                 return NotFound();
             }
-            ViewData["LoaiPhongId"] = new SelectList(_context.loaiPhongs, "Id", "Id", phong.LoaiPhongId);
-            return View(phong);
+
+            return View(PhongVM);
         }
 
-        // POST: Admin/Phongs/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        //Post : Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ShortDescription,Price,ImageUrl,TrangThai,LoaiPhongId")] Phong phong)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id != phong.Id)
+            if (ModelState.IsValid)
+            {
+                string webRootPath = _iwebhostenvironment.WebRootPath;
+                var files = HttpContext.Request.Form.Files;
+
+                var phongFromDb = _db.phongs.Where(m => m.Id == PhongVM.phongs.Id).FirstOrDefault();
+
+                if (files.Count > 0 && files[0] != null)
+                {
+                    //if user uploads a new image
+                    var uploads = Path.Combine(webRootPath, SD.ImageFolder);
+                    var extension_new = Path.GetExtension(files[0].FileName);
+                    var extension_old = Path.GetExtension(phongFromDb.ImageUrl);
+
+                    if (System.IO.File.Exists(Path.Combine(uploads, PhongVM.phongs.Id + extension_old)))
+                    {
+                        System.IO.File.Delete(Path.Combine(uploads, PhongVM.phongs.Id + extension_old));
+                    }
+                    using (var filestream = new FileStream(Path.Combine(uploads, PhongVM.phongs.Id + extension_new), FileMode.Create))
+                    {
+                        files[0].CopyTo(filestream);
+                    }
+                    PhongVM.phongs.ImageUrl = @"\" + SD.ImageFolder + @"\" + PhongVM.phongs.Id + extension_new;
+                }
+
+                if (PhongVM.phongs.ImageUrl != null)
+                {
+                    phongFromDb.ImageUrl = PhongVM.phongs.ImageUrl;
+                }
+
+                phongFromDb.Name = PhongVM.phongs.Name;
+                phongFromDb.Price = PhongVM.phongs.Price;
+                phongFromDb.ShortDescription = PhongVM.phongs.ShortDescription;
+                phongFromDb.LoaiPhongId = PhongVM.phongs.LoaiPhongId;
+                phongFromDb.TrangThai = PhongVM.phongs.TrangThai;
+                await _db.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(PhongVM);
+        }
+        //GET : Details
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            PhongVM.phongs = await _db.phongs.Include(m => m.GetLoaiPhong).SingleOrDefaultAsync(m => m.Id == id);
+
+            if (PhongVM.phongs == null)
             {
-                try
-                {
-                    _context.Update(phong);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PhongExists(phong.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            ViewData["LoaiPhongId"] = new SelectList(_context.loaiPhongs, "Id", "Id", phong.LoaiPhongId);
-            return View(phong);
+
+            return View(PhongVM);
         }
 
-        // GET: Admin/Phongs/Delete/5
+        //GET : Delete
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,31 +179,43 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var phong = await _context.phongs
-                .Include(p => p.GetLoaiPhong)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (phong == null)
+            PhongVM.phongs = await _db.phongs.Include(m => m.GetLoaiPhong).SingleOrDefaultAsync(m => m.Id == id);
+
+            if (PhongVM.phongs == null)
             {
                 return NotFound();
             }
 
-            return View(phong);
+            return View(PhongVM);
         }
 
-        // POST: Admin/Phongs/Delete/5
+        //POST : Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var phong = await _context.phongs.FindAsync(id);
-            _context.phongs.Remove(phong);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            string webRootPath = _iwebhostenvironment.WebRootPath;
+            Phong phongs = await _db.phongs.FindAsync(id);
+
+            if (phongs == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var uploads = Path.Combine(webRootPath, SD.ImageFolder);
+                var extension = Path.GetExtension(phongs.ImageUrl);
+
+                if (System.IO.File.Exists(Path.Combine(uploads, phongs.Id + extension)))
+                {
+                    System.IO.File.Delete(Path.Combine(uploads, phongs.Id + extension));
+                }
+                _db.phongs.Remove(phongs);
+                await _db.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
         }
 
-        private bool PhongExists(int id)
-        {
-            return _context.phongs.Any(e => e.Id == id);
-        }
     }
 }

@@ -1,55 +1,80 @@
-﻿@model CaChepFinal2.Data.Phong
-
+﻿@model CaChepFinal2.Data.DataModel.ViewModel.PhongViewModel
+@using CaChepFinal2.Extensions
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<br />
+<h2 class="text-info">Create Product</h2>
 
-<h4>Phong</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+<form method="post" enctype="multipart/form-data">
+    <div class="p-4 border rounded">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="phongs.Name"></label>
             </div>
-            <div class="form-group">
-                <label asp-for="ShortDescription" class="control-label"></label>
-                <input asp-for="ShortDescription" class="form-control" />
-                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            <div class="col-5">
+                <input asp-for="phongs.Name" class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+            <span asp-validation-for="phongs.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="phongs.Price"></label>
             </div>
-            <div class="form-group">
-                <label asp-for="ImageUrl" class="control-label"></label>
-                <input asp-for="ImageUrl" class="form-control" />
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            <div class="col-5">
+                <input asp-for="phongs.Price" class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="TrangThai" class="control-label"></label>
-                <input asp-for="TrangThai" class="form-control" />
-                <span asp-validation-for="TrangThai" class="text-danger"></span>
+            <span asp-validation-for="phongs.Price" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="phongs.ShortDescription"></label>
             </div>
-            <div class="form-group">
-                <label asp-for="LoaiPhongId" class="control-label"></label>
-                <select asp-for="LoaiPhongId" class ="form-control" asp-items="ViewBag.LoaiPhongId"></select>
+            <div class="col-5">
+                <input asp-for="phongs.ShortDescription" class="form-control" />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <span asp-validation-for="phongs.ShortDescription" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="phongs.TrangThai"></label>
             </div>
-        </form>
+            <div class="col-5">
+                <input asp-for="phongs.TrangThai" class="form-control" />
+            </div>
+            <span asp-validation-for="phongs.TrangThai" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="phongs.ImageUrl"></label>
+            </div>
+            <div class="col-5">
+                <input type="file" name="files" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="loaiphongs"></label>
+            </div>
+            <div class="col-5">
+                <select asp-for="@Model.phongs.LoaiPhongId" asp-items="Model.loaiphongs.ToSelectListItem(Model.phongs.LoaiPhongId)" class="form-control"></select>
+            </div>
+        </div>
+
+
+        <br />
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Create" />
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+        </div>
     </div>
-</div>
+</form>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
 

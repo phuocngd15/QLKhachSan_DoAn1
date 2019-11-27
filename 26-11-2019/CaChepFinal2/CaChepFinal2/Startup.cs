@@ -76,11 +76,12 @@ namespace CaChepFinal2
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "MyArea",
-                    pattern: "{area=Admin}/{controller=DatPhong}/{action=index}/{id?}");
+                    name: "areas",
+                    pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

@@ -6,6 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Data\**" />
+    <Compile Remove="Areas\Cus\**" />
+    <Content Remove="Areas\Admin\Data\**" />
+    <Content Remove="Areas\Cus\**" />
+    <EmbeddedResource Remove="Areas\Admin\Data\**" />
+    <EmbeddedResource Remove="Areas\Cus\**" />
+    <None Remove="Areas\Admin\Data\**" />
+    <None Remove="Areas\Cus\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Data\Migrations\20191125164624_khaibaodatabase.cs" />
     <Compile Remove="Data\Migrations\20191125164624_khaibaodatabase.Designer.cs" />
     <Compile Remove="Data\Migrations\20191125183037_EditPhieuDatPhong.cs" />
@@ -45,16 +56,13 @@
 
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Cus\Controllers\" />
-    <Folder Include="Areas\Cus\Data\" />
-    <Folder Include="Areas\Cus\Models\" />
-    <Folder Include="Areas\Cus\Views\" />
+    <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <Folder Include="Controllers\" />
+    <Folder Include="wwwroot\images\RoomImages\" />
   </ItemGroup>
 
 </Project>
