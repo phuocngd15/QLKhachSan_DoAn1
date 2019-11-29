@@ -1,0 +1,158 @@
+﻿@model CaChepFinal2.Areas.Admin.Models.DatPhongCartVM
+@* Trang create phiếu đặt phòng, có giao diện giống chi tiết phiếu đặt phòng (Details) *@
+@{
+    ViewData["Title"] = "CreateDatPhong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* DatPhongdeTails *@
+<h1>Tạo Phiếu Đặt Phòng</h1>
+
+<hr />
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateDatPhong">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="newDatPhong.TenNguoiDat" class="control-label"></label>
+                <input asp-for="newDatPhong.TenNguoiDat" class="form-control" />
+                <span asp-validation-for="newDatPhong.TenNguoiDat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="newDatPhong.Address" class="control-label"></label>
+                <input asp-for="newDatPhong.Address" class="form-control" />
+                <span asp-validation-for="newDatPhong.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="newDatPhong.City" class="control-label"></label>
+                <input asp-for="newDatPhong.City" class="form-control" />
+                <span asp-validation-for="newDatPhong.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="newDatPhong.CMND" class="control-label"></label>
+                <input asp-for="newDatPhong.CMND" class="form-control" />
+                <span asp-validation-for="newDatPhong.CMND" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="newDatPhong.SDT" class="control-label"></label>
+                <input asp-for="newDatPhong.SDT" class="form-control" />
+                <span asp-validation-for="newDatPhong.SDT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="newDatPhong.TienDatCoc" class="control-label"></label>
+                <input asp-for="newDatPhong.TienDatCoc" class="form-control" />
+                <span asp-validation-for="newDatPhong.TienDatCoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="newDatPhong.ThoiGianNhanPhongDuKien" class="control-label"></label>
+                <input asp-for="newDatPhong.ThoiGianNhanPhongDuKien" class="form-control" />
+                <span asp-validation-for="newDatPhong.ThoiGianNhanPhongDuKien" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="newDatPhong.ThoiGianTraPhongDuKien" class="control-label"></label>
+                <input asp-for="newDatPhong.ThoiGianTraPhongDuKien" class="form-control" />
+                <span asp-validation-for="newDatPhong.ThoiGianTraPhongDuKien" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>*@
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+@* Bang Phong *@
+<h2>Danh sách Phòng</h2>
+<p>
+    <a asp-action="IndexPhong">Them Phong</a>
+</p>
+@if (Model.LsPhongDatPhongs != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LsPhongDatPhongs[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LsPhongDatPhongs[0].Price)
+                </th>
+                <th>
+                    Số Lượng
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.LsPhongDatPhongs)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    <a asp-action="RemovePhongFromCart" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+@* Bang DichVu *@
+
+<h2>Danh sách Dịch Vụ</h2>
+<p><a asp-action="IndexDichVu">Them Dich Vu</a></p>
+
+@if (Model.LsDichVuDatPhongs != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LsDichVuDatPhongs[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LsDichVuDatPhongs[0].Price)
+                </th>
+                <th>
+                    Số Lượng
+                </th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.LsDichVuDatPhongs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    <a asp-action="RemoveDVFromCart" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
