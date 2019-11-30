@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thanh\\Documents\\GitHub\\QLKhachSan_DoAn1\\26-11-2019\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj": {}
+    "E:\\Học Kì 5\\Đồ án 1\\26-11-2019\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thanh\\Documents\\GitHub\\QLKhachSan_DoAn1\\26-11-2019\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj": {
+    "E:\\Học Kì 5\\Đồ án 1\\26-11-2019\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thanh\\Documents\\GitHub\\QLKhachSan_DoAn1\\26-11-2019\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj",
+        "projectUniqueName": "E:\\Học Kì 5\\Đồ án 1\\26-11-2019\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj",
         "projectName": "CaChepFinal2",
-        "projectPath": "C:\\Users\\thanh\\Documents\\GitHub\\QLKhachSan_DoAn1\\26-11-2019\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj",
+        "projectPath": "E:\\Học Kì 5\\Đồ án 1\\26-11-2019\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj",
         "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thanh\\Documents\\GitHub\\QLKhachSan_DoAn1\\26-11-2019\\CaChepFinal2\\CaChepFinal2\\obj\\",
+        "outputPath": "E:\\Học Kì 5\\Đồ án 1\\26-11-2019\\CaChepFinal2\\CaChepFinal2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
