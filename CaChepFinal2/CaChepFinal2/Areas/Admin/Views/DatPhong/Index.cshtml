@@ -95,7 +95,7 @@
                     @Html.DisplayFor(modelItem => item.GetTrangThai.Name)
                 </td>
                 <td>
-                    @if (item.GetTrangThai.Id == 1)
+                     @if (item.GetTrangThai.Id == 1)
                     {
                         <a asp-action="DetailsDatPhong" asp-route-id="@item.Id" class="btn btn-outline-primary">Nhận Phòng</a>
                     }
@@ -103,6 +103,7 @@
                     {
                         <a asp-action="ThanhToan" asp-route-id="@item.Id"class="btn btn-outline-danger">Thanh Toán</a>
                     }
+                    
 
                 </td>
             </tr>

@@ -107,6 +107,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
             }
 
+            datphong = datphong.Include(i => i.GetTrangThai);
             var newdatPhong = new DatPhongIndexVM
             {
                 datPhongs = datphong.ToList(),

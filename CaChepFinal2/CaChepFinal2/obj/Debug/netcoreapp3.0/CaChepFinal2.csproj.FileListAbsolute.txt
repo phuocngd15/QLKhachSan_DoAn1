@@ -536,10 +536,5 @@ C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\obj\Debug\netco
 C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\obj\Debug\netcoreapp3.0\CaChepFinal2.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\bin\Debug\netcoreapp3.0\Syncfusion.EJ2.dll
 C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\bin\Debug\netcoreapp3.0\Syncfusion.Licensing.dll
-C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\DatPhongs\Create.cshtml.g.cs
-C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\DatPhongs\Delete.cshtml.g.cs
-C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\DatPhongs\Details.cshtml.g.cs
-C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\DatPhongs\Edit.cshtml.g.cs
-C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\DatPhongs\Index.cshtml.g.cs
 C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\DatPhong\CreateDatPhongXacNhan.cshtml.g.cs
 C:\Users\JackieLeIV\Desktop\New folder\CaChepFinal2\CaChepFinal2\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\DatPhong\ThanhToan.cshtml.g.cs
