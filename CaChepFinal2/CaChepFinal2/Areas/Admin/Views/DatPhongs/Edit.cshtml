@@ -1,4 +1,5 @@
-﻿@model CaChepFinal2.Data.DatPhong
+﻿@using CaChepFinal2.Extensions
+@model CaChepFinal2.Data.DatPhong
 
 @{
     ViewData["Title"] = "Edit";
@@ -46,12 +47,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="ThoiGianNhanPhongDuKien" class="control-label"></label>
+                @Html.DisplayFor(model => model.ThoiGianNhanPhongDuKien)
                 <input asp-for="ThoiGianNhanPhongDuKien" class="form-control" />
                 <span asp-validation-for="ThoiGianNhanPhongDuKien" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ThoiGianTraPhongDuKien" class="control-label"></label>
-                <input asp-for="ThoiGianTraPhongDuKien" class="form-control" />
+                @Html.DisplayFor(model => model.ThoiGianTraPhongDuKien)
+                <input asp-for="ThoiGianTraPhongDuKien"  class="form-control" />
                 <span asp-validation-for="ThoiGianTraPhongDuKien" class="text-danger"></span>
             </div>
             <div class="form-group">

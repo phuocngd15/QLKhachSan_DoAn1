@@ -33,6 +33,10 @@
     <Compile Remove="Data\Migrations\20191125205039_adddb.Designer.cs" />
     <Compile Remove="Data\Migrations\20191126050859_ver2.cs" />
     <Compile Remove="Data\Migrations\20191126050859_ver2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191126053053_ver2.cs" />
+    <Compile Remove="Data\Migrations\20191126053053_ver2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191201041338_ver222.cs" />
+    <Compile Remove="Data\Migrations\20191201041338_ver222.Designer.cs" />
   </ItemGroup>
 
 

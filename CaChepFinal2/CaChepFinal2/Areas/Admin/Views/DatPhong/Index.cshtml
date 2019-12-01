@@ -1,4 +1,5 @@
-﻿@model CaChepFinal2.Areas.Admin.Models.DatPhongIndexVM
+﻿@using Microsoft.CodeAnalysis.CSharp.Syntax
+@model CaChepFinal2.Areas.Admin.Models.DatPhongIndexVM
 @* Trang Index, trang chu hiển thị các phiếu đặt phòng *@
 @{
     ViewData["Title"] = "Index";
@@ -7,22 +8,32 @@
 
 <h1>DS Phieu Dat Phong</h1>
 
-<p>
-    <a asp-controller="DatPhong" asp-action="CreateDatPhong">Dat phong</a>
-</p>
+
 <form asp-controller="DatPhong" asp-action="Index" method="get">
     <p>
+        <div class="row">
+            <div class="col-2">
+                <select asp-for="TrangThai" asp-items="Model.ListNameTrangThai">
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div class="col-4">
+                Thời Gian Nhận:  <input asp-for="newDatPhong.ThoiGianNhanPhongDuKien" />
+            </div>
+            <div class="col-3">
+                CMND:  <input type="text" asp-for="CMND" />
+            </div>
+            <div class="col-1">
+                <input type="submit" value="Tìm Kiếm" class="btn btn-primary" />
+            </div>
+            <div class="col-2">
+                <a asp-controller="DatPhong" asp-action="CreateDatPhong" class="btn btn-primary">Dat phong</a>
+            </div>
 
-        <select asp-for="TrangThai" asp-items="Model.ListNameTrangThai">
-            <option value="">All</option>
-        </select>
-        <div class="form-group">
-            <label asp-for="newDatPhong.ThoiGianNhanPhongDuKien.Date" class="control-label"></label>
-
-            <input asp-for="newDatPhong.ThoiGianNhanPhongDuKien" class="form-control" />
         </div>
-        CMND: <input type="text" asp-for="CMND" />
-        <input type="submit" value="Filter" />
+
+
+
     </p>
 </form>
 <table class="table">
@@ -58,38 +69,64 @@
 
         @foreach (var item in Model.datPhongs)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenNguoiDat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CMND)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SDT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TienDatCoc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ThoiGianNhanPhongDuKien)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ThoiGianTraPhongDuKien)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GetTrangThai.Name)
-            </td>
-            <td>
-                <a asp-action="DetailsDatPhong" asp-route-id="@item.Id">Chi Tiết</a> |
-                <a asp-action="NhanPhong" asp-route-id="@item.Id">Nhận Phòng</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNguoiDat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CMND)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TienDatCoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThoiGianNhanPhongDuKien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThoiGianTraPhongDuKien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GetTrangThai.Name)
+                </td>
+                <td>
+                    @if (item.GetTrangThai.Id == 1)
+                    {
+                        <a asp-action="DetailsDatPhong" asp-route-id="@item.Id" class="btn btn-outline-primary">Nhận Phòng</a>
+                    }
+                    @if (item.GetTrangThai.Id == 2)
+                    {
+                        <a asp-action="ThanhToan" asp-route-id="@item.Id"class="btn btn-outline-danger">Thanh Toán</a>
+                    }
+
+                </td>
+            </tr>
         }
     </tbody>
 </table>
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xác nhận thành công</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Đã nhận phòng
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               
+            </div>
+        </div>
+    </div>
+</div>
 

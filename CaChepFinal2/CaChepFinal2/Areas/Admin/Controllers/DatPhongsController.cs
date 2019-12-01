@@ -59,8 +59,10 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,TenNguoiDat,Address,City,CMND,SDT,TienDatCoc,ThoiGianNhanPhongDuKien,ThoiGianTraPhongDuKien,TrangThaiId")] DatPhong datPhong)
         {
+
             if (ModelState.IsValid)
             {
+
                 _context.Add(datPhong);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -102,7 +104,9 @@ namespace CaChepFinal2.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(datPhong);
+                    var datPhongFromDB = await _context.datPhongs.FindAsync(datPhong.Id);
+                    datPhongFromDB.TrangThaiId = datPhong.TrangThaiId;
+                    _context.Update(datPhongFromDB);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

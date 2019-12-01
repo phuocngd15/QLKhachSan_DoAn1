@@ -18,10 +18,12 @@ namespace CaChepFinal2.Service
         {
             _context = context;
         }
-        public  void New(DatPhong dp)
+        public  int New(DatPhong dp)
         {
             _context.Add(dp);
             _context.SaveChangesAsync();
+            int id = dp.Id;
+          return id;
         }
         public  void Delete(int id)
         {

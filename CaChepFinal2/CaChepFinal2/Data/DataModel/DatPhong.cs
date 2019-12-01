@@ -13,7 +13,7 @@ namespace CaChepFinal2.Data
        // public IEnumerable<TrangThaiDatPhong> OrderLines { get; set; }
 
         public string TenNguoiDat { get; set; }
-        public  HoaDon hoadon { get; set; }
+        public  HoaDon? hoadon { get; set; }
         public string Address { get; set; }
 
         public string City { get; set; }

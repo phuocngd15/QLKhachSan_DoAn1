@@ -7,7 +7,7 @@ namespace CaChepFinal2.Data
     {
         IQueryable<DatPhong> GetAll();
         DatPhong GetOneById(int? id);
-        void New(DatPhong DatPhong);
+        int New(DatPhong DatPhong);
         void Edit(DatPhong DatPhong);
         void Delete(int id);
 

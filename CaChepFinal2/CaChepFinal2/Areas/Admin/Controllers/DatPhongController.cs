@@ -16,6 +16,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
     public class DatPhongController : Controller
     {
         #region Service
+        private readonly ApplicationDbContext _dbContext;
 
         private readonly IDatPhong _datphongsv;
         private readonly IChiTietDichVuDatPhong _chiTietDichVuDatPhongsv;
@@ -32,8 +33,9 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
         #region contructor
 
-        public DatPhongController(IDatPhong datPhong, IChiTietDichVuDatPhong chiTietDichVuDatPhong, IChiTietPhongDatPhong chiTietPhongDatPhong, ITrangThai trangThai,IPhong phong,IDichVu dichVu)
+        public DatPhongController(ApplicationDbContext dbContext,IDatPhong datPhong, IChiTietDichVuDatPhong chiTietDichVuDatPhong, IChiTietPhongDatPhong chiTietPhongDatPhong, ITrangThai trangThai, IPhong phong, IDichVu dichVu)
         {
+            _dbContext = dbContext;
             _datphongsv = datPhong;
             _chiTietDichVuDatPhongsv = chiTietDichVuDatPhong;
             _chiTietPhongDatPhongsv = chiTietPhongDatPhong;
@@ -42,15 +44,15 @@ namespace CaChepFinal2.Areas.Admin.Controllers
             _dichVusv = dichVu;
             _DatPhongCart = new DatPhongCartVM()
             {
-                LsPhongDatPhongs =new List<Phong>(),
-                LsDichVuDatPhongs =new List<DichVu>(),
+                LsPhongDatPhongs = new List<Phong>(),
+                LsDichVuDatPhongs = new List<DichVu>(),
             };
             // _mapper = new Mapper();
         }
 
         #endregion
-        
-        
+
+
         // GET: DatPhong
         public ActionResult Index(DatPhongIndexVM datPhongIndex, string sortOrder)
         {
@@ -136,17 +138,53 @@ namespace CaChepFinal2.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
+          //  _dbContext.trangThais.Where(i=>i.Name)
 
             //public DatPhong DatPhong { get; set; }
+            ViewData["TrangThaiId"] = new SelectList(_dbContext.trangThais, "Id", "Name", datPhongDetails.GetDatPhong.TrangThaiId);
 
             return View(datPhongDetails);
         }
 
-        // button create dat phòng
+        [HttpPost]  //DetailsDatPhong  là chức năng nhận phòng
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DetailsDatPhong(int id, DatPhongDetails aDatPhongDetails)
+        {
+            if (id != aDatPhongDetails.GetDatPhong.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var datPhongFromDB = await _dbContext.datPhongs.FindAsync(aDatPhongDetails.GetDatPhong.Id);
+                    datPhongFromDB.TrangThaiId = 2;
+                    _dbContext.Update(datPhongFromDB);
+                    await _dbContext.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!DatPhongExists(aDatPhongDetails.GetDatPhong.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["TrangThaiId"] = new SelectList(_dbContext.trangThais, "Id", "Name", aDatPhongDetails.GetDatPhong.TrangThaiId);
+            return View(aDatPhongDetails);
+        }
+
+
         public ActionResult CreateDatPhong()
         {
-            
+
             List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
             if (lstsPhongCart == null) return View(_DatPhongCart);
             if (lstsPhongCart.Count > 0)
@@ -158,7 +196,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 }
             }
             List<int> lstsDichVuCart = HttpContext.Session.Get<List<int>>("ssDichVuCart");
-            if (lstsDichVuCart == null ) return View(_DatPhongCart);
+            if (lstsDichVuCart == null) return View(_DatPhongCart);
             if (lstsDichVuCart.Count > 0)
             {
                 foreach (int cartItem in lstsDichVuCart)
@@ -167,62 +205,92 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                     _DatPhongCart.LsDichVuDatPhongs.Add(oneDichVu);
                 }
             }
-            
+
             return View(_DatPhongCart);
 
         }
 
+        public IActionResult CreateDatPhongXacNhan()
+        {
+            return View();
+        }
 
-        // đưa tới form fill thông tin phiếu đặt phòng
-        //public IActionResult CreateDatPhongXacNhan()
-        //{
-        //    ViewData["TrangThaiId"] = new SelectList(_context.trangThais, "Id", "Id");
-        //    return View();
-        //}
-
-        // POST: Admin/DatPhongs/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //POST: Admin/DatPhongs/Create
+        //To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         // button create ở page xác nhận phiếu đặt phòng
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> CreateDatPhongXacNhan([Bind("Id,TenNguoiDat,Address,City,CMND,SDT,TienDatCoc,ThoiGianNhanPhongDuKien,ThoiGianTraPhongDuKien,TrangThaiId")] DatPhong datPhong)
-        //{
-        //    // đọc dữ liệu từ 2 session, và tiến hành ghi phiếu đặt phòng tương ứng
-        //    List<int> lstShoppingCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
-        //    List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssPhongCart");
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(datPhong);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    ViewData["TrangThaiId"] = new SelectList(_context.trangThais, "Id", "Id", datPhong.TrangThaiId);
-        //    return View(datPhong);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateDatPhongXacNhan([Bind("Id,TenNguoiDat,Address,City,CMND,SDT,TienDatCoc,ThoiGianNhanPhongDuKien,ThoiGianTraPhongDuKien")] DatPhong datPhong)
+        {
+            List<int> lstPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
+            List<int> lstDichVuCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
+            datPhong.TrangThaiId = 1;
+            if (ModelState.IsValid && lstPhongCart.Count !=0)
+            {
+                var id = _datphongsv.New(datPhong);
+                if (lstPhongCart.Count != 0)
+                {
+                    foreach (var item in lstPhongCart)
+                    {
+                        var row = new ChiTietPhongDatPhong
+                        {
+                            DatPhongId = id,
+                            PhongId = item
+                        };
+                        _chiTietPhongDatPhongsv.New(row);
+                    }
+                }
 
-        // POST: DatPhong/Create
-      
-       
+                if (lstDichVuCart.Count != 0)
+                {
+                    foreach (var item in lstDichVuCart)
+                    {
+                        var row = new ChiTietDichVuDatPhong
+                        {
+                            DatPhongId = id,
+                            DichVuId = item
+                        };
+                        _chiTietDichVuDatPhongsv.New(row);
+                    }
+                }
+                // await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            //ViewData["TrangThaiId"] = new SelectList(_context.trangThais, "Id", "Id", datPhong.TrangThaiId);
+            return View(datPhong);
+        }
+
+
+
+
+
+
+        public ActionResult ThanhToan(int? id)
+        {
+           
+            return View();
+        }
+
 
 
 
         #region Session Phong
 
-        public async  Task<IActionResult> IndexPhong()
+        public async Task<IActionResult> IndexPhong()
         {
             //var listPhong =  _phong.GetAll().Include(m => m.GetLoaiPhong.Name);
             var lsPhongs = _phong.GetAll().Include(p => p.GetLoaiPhong);
             return View(await lsPhongs.ToListAsync());
 
-        } 
+        }
         public async Task<IActionResult> DetailsPhong(int id)
         {
             var product = _phong.GetOneById(id);
 
             return View(product);
         }
-        
+
         [HttpPost, ActionName("DetailsPhong")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DetailsPost(int id)
@@ -306,7 +374,10 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         }
 
         #endregion
-
+        private bool DatPhongExists(int id)
+        {
+            return _dbContext.datPhongs.Any(e => e.Id == id);
+        }
     }
 
 }
