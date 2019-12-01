@@ -293,7 +293,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         }
 
         [HttpPost, ActionName("DetailsPhong")]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] // đc quyền chọn hàng thẳng mà nhỉ
         public async Task<IActionResult> DetailsPost(int id)
         {
             List<int> lstShoppingCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
@@ -307,6 +307,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
             return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
 
         }
+     
         public IActionResult RemovePhongFromCart(int id)
         {
             List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssPhongCart");
@@ -322,6 +323,19 @@ namespace CaChepFinal2.Areas.Admin.Controllers
             HttpContext.Session.Set("ssPhongCart", lstCartItems);
             //return RedirectToAction();
             return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
+        }
+        public IActionResult AddPhongFromCart(int id)
+        {
+            List<int> lstShoppingCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
+            if (lstShoppingCart == null)
+            {
+                lstShoppingCart = new List<int>();
+            }
+            lstShoppingCart.Add(id);
+            HttpContext.Session.Set("ssPhongCart", lstShoppingCart);
+
+            return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
+            
         }
 
         #endregion
@@ -354,9 +368,11 @@ namespace CaChepFinal2.Areas.Admin.Controllers
             HttpContext.Session.Set("ssDichVuCart", lsDichvuCart);
 
             return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
-            // return RedirectToAction();
+            return RedirectToAction();
 
         }
+
+        // old add
         public IActionResult RemoveDVFromCart(int id)
         {
             List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssDichVuCart");
@@ -370,6 +386,19 @@ namespace CaChepFinal2.Areas.Admin.Controllers
             }
 
             HttpContext.Session.Set("ssDichVuCart", lstCartItems);
+            // return RedirectToAction();
+            return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
+        }
+      //  New add
+        public IActionResult AddDVFromCart(int id)
+        {
+            List<int> lsDichvuCart = HttpContext.Session.Get<List<int>>("ssDichVuCart");
+            if (lsDichvuCart == null)
+            {
+                lsDichvuCart = new List<int>();
+            }
+            lsDichvuCart.Add(id);
+            HttpContext.Session.Set("ssDichVuCart", lsDichvuCart);
             // return RedirectToAction();
             return RedirectToAction("CreateDatPhong", "DatPhong", new { area = "Admin" });
         }
