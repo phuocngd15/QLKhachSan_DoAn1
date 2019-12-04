@@ -25,7 +25,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 LsDichVuDatPhongs = new List<DichVu>(),
             };
         }
-            public IActionResult Index()
+        public IActionResult Index()
         {
             List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
             if (lstsPhongCart == null) return View(_DatPhongCart);
@@ -50,12 +50,102 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
             return View(_DatPhongCart);
         }
-            public async Task<IActionResult> GetListPhong()
-            {
-                //var listPhong =  _phong.GetAll().Include(m => m.GetLoaiPhong.Name);
-                var lsPhongs = _Context.Phongs.Include(p => p.LoaiPhong);
-            return RedirectToAction("Index", "Phongs", new { area = "Admin" });
+        public async Task<IActionResult> GetListPhong()
+        {
+            //var listPhong =  _phong.GetAll().Include(m => m.GetLoaiPhong.Name);
+            var lsPhongs = _Context.Phongs.Include(p => p.LoaiPhong);
+            return RedirectToAction("Index", "GetListDatPhongs", new { area = "Admin" });
 
         }
+        public IActionResult RemovePhongFromCart(int id)
+        {
+            List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssPhongCart");
+
+            if (lstCartItems.Count > 0)
+            {
+                if (lstCartItems.Contains(id))
+                {
+                    lstCartItems.Remove(id);
+                }
+            }
+
+            HttpContext.Session.Set("ssPhongCart", lstCartItems);
+            //return RedirectToAction();
+            return RedirectToAction("Index", "DatPhongCart", new { area = "Admin" });
+        }
+
+
+
+        public async Task<IActionResult> GetListDichVu()
+        {
+            //  var lsDichVus = _dichVusv.GetAll().Include(p => p.GetLoaiDV);
+            var lsPhongs = _Context.Phongs.Include(p => p.LoaiPhong);
+            return RedirectToAction("Index", "GetListDichVu", new { area = "Admin" });
+        }
+        public IActionResult RemoveDVFromCart(int id)
+        {
+            List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssDichVuCart");
+
+            if (lstCartItems.Count > 0)
+            {
+                if (lstCartItems.Contains(id))
+                {
+                    lstCartItems.Remove(id);
+                }
+            }
+
+            HttpContext.Session.Set("ssDichVuCart", lstCartItems);
+            // return RedirectToAction();
+            return RedirectToAction("Index", "DatPhongCart", new { area = "Admin" });
+        }
+
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> XacNhanDatPhong(DatPhongCartVM ab)
+        {
+            if (ModelState.IsValid)
+            {
+                // lấy đc id vừa add vào db : đã lấy đc
+                _Context.Add(ab.newDatPhong);
+                await _Context.SaveChangesAsync();
+                int newDatPhongId = ab.newDatPhong.Id;
+                var soDong = (int)(ab.newDatPhong.ThoiGianTraPhongDuKien.Date - ab.newDatPhong.ThoiGianNhanPhongDuKien.Date)
+                    .TotalDays;
+
+                // list Id Phong
+                List<int> lstsPhongCart = HttpContext.Session.Get<List<int>>("ssPhongCart");
+
+
+                // xác định số dòng cần thêm cho mỗi phòng
+                // 
+                for (int j = 0; j < soDong; j++)
+                {
+                    var thoiGianinChiTietDatPhong = ab.newDatPhong.ThoiGianTraPhongDuKien.Date;
+
+                    foreach (var i in lstsPhongCart)
+                    {
+                        var objChiTietDatPhong = new ChiTietDatPhong
+                        {
+                            DatPhongId = newDatPhongId,
+                            PhongId = i,
+                            TrangThaiId = 1,
+                            ThoiGian = thoiGianinChiTietDatPhong
+                        };
+                        thoiGianinChiTietDatPhong.AddDays(1);
+                        _Context.Add(objChiTietDatPhong);
+                        await _Context.SaveChangesAsync();
+                    }
+                    
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction("Index", "DatPhongs", new { area = "Admin" });
+        }
     }
+
 }

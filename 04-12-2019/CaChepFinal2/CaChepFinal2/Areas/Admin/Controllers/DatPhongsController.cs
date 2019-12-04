@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CaChepFinal2.Data;
 using CaChepFinal2.Data.DataModel;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace CaChepFinal2.Areas.Admin.Controllers
 {
@@ -22,7 +23,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         }
 
         // GET: Admin/DatPhongs
-        public async Task<IActionResult> Index(ReservationIndexModel reservation, string sortOrder)
+        public  IActionResult Index(ReservationIndexModel reservation, string sortOrder)
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateNhanSortParm"] = sortOrder == "DateNhan" ? "datenhan_desc" : "DateNhan";
@@ -87,21 +88,23 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         }
 
         // GET: Admin/DatPhongs/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public DatPhongDetailsMD OnetDatPhongDetialsMd { get; set; }
+        private int? idphieudatphong { get; set; }
+        public  IActionResult Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var datPhongDetails = new DatPhongDetailsMD
+            OnetDatPhongDetialsMd = new DatPhongDetailsMD
             {
                 DatPhong = _context.DatPhongs.Find(id),
-                ChiTietDatPhongs = _context.ChiTietDatPhongs.Where(i=>i.DatPhongId==id).Include(i=>i.DatPhong).Include(c=>c.Phong).Include(b=>b.TrangThai).OrderBy(d=>d.ThoiGian.Date).ToList(),
+                ChiTietDatPhongs = _context.ChiTietDatPhongs.Where(a=>a.DatPhongId==id).Include(b=>b.DatPhong).Include(c=>c.Phong).Include(d=>d.TrangThai).OrderBy(f=>f.ThoiGian.Date).ToList(),
                 ChiTietDichVuDatPhongs = _context.ChiTietDichVuDatPhongs.Where(i=>i.DatPhongId==id).Include(i=>i.DichVu).ToList(),
 
             };
-            if (datPhongDetails.DatPhong == null)
+            if (OnetDatPhongDetialsMd.DatPhong == null)
             {
                 return NotFound();
             }
@@ -109,28 +112,33 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
             //public DatPhong DatPhong { get; set; }
 
-            return View(datPhongDetails);
+            return View(OnetDatPhongDetialsMd);
             
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Details(int id,DatPhongDetailsMD ab)
-        {
+        public async Task<IActionResult> Details(int id,DatPhongDetailsMD abfromView)
+        {// id này lưu phongid vì nhận từng phòng.
             if (ModelState.IsValid)
             {
                 try
                 {
                     var listChiTietDatPhongFromDb =  _context.ChiTietDatPhongs
-                        .Where(i=>i.DatPhongId==ab.DatPhong.Id && i.PhongId==id
+                        .Where(i=>i.DatPhongId== abfromView.DatPhong.Id && i.PhongId==id
                                   && i.ThoiGian >=DateTime.Today.Date)
                         .ToList();
                     foreach (var i in listChiTietDatPhongFromDb)
                     {
-                        if(i.TrangThaiId==1 && i.TrangThai.Id !=3 )
-                            i.TrangThaiId = 2;
-                        else
+                        switch (i.TrangThaiId)
                         {
-                            i.TrangThaiId = 3;
+                            case 1: i.TrangThaiId = 2;
+                                break;
+                            case 2: i.TrangThaiId = 3;
+                                break;
+                            case 3:
+                                break;
+                            default:
+                                break;
                         }
                         _context.Update(i);
                         await _context.SaveChangesAsync();
@@ -139,7 +147,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DatPhongExists(ab.DatPhong.Id))
+                    if (!DatPhongExists(abfromView.DatPhong.Id))
                     {
                         return NotFound();
                     }
@@ -148,21 +156,19 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                         throw;
                     }
                 }
-                if(ab.ChiTietDatPhongs.Any(i=>i.TrangThai.Id==2))
-                    return RedirectToAction(nameof(Index));
-                else
-                {// chạy thẳng qua doccument luôn
-                   // return View("HoaDon",obj: hoadon);
-                }
+                // làm thanh toán: nếu thanh toán 
+                //if(ab.ChiTietDatPhongs.Any(i=>i.TrangThaiId==2))
+                //    return RedirectToAction(nameof(Details));
+                //else
+                //{// chạy thẳng qua doccument luôn
+                //   // return View("HoaDon",obj: hoadon);
+                //}
+                return RedirectToAction(nameof(Index));
             }
-
-            return View(ab);
+         
+            return RedirectToAction(nameof(Index));
 
         }
-
-
-
-
 
         // GET: Admin/DatPhongs/Create
         public IActionResult Create()

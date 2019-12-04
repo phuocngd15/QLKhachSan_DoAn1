@@ -86,10 +86,9 @@
         </tr>
     </thead>
     <tbody>
+        @*bị lỗi ở đây do đâu,  @foreach (var item in Model.ChiTietDatPhongs) *@
         @foreach (var item in Model.ChiTietDatPhongs)
         {
-
-
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Phong.Name)
@@ -101,28 +100,18 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ThoiGian)
                 </td>
-
-
                 <td>
                     @if (DateTime.Today.Date <= item.ThoiGian && DateTime.Today.Date >= Model.DatPhong.ThoiGianNhanPhongDuKien)
                     {
                         <div class="row">
                             <div class="col-md-4">
-                                <form asp-action="Details" asp-route-id="@item.PhongId">
+                                <form asp-area="Admin" asp-action="Details" asp-route-id="@item.PhongId"> 
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <input type="hidden" asp-for="DatPhong.Id" />
                                     <div class="form-group">
-                                        @if (item.TrangThai.Name == "Chưa Nhận")
+                                        @if (item.TrangThaiId == 1)
                                         {
                                             <input type="submit" value="Nhận Phòng" class="btn btn-outline-primary" />
-                                        }
-                                        else if(item.TrangThai.Name == "Đã Nhận")
-                                        {
-                                            <input type="submit" value="Thanh Toán" class="btn btn-outline-primary" />
-                                        }
-                                        else
-                                        {
-
                                         }
 
                                     </div>
@@ -130,15 +119,8 @@
                             </div>
                         </div>
                     }
-                    @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
                 </td>
-
             </tr>
-
-
-
         }
     </tbody>
 </table>

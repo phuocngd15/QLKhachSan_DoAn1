@@ -29,6 +29,12 @@ namespace CaChepFinal2
             paragraph.Inlines.Add(run);
 
             document.Save("Hello World.docx");
+            // reset database
+            /* update-database 00000000000000_CreateIdentitySchema
+        remove-migration
+        add-migration ver1
+        update-database
+         update-database*/
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
