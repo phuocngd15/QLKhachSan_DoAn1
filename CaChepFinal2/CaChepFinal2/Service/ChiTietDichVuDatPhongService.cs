@@ -3,6 +3,8 @@ using CaChepFinal2.Data;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using CaChepFinal2.Data.DataModel;
+
 namespace CaChepFinal2.Service
 {
     public class ChiTietDichVuDatPhongService : IChiTietDichVuDatPhong
@@ -31,19 +33,21 @@ namespace CaChepFinal2.Service
 
         public void Edit(ChiTietDichVuDatPhong dp)
         {
-            var model = _context.ChiTietDichVuDatPhongs.First(f => f.Id == dp.Id);
-            _context.Entry<ChiTietDichVuDatPhong>(model).State = EntityState.Detached;
-            _context.Update(dp);
-            _context.SaveChangesAsync();
+            //////var model = _context.ChiTietDichVuDatPhongs.First(f => f.Id == dp.Id);
+            ////_context.Entry<ChiTietDichVuDatPhong>(model).State = EntityState.Detached;
+            //_context.Update(dp);
+            //_context.SaveChangesAsync();
         }
         public IQueryable<ChiTietDichVuDatPhong> GetAll()
         {
-            return _context.ChiTietDichVuDatPhongs.Include(c => c.GetDatPhong).Include(c => c.GetDichVu); ;
+            return _context.ChiTietDichVuDatPhongs.Include(c => c.DatPhong).Include(c => c.DichVu); ;
         }
 
         public ChiTietDichVuDatPhong GetOneById(int? id)
         {
-            return GetAll().FirstOrDefault(dp => dp.Id == id);
+            //return GetAll().FirstOrDefault(dp => dp.Id == id);
+            throw new NotImplementedException();
+
         }
         public IQueryable<ChiTietDichVuDatPhong> GetByIDPhieuDatPhong(int? id)
         {

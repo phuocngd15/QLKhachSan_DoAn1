@@ -37,10 +37,37 @@
     <Compile Remove="Data\Migrations\20191126053053_ver2.Designer.cs" />
     <Compile Remove="Data\Migrations\20191201041338_ver222.cs" />
     <Compile Remove="Data\Migrations\20191201041338_ver222.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191203091810_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191203091810_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191203092346_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191203092346_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191203111003_ver2.cs" />
+    <Compile Remove="Data\Migrations\20191203111003_ver2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191203111645_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191203111645_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191203174126_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191203174126_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191204044409_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191204044409_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191204060748_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191204060748_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191204061926_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191204061926_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191204064107_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191204064107_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191204064451_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191204064451_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191204081740_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191204081740_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191204224942_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191204224942_ver1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191204230819_ver1.cs" />
+    <Compile Remove="Data\Migrations\20191204230819_ver1.Designer.cs" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <PackageReference Include="GemBox.Document" Version="31.0.0.1078" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
@@ -56,7 +83,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
-    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="17.3.0.29" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="17.3.0.30" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="17.3.0.31" />
+    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="17.3.0.30" />
   </ItemGroup>
 
 
@@ -66,7 +95,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="wwwroot\images\RoomImages\" />
   </ItemGroup>
 

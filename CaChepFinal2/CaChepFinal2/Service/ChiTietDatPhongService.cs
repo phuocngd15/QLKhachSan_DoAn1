@@ -3,6 +3,8 @@ using CaChepFinal2.Data;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using CaChepFinal2.Data.DataModel;
+
 namespace CaChepFinal2.Service
 {
     public class ChiTietDatPhongService : IChiTietDatPhong
@@ -13,41 +15,30 @@ namespace CaChepFinal2.Service
         {
             _context = context;
         }
-        public   void New(ChiTietPhongDatPhong dp)
+
+        public void Delete(int id)
         {
-            _context.Add(dp);
-            _context.SaveChangesAsync();
-        }
-        public  void Delete(int id)
-        {
-            var dp = GetOneById(id);
-            if (dp == null)
-            {
-                throw new ArgumentException();
-            }
-            _context.Remove(dp);
-            _context.SaveChangesAsync();
+            throw new NotImplementedException();
         }
 
-        public void Edit(ChiTietPhongDatPhong dp)
+        public void Edit(ChiTietDatPhong obj)
         {
-            var model = _context.ChiTietPhongDatPhongs.First(f => f.Id == dp.Id);
-            _context.Entry<ChiTietPhongDatPhong>(model).State = EntityState.Detached;
-            _context.Update(dp);
-            _context.SaveChangesAsync();
-        }
-        public IQueryable<ChiTietPhongDatPhong> GetAll()
-        {
-            return _context.ChiTietPhongDatPhongs;
+            throw new NotImplementedException();
         }
 
-        public ChiTietPhongDatPhong GetOneById(int? id)
+        public IQueryable<ChiTietDatPhong> GetAll()
         {
-            return GetAll().FirstOrDefault(dp => dp.Id == id);
+            throw new NotImplementedException();
         }
-        public IQueryable<ChiTietPhongDatPhong> GetByIDPhieuDatPhong(int? id)
+
+        public ChiTietDatPhong GetOneById(int? id)
         {
-            return GetAll().Where(dp => dp.DatPhongId == id);
+            throw new NotImplementedException();
+        }
+
+        public void New(ChiTietDatPhong obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

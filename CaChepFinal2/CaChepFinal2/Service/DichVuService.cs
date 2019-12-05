@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CaChepFinal2.Data.DataModel;
+
 namespace CaChepFinal2.Service
 {
     public class DichVuService : IDichVu
@@ -31,15 +33,15 @@ namespace CaChepFinal2.Service
 
 		public  void Edit(DichVu dv)
         {
-            var model = _context.dichVus.First(f => f.Id == dv.Id);
+            var model = _context.DichVus.First(f => f.Id == dv.Id);
             _context.Entry<DichVu>(model).State = EntityState.Detached;
             _context.Update(dv);
             _context.SaveChangesAsync();
         }
 		public IQueryable<DichVu> GetAll()
         {
-            return _context.dichVus
-                .Include(dv => dv.GetLoaiDV );
+            return _context.DichVus
+                .Include(dv => dv.LoaiDv);
         }
 
         public DichVu GetOneById(int? id)
@@ -54,16 +56,16 @@ namespace CaChepFinal2.Service
         }
          public IQueryable<DichVu> SearchByName(string dv)
         {
-            return _context.dichVus.Where(d=>d.Name.Contains(dv));
+            return _context.DichVus.Where(d=>d.Name.Contains(dv));
            
         }
         public IQueryable<DichVu> getLDatPhongByCMND(string CMND)
         {
-            return _context.dichVus;
+            return _context.DichVus;
         }
         public IQueryable<DichVu> getLDatPhongBySDT(string SDT)
         {
-            return _context.dichVus;
+            return _context.DichVus;
         }
     }
 }

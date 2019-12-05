@@ -1,13 +1,27 @@
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace CaChepFinal2.Data
+namespace CaChepFinal2.Data.DataModel
 {
-    public class LoaiPhong
+    public interface ILoaiPhong
     {
+        IQueryable<LoaiPhong> GetAll();
+        LoaiPhong GetOneById(int? id);
+        void New(LoaiPhong LoaiPhong);
+        void Edit(LoaiPhong LoaiPhong);
+        void Delete(int id);
+    }
+    public  class LoaiPhong
+    {
+        public LoaiPhong()
+        {
+            Phongs = new HashSet<Phong>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string ImageUrl { get; set; }
-        public IEnumerable<Phong> phongs { get; set; }
+
+        public virtual ICollection<Phong> Phongs { get; set; }
     }
 }

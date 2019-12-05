@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using CaChepFinal2.Data;
+using CaChepFinal2.Data.DataModel;
 using CaChepFinal2.Service;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,17 +34,14 @@ namespace CaChepFinal2
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+                   //     services.AddMvc(options => options.EnableEndpointRouting = false);
 
-            services.AddTransient<IChiTietDichVuDatPhong, ChiTietDichVuDatPhongService>();
-            services.AddTransient<IChiTietPhongDatPhong, ChiTietPhongDatPhongService>();
-            services.AddTransient<IDatPhong, DatPhongService>();
-            services.AddTransient<IDichVu, DichVuService>();
-            services.AddTransient<IHoaDon, HoaDonService>();
-            services.AddTransient<ILoaiDv, LoaiDvService>();
-            services.AddTransient<ILoaiPhong, LoaiPhongService>();
-            services.AddTransient<IPhong, PhongService>();
-            services.AddTransient<ITrangThaiDatPhong, TrangThaiDatPhongService>();
-            services.AddTransient<ITrangThai, TrangThaiService>();
+            //services.AddTransient<IChiTietDichVuDatPhong, ChiTietDichVuDatPhongService>();
+            //services.AddTransient<IDatPhong, DatPhongService>();
+            //services.AddTransient<ILoaiDichVu, LoaiDvService>();
+            //services.AddTransient<ILoaiPhong, LoaiPhongService>();
+            //services.AddTransient<IPhong, PhongService>();
+            //services.AddTransient<ITrangThai, TrangThaiService>();
            
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -82,8 +80,15 @@ namespace CaChepFinal2
                 endpoints.MapControllerRoute(
                     name: "areas",
                     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
+       // pattern:  "{controller=Document}/{action=Create}/{id?}");
                 endpoints.MapRazorPages();
             });
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Document}/{action=Create}/{id?}");
+            //});
         }
     }
 }

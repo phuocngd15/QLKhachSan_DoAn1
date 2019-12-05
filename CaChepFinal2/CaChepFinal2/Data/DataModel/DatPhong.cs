@@ -1,43 +1,55 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
-namespace CaChepFinal2.Data
+namespace CaChepFinal2.Data.DataModel
 {
-    public class DatPhong
+    public interface  IDatPhong
     {
+        IQueryable<DatPhong> GetAll();
+        DatPhong GetOneById(int? id);
+        int New(DatPhong DatPhong);
+        void Edit(DatPhong DatPhong);
+        void Delete(int id);
+    }
+
+    public  class DatPhong
+    {
+        public DatPhong()
+        {
+            ChiTietDatPhong = new HashSet<ChiTietDatPhong>();
+            ChiTietDichVuDatPhong = new HashSet<ChiTietDichVuDatPhong>();
+        }
+
         public int Id { get; set; }
-
-        public IEnumerable<ChiTietPhongDatPhong> chiTietDatPhongsLine { get; set; }
-       // public IEnumerable<TrangThaiDatPhong> OrderLines { get; set; }
-
+        [Display(Name = "Họ và Tên")]
         public string TenNguoiDat { get; set; }
-        public  HoaDon? hoadon { get; set; }
+        [Display(Name = "Địa Chỉ")]
         public string Address { get; set; }
+        [Display(Name = "CMND")]
+        public string Cmnd { get; set; }
+        [Display(Name = "SĐT")]
+        public string Sdt { get; set; }
 
-        public string City { get; set; }
-
-        public string CMND { get; set; }
-        public string SDT { get; set; }
-
+        [Column(TypeName = "Money")]
+        [Display(Name = "Tiền Đặt Cọc")]
         public decimal TienDatCoc { get; set; }
-
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "ThoiGianNhan")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "Thời Gian Nhận")]
         public DateTime ThoiGianNhanPhongDuKien { get; set; }
-
-         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-         [Display(Name = "ThoiGianTra")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "Thời Gian Trả")]
         public DateTime ThoiGianTraPhongDuKien { get; set; }
+        [Column(TypeName = "Money")]
+        [Display(Name = "Tổng Tiền")]
+        public decimal TongTien { get; set; }
 
-       // public string UserId { get; set; } // nguoi dat phong
+        public int? AccoutId { get; set; }
+        public virtual Account Account { get; set; }
 
-        public int TrangThaiId { get; set; }
-        public virtual TrangThai GetTrangThai { get; set; }
-
-       // public ApplicationUser User { get; set; }
+        public virtual ICollection<ChiTietDatPhong> ChiTietDatPhong { get; set; }
+        public virtual ICollection<ChiTietDichVuDatPhong> ChiTietDichVuDatPhong { get; set; }
     }
 }

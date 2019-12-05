@@ -19,7 +19,172 @@ namespace CaChepFinal2.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CaChepFinal2.Data.ChiTietDichVuDatPhong", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.ChiTietDatPhong", b =>
+                {
+                    b.Property<int>("DatPhongId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PhongId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ThoiGian")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TrangThaiId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DatPhongId", "PhongId", "ThoiGian");
+
+                    b.HasIndex("PhongId");
+
+                    b.HasIndex("TrangThaiId");
+
+                    b.ToTable("ChiTietDatPhongs");
+
+                    b.HasData(
+                        new
+                        {
+                            DatPhongId = 1,
+                            PhongId = 1,
+                            ThoiGian = new DateTime(2019, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 3
+                        },
+                        new
+                        {
+                            DatPhongId = 1,
+                            PhongId = 2,
+                            ThoiGian = new DateTime(2019, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 3
+                        },
+                        new
+                        {
+                            DatPhongId = 1,
+                            PhongId = 1,
+                            ThoiGian = new DateTime(2019, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 3
+                        },
+                        new
+                        {
+                            DatPhongId = 1,
+                            PhongId = 2,
+                            ThoiGian = new DateTime(2019, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 3
+                        },
+                        new
+                        {
+                            DatPhongId = 1,
+                            PhongId = 1,
+                            ThoiGian = new DateTime(2019, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 3
+                        },
+                        new
+                        {
+                            DatPhongId = 1,
+                            PhongId = 2,
+                            ThoiGian = new DateTime(2019, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 3
+                        },
+                        new
+                        {
+                            DatPhongId = 2,
+                            PhongId = 3,
+                            ThoiGian = new DateTime(2019, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 2,
+                            PhongId = 4,
+                            ThoiGian = new DateTime(2019, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 2,
+                            PhongId = 3,
+                            ThoiGian = new DateTime(2019, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 2,
+                            PhongId = 4,
+                            ThoiGian = new DateTime(2019, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 2,
+                            PhongId = 3,
+                            ThoiGian = new DateTime(2019, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 2,
+                            PhongId = 4,
+                            ThoiGian = new DateTime(2019, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 2,
+                            PhongId = 3,
+                            ThoiGian = new DateTime(2019, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 2,
+                            PhongId = 4,
+                            ThoiGian = new DateTime(2019, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 3,
+                            PhongId = 5,
+                            ThoiGian = new DateTime(2019, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 3,
+                            PhongId = 6,
+                            ThoiGian = new DateTime(2019, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 3,
+                            PhongId = 5,
+                            ThoiGian = new DateTime(2019, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 3,
+                            PhongId = 6,
+                            ThoiGian = new DateTime(2019, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 3,
+                            PhongId = 5,
+                            ThoiGian = new DateTime(2019, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        },
+                        new
+                        {
+                            DatPhongId = 3,
+                            PhongId = 6,
+                            ThoiGian = new DateTime(2019, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TrangThaiId = 1
+                        });
+                });
+
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.ChiTietDichVuDatPhong", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -31,9 +196,6 @@ namespace CaChepFinal2.Data.Migrations
 
                     b.Property<int>("DichVuId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("GiaTien")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SoLuong")
                         .HasColumnType("int");
@@ -52,7 +214,6 @@ namespace CaChepFinal2.Data.Migrations
                             Id = 1,
                             DatPhongId = 1,
                             DichVuId = 1,
-                            GiaTien = 0m,
                             SoLuong = 2
                         },
                         new
@@ -60,74 +221,52 @@ namespace CaChepFinal2.Data.Migrations
                             Id = 2,
                             DatPhongId = 1,
                             DichVuId = 2,
-                            GiaTien = 0m,
                             SoLuong = 2
                         });
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.ChiTietPhongDatPhong", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.ChuongTrinh", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DatPhongId")
-                        .HasColumnType("int");
+                    b.Property<bool>("IsTang")
+                        .HasColumnType("bit");
 
-                    b.Property<decimal>("GiaTienMotNgay")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("TenChuongTrinh")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PhongId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TongSoNgay")
+                    b.Property<int>("TiLeThayDoiGia")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DatPhongId");
-
-                    b.HasIndex("PhongId");
-
-                    b.ToTable("ChiTietPhongDatPhongs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DatPhongId = 1,
-                            GiaTienMotNgay = 150000m,
-                            PhongId = 1,
-                            TongSoNgay = 3
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DatPhongId = 1,
-                            GiaTienMotNgay = 150000m,
-                            PhongId = 2,
-                            TongSoNgay = 2
-                        });
+                    b.ToTable("ChuongTrinhs");
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.DatPhong", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.DatPhong", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AccountId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("AccoutId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CMND")
+                    b.Property<string>("Cmnd")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SDT")
+                    b.Property<string>("Sdt")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenNguoiDat")
@@ -140,57 +279,57 @@ namespace CaChepFinal2.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("TienDatCoc")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("Money");
 
-                    b.Property<int>("TrangThaiId")
-                        .HasColumnType("int");
+                    b.Property<decimal>("TongTien")
+                        .HasColumnType("Money");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TrangThaiId");
+                    b.HasIndex("AccountId");
 
-                    b.ToTable("datPhongs");
+                    b.ToTable("DatPhongs");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             Address = "149",
-                            CMND = "281212911",
-                            SDT = "0937536545",
+                            Cmnd = "281212911",
+                            Sdt = "0937536545",
                             TenNguoiDat = "Nguyen Phuoc",
                             ThoiGianNhanPhongDuKien = new DateTime(2019, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ThoiGianTraPhongDuKien = new DateTime(2019, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TienDatCoc = 0m,
-                            TrangThaiId = 1
+                            TienDatCoc = 50000m,
+                            TongTien = 7000000m
                         },
                         new
                         {
                             Id = 2,
                             Address = "149",
-                            CMND = "281212910",
-                            SDT = "01264079970",
+                            Cmnd = "281212910",
+                            Sdt = "01264079973",
                             TenNguoiDat = "Nguyen Truc",
-                            ThoiGianNhanPhongDuKien = new DateTime(2019, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ThoiGianTraPhongDuKien = new DateTime(2019, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TienDatCoc = 0m,
-                            TrangThaiId = 1
+                            ThoiGianNhanPhongDuKien = new DateTime(2019, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ThoiGianTraPhongDuKien = new DateTime(2019, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TienDatCoc = 50000m,
+                            TongTien = 4000000m
                         },
                         new
                         {
                             Id = 3,
                             Address = "22",
-                            CMND = "281212915",
-                            SDT = "01264079970",
-                            TenNguoiDat = "Nguyen Truc2",
-                            ThoiGianNhanPhongDuKien = new DateTime(2019, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ThoiGianTraPhongDuKien = new DateTime(2019, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TienDatCoc = 0m,
-                            TrangThaiId = 2
+                            Cmnd = "281212915",
+                            Sdt = "01626364802",
+                            TenNguoiDat = "Phan Tuyen",
+                            ThoiGianNhanPhongDuKien = new DateTime(2019, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ThoiGianTraPhongDuKien = new DateTime(2019, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TienDatCoc = 50000m,
+                            TongTien = 5000000m
                         });
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.DichVu", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.DichVu", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -200,33 +339,34 @@ namespace CaChepFinal2.Data.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("InStock")
+                    b.Property<int?>("InStock")
                         .HasColumnType("int");
 
-                    b.Property<int>("LoaiDVId")
+                    b.Property<int>("LoaiDvid")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("Money");
 
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LoaiDVId");
+                    b.HasIndex("LoaiDvid");
 
-                    b.ToTable("dichVus");
+                    b.ToTable("DichVus");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             InStock = 100,
-                            LoaiDVId = 1,
+                            LoaiDvid = 1,
                             Name = "NuocTangLuc",
                             Price = 15000m
                         },
@@ -234,66 +374,33 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 2,
                             InStock = 100,
-                            LoaiDVId = 1,
+                            LoaiDvid = 1,
                             Name = "NuocSuoi",
                             Price = 15000m
                         });
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.DichVuCartItem", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.HinhPhong", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("HinhId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DichVuCartId")
+                    b.Property<string>("HinhUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DichVuId")
+                    b.Property<int>("PhongId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("HinhId");
 
-                    b.HasIndex("DichVuId");
+                    b.HasIndex("PhongId");
 
-                    b.ToTable("dichVuCartItems");
+                    b.ToTable("HinhPhongs");
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.HoaDon", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("DatPhongId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TenNguoiTao")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ThoiGianTao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("TongTien")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DatPhongId")
-                        .IsUnique();
-
-                    b.ToTable("hoaDons");
-                });
-
-            modelBuilder.Entity("CaChepFinal2.Data.LoaiDV", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.LoaiDichVu", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -303,15 +410,13 @@ namespace CaChepFinal2.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("loaiDVs");
+                    b.ToTable("LoaiDichVus");
 
                     b.HasData(
                         new
@@ -328,25 +433,20 @@ namespace CaChepFinal2.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.LoaiPhong", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.LoaiPhong", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("loaiPhongs");
+                    b.ToTable("LoaiPhongs");
 
                     b.HasData(
                         new
@@ -361,36 +461,36 @@ namespace CaChepFinal2.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.Phong", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.Phong", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ChuongTrinhId")
+                        .HasColumnType("int");
 
-                    b.Property<int>("LoaiPhongId")
+                    b.Property<int?>("LoaiPhongId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("Money");
 
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TrangThai")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("ChuongTrinhId");
 
                     b.HasIndex("LoaiPhongId");
 
-                    b.ToTable("phongs");
+                    b.ToTable("Phongs");
 
                     b.HasData(
                         new
@@ -399,7 +499,7 @@ namespace CaChepFinal2.Data.Migrations
                             LoaiPhongId = 1,
                             Name = "A101",
                             Price = 150000m,
-                            TrangThai = 1
+                            ShortDescription = "notthing"
                         },
                         new
                         {
@@ -407,7 +507,7 @@ namespace CaChepFinal2.Data.Migrations
                             LoaiPhongId = 1,
                             Name = "A102",
                             Price = 150000m,
-                            TrangThai = 1
+                            ShortDescription = "notthing"
                         },
                         new
                         {
@@ -415,19 +515,51 @@ namespace CaChepFinal2.Data.Migrations
                             LoaiPhongId = 2,
                             Name = "A103",
                             Price = 150000m,
-                            TrangThai = 1
+                            ShortDescription = "notthing"
                         },
                         new
                         {
                             Id = 4,
                             LoaiPhongId = 2,
                             Name = "A104",
-                            Price = 170000m,
-                            TrangThai = 1
+                            Price = 0m,
+                            ShortDescription = "notthing"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            LoaiPhongId = 1,
+                            Name = "A105",
+                            Price = 150000m,
+                            ShortDescription = "notthing"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            LoaiPhongId = 2,
+                            Name = "A106",
+                            Price = 150000m,
+                            ShortDescription = "notthing"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            LoaiPhongId = 2,
+                            Name = "A107",
+                            Price = 150000m,
+                            ShortDescription = "notthing"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            LoaiPhongId = 2,
+                            Name = "A108",
+                            Price = 150000m,
+                            ShortDescription = "notthing"
                         });
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.TrangThai", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.TrangThai", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -435,11 +567,12 @@ namespace CaChepFinal2.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("trangThais");
+                    b.ToTable("TrangThais");
 
                     b.HasData(
                         new
@@ -522,6 +655,10 @@ namespace CaChepFinal2.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
@@ -573,6 +710,8 @@ namespace CaChepFinal2.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -659,77 +798,88 @@ namespace CaChepFinal2.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.ChiTietDichVuDatPhong", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.Account", b =>
                 {
-                    b.HasOne("CaChepFinal2.Data.DatPhong", "GetDatPhong")
-                        .WithMany()
-                        .HasForeignKey("DatPhongId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.HasOne("CaChepFinal2.Data.DichVu", "GetDichVu")
-                        .WithMany()
-                        .HasForeignKey("DichVuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Account");
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.ChiTietPhongDatPhong", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.ChiTietDatPhong", b =>
                 {
-                    b.HasOne("CaChepFinal2.Data.DatPhong", "DatPhong")
-                        .WithMany("chiTietDatPhongsLine")
+                    b.HasOne("CaChepFinal2.Data.DataModel.DatPhong", "DatPhong")
+                        .WithMany("ChiTietDatPhong")
                         .HasForeignKey("DatPhongId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CaChepFinal2.Data.Phong", "Phong")
-                        .WithMany()
+                    b.HasOne("CaChepFinal2.Data.DataModel.Phong", "Phong")
+                        .WithMany("ChiTietDatPhong")
                         .HasForeignKey("PhongId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("CaChepFinal2.Data.DatPhong", b =>
-                {
-                    b.HasOne("CaChepFinal2.Data.TrangThai", "GetTrangThai")
-                        .WithMany("datPhongs")
+                    b.HasOne("CaChepFinal2.Data.DataModel.TrangThai", "TrangThai")
+                        .WithMany("ChiTietDatPhong")
                         .HasForeignKey("TrangThaiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.DichVu", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.ChiTietDichVuDatPhong", b =>
                 {
-                    b.HasOne("CaChepFinal2.Data.LoaiDV", "GetLoaiDV")
-                        .WithMany("dichVus")
-                        .HasForeignKey("LoaiDVId")
+                    b.HasOne("CaChepFinal2.Data.DataModel.DatPhong", "DatPhong")
+                        .WithMany("ChiTietDichVuDatPhong")
+                        .HasForeignKey("DatPhongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CaChepFinal2.Data.DataModel.DichVu", "DichVu")
+                        .WithMany("ChiTietDichVuDatPhong")
+                        .HasForeignKey("DichVuId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.DichVuCartItem", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.DatPhong", b =>
                 {
-                    b.HasOne("CaChepFinal2.Data.DichVu", "DichVu")
+                    b.HasOne("CaChepFinal2.Data.DataModel.Account", "Account")
                         .WithMany()
-                        .HasForeignKey("DichVuId");
+                        .HasForeignKey("AccountId");
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.HoaDon", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.DichVu", b =>
                 {
-                    b.HasOne("CaChepFinal2.Data.DatPhong", "GetDatPhong")
-                        .WithOne("hoadon")
-                        .HasForeignKey("CaChepFinal2.Data.HoaDon", "DatPhongId")
+                    b.HasOne("CaChepFinal2.Data.DataModel.LoaiDichVu", "LoaiDv")
+                        .WithMany("DichVus")
+                        .HasForeignKey("LoaiDvid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CaChepFinal2.Data.Phong", b =>
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.HinhPhong", b =>
                 {
-                    b.HasOne("CaChepFinal2.Data.LoaiPhong", "GetLoaiPhong")
-                        .WithMany("phongs")
+                    b.HasOne("CaChepFinal2.Data.DataModel.Phong", "Phong")
+                        .WithMany("HinhPhong")
+                        .HasForeignKey("PhongId")
+                        .HasConstraintName("FK_HinhPhong_Phongs")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CaChepFinal2.Data.DataModel.Phong", b =>
+                {
+                    b.HasOne("CaChepFinal2.Data.DataModel.ChuongTrinh", "ChuongTrinh")
+                        .WithMany("Phongs")
+                        .HasForeignKey("ChuongTrinhId")
+                        .HasConstraintName("FK_Phongs_ChuongTrinh");
+
+                    b.HasOne("CaChepFinal2.Data.DataModel.LoaiPhong", "LoaiPhong")
+                        .WithMany("Phongs")
                         .HasForeignKey("LoaiPhongId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasConstraintName("FK_Phongs_LoaiPhongs");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

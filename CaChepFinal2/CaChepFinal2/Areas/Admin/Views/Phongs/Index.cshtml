@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CaChepFinal2.Data.Phong>
+﻿@model IEnumerable<CaChepFinal2.Data.DataModel.Phong>
 
 @{
     ViewData["Title"] = "Index";
@@ -23,13 +23,10 @@
                 @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
+                @Html.DisplayNameFor(model => model.ChuongTrinh)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TrangThai)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GetLoaiPhong)
+                @Html.DisplayNameFor(model => model.LoaiPhong)
             </th>
             <th></th>
         </tr>
@@ -47,13 +44,10 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
+                @Html.DisplayFor(modelItem => item.ChuongTrinh.TenChuongTrinh)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TrangThai)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GetLoaiPhong.Id)
+                @Html.DisplayFor(modelItem => item.LoaiPhong.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

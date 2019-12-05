@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CaChepFinal2.Data.DataModel;
+
 namespace CaChepFinal2.Service
 {
     public class TrangThaiService : ITrangThai
@@ -19,7 +21,7 @@ namespace CaChepFinal2.Service
 
         public IQueryable<string> GetlistNameTrangThai()
         {
-            IQueryable<string> listName = from m in _context.trangThais
+            IQueryable<string> listName = from m in _context.TrangThais
                 orderby m.Name descending
                 select m.Name;
             return listName;

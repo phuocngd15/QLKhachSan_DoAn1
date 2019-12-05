@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CaChepFinal2.Data.DataModel;
+
 namespace CaChepFinal2.Service
 {
     public class PhongService : IPhong
@@ -17,53 +19,30 @@ namespace CaChepFinal2.Service
         {
             _context = context;
         }
-        public  void New(Phong dp)
+
+        public void Delete(int id)
         {
-            _context.Add(dp);
-              _context.SaveChangesAsync();
-        }
-        public  void Delete(int id)
-        {
-            var dp = GetOneById(id);
-            if (dp == null)
-            {
-                throw new ArgumentException();
-            }
-            _context.Remove(dp);
-            _context.SaveChangesAsync();
+            throw new NotImplementedException();
         }
 
-        public  void Edit(Phong dp)
+        public void Edit(LoaiPhong LoaiPhong)
         {
-            var model = _context.phongs.First(f => f.Id == dp.Id);
-            _context.Entry<Phong>(model).State = EntityState.Detached;
-            _context.Update(dp);
-             _context.SaveChangesAsync();
-        }
-        public IQueryable<Phong> GetAll()
-        {
-            return _context.phongs;
+            throw new NotImplementedException();
         }
 
-        public Phong GetOneById(int? id)
+        public IQueryable<LoaiPhong> GetAll()
         {
-            return GetAll().FirstOrDefault(dp => dp.Id == id);
+            throw new NotImplementedException();
         }
 
-
-        public IQueryable<Phong> SearchByName(string name)
+        public LoaiPhong GetOneById(int? id)
         {
-            return _context.phongs
-            .Where(d => d.Name.Contains(name));
-        }
-         public IQueryable<Phong> PriceDecs()
-        {
-            return _context.phongs.OrderByDescending(c=>c.Price);
-        }
-        public IQueryable<Phong> PriceIncre()
-        {
-            return _context.phongs.OrderBy(c=>c.Price).Include(c=>c.GetLoaiPhong);
+            throw new NotImplementedException();
         }
 
+        public void New(LoaiPhong LoaiPhong)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

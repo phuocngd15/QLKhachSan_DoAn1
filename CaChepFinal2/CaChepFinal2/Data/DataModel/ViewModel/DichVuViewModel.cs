@@ -8,6 +8,6 @@ namespace CaChepFinal2.Data.DataModel.ViewModel
     public class DichVuViewModel
     {
         public DichVu dichvus { get; set; }
-        public IEnumerable<LoaiDV> loaidichvus { get; set; }
+        public IEnumerable<LoaiDichVu> loaidichvus { get; set; }
     }
 }

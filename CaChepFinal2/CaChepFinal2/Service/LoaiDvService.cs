@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CaChepFinal2.Data.DataModel;
 
 namespace CaChepFinal2.Service
 {
-    public class LoaiDvService : ILoaiDv
+    public class LoaiDvService : ILoaiDichVu
     {
          private readonly ApplicationDbContext _context;
 
@@ -19,27 +20,27 @@ namespace CaChepFinal2.Service
             _context = context;
         }
 
-        void ILoaiDv.Delete(int id)
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        void ILoaiDv.Edit(LoaiDV LoaiDv)
+        public void Edit(LoaiDichVu LoaiDv)
         {
             throw new NotImplementedException();
         }
 
-        IQueryable<LoaiDV> ILoaiDv.GetAll()
+        public IQueryable<LoaiDichVu> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        LoaiDV ILoaiDv.GetOneById(int? id)
+        public LoaiDichVu GetOneById(int? id)
         {
             throw new NotImplementedException();
         }
 
-        void ILoaiDv.New(LoaiDV LoaiDv)
+        public void New(LoaiDichVu LoaiDv)
         {
             throw new NotImplementedException();
         }

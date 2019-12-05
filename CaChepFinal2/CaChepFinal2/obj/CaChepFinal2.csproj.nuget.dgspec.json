@@ -43,6 +43,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "GemBox.Document": {
+              "target": "Package",
+              "version": "[31.0.0.1078, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -83,9 +87,17 @@
               "target": "Package",
               "version": "[3.0.0, )"
             },
+            "Syncfusion.DocIO.Net.Core": {
+              "target": "Package",
+              "version": "[17.3.0.30, )"
+            },
             "Syncfusion.EJ2.AspNet.Core": {
               "target": "Package",
-              "version": "[17.3.0.29, )"
+              "version": "[17.3.0.31, )"
+            },
+            "Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows": {
+              "target": "Package",
+              "version": "[17.3.0.30, )"
             }
           },
           "imports": [

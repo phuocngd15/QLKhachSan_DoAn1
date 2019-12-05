@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CaChepFinal2.Data;
+using CaChepFinal2.Data.DataModel;
 
 namespace CaChepFinal2.Areas.Admin.Controllers
 {
@@ -22,7 +23,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         // GET: Admin/LoaiPhongs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.loaiPhongs.ToListAsync());
+            return View(await _context.LoaiPhongs.ToListAsync());
         }
 
         // GET: Admin/LoaiPhongs/Details/5
@@ -33,7 +34,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var loaiPhong = await _context.loaiPhongs
+            var loaiPhong = await _context.LoaiPhongs
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (loaiPhong == null)
             {
@@ -50,11 +51,10 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         }
 
         // POST: Admin/LoaiPhongs/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,ImageUrl")] LoaiPhong loaiPhong)
+        public async Task<IActionResult> Create([Bind("Id,Name")] LoaiPhong loaiPhong)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var loaiPhong = await _context.loaiPhongs.FindAsync(id);
+            var loaiPhong = await _context.LoaiPhongs.FindAsync(id);
             if (loaiPhong == null)
             {
                 return NotFound();
@@ -82,11 +82,9 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         }
 
         // POST: Admin/LoaiPhongs/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,ImageUrl")] LoaiPhong loaiPhong)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] LoaiPhong loaiPhong)
         {
             if (id != loaiPhong.Id)
             {
@@ -124,7 +122,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var loaiPhong = await _context.loaiPhongs
+            var loaiPhong = await _context.LoaiPhongs
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (loaiPhong == null)
             {
@@ -139,15 +137,15 @@ namespace CaChepFinal2.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var loaiPhong = await _context.loaiPhongs.FindAsync(id);
-            _context.loaiPhongs.Remove(loaiPhong);
+            var loaiPhong = await _context.LoaiPhongs.FindAsync(id);
+            _context.LoaiPhongs.Remove(loaiPhong);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LoaiPhongExists(int id)
         {
-            return _context.loaiPhongs.Any(e => e.Id == id);
+            return _context.LoaiPhongs.Any(e => e.Id == id);
         }
     }
 }
