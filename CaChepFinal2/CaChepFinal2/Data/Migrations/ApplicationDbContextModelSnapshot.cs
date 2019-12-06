@@ -440,8 +440,14 @@ namespace CaChepFinal2.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("HinhUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -470,6 +476,9 @@ namespace CaChepFinal2.Data.Migrations
 
                     b.Property<int?>("ChuongTrinhId")
                         .HasColumnType("int");
+
+                    b.Property<string>("HinhUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LoaiPhongId")
                         .HasColumnType("int");

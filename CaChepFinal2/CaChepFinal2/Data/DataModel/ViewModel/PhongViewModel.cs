@@ -9,5 +9,7 @@ namespace CaChepFinal2.Data.DataModel.ViewModel
     {
         public Phong phongs { get; set; }
         public IEnumerable<LoaiPhong> loaiphongs {get;set;}
+        public IEnumerable<ChuongTrinh> chuongtrinhs { get; set; }
+
     }
 }

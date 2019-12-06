@@ -1,4 +1,4 @@
-﻿@model CaChepFinal2.Data.DataModel.Phong
+﻿@model CaChepFinal2.Data.DataModel.ViewModel.PhongViewModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -13,39 +13,39 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.phongs.Name)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.phongs.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShortDescription)
+            @Html.DisplayNameFor(model => model.phongs.ShortDescription)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShortDescription)
+        <dd class = "col-sm-10">5
+            @Html.DisplayFor(model => model.phongs.ShortDescription)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.phongs.Price)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.phongs.Price)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ChuongTrinh)
+            @Html.DisplayNameFor(model => model.phongs.ChuongTrinh)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ChuongTrinh.TenChuongTrinh)
+            @Html.DisplayFor(model => model.phongs.ChuongTrinh.TenChuongTrinh)
         </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LoaiPhong)
+            @Html.DisplayNameFor(model => model.phongs.LoaiPhong)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LoaiPhong.Name)
+            @Html.DisplayFor(model => model.phongs.LoaiPhong.Name)
         </dd class>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="phongs.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
