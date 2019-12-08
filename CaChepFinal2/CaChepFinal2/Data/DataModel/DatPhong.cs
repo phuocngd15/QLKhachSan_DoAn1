@@ -44,7 +44,7 @@ namespace CaChepFinal2.Data.DataModel
         public DateTime ThoiGianTraPhongDuKien { get; set; }
         [Column(TypeName = "Money")]
         [Display(Name = "Tổng Tiền")]
-        public decimal TongTien { get; set; }
+        public decimal? TongTien { get; set; }
 
         public int? AccoutId { get; set; }
         public virtual Account Account { get; set; }

@@ -125,11 +125,11 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                         };
                         // nếu không tồn tại cùng ngày cùng tháng thì ghi vô
                         var IsTonTai = from m in _Context.ChiTietDatPhongs
-                            where m == objChiTietDatPhong
-                            select m;
-                        if(IsTonTai.Count() != 0)
+                                       where m == objChiTietDatPhong
+                                       select m;
+                        if (IsTonTai.Count() != 0)
                             break;
-                        _Context.ChiTietDatPhongs.Add(objChiTietDatPhong); 
+                        _Context.ChiTietDatPhongs.Add(objChiTietDatPhong);
                         await _Context.SaveChangesAsync();
                     }
                     thoiGianinChiTietDatPhong.AddDays(1);
@@ -140,17 +140,19 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 #region dichvu
 
                 List<int> lstsDichVuCart = HttpContext.Session.Get<List<int>>("ssDichVuCart");
-
-                foreach (var i in lstsDichVuCart)
+                if (lstsDichVuCart != null)
                 {
-                    var objChiTietDichVuDatPhong = new ChiTietDichVuDatPhong()
+                    foreach (var i in lstsDichVuCart)
                     {
-                        DatPhongId = newDatPhongId,
-                        DichVuId = i,
-                        SoLuong = 1 // đang test mặc định số lượng dịch vụ là 1;
-                    };
-                    _Context.ChiTietDichVuDatPhongs.Add(objChiTietDichVuDatPhong);
-                    await _Context.SaveChangesAsync();
+                        var objChiTietDichVuDatPhong = new ChiTietDichVuDatPhong()
+                        {
+                            DatPhongId = newDatPhongId,
+                            DichVuId = i,
+                            SoLuong = 1 // đang test mặc định số lượng dịch vụ là 1;
+                        };
+                        _Context.ChiTietDichVuDatPhongs.Add(objChiTietDichVuDatPhong);
+                        await _Context.SaveChangesAsync();
+                    }
                 }
                 #endregion
             }
