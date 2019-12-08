@@ -16,8 +16,7 @@ namespace CaChepFinal2.Data.DataModel
     }
     public class ChiTietDichVuDatPhong
     {
-        [Key]
-        public  int Id { get; set; }
+       
         public int DatPhongId { get; set; }
         public int DichVuId { get; set; }
         public int SoLuong { get; set; }
