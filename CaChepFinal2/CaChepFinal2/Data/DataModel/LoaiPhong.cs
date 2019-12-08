@@ -25,7 +25,7 @@ namespace CaChepFinal2.Data.DataModel
 
         [Display(Name = "Short Description")]
         public string ShortDescription { get; set; }
-        public string HinhUrl { get; set; }
+        public string? HinhUrl { get; set; }
 
 
         public virtual ICollection<Phong> Phongs { get; set; }

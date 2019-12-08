@@ -10,6 +10,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Cici Hotel</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/hover.css" />
+    <link href="~/css/all.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Raleway&display=swap" rel="stylesheet">
@@ -29,53 +32,28 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark fa-tools" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark " style="font-size: 18px;font:bold"asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="PhongCustomer" asp-action="IndexRoom">ROOM</a>
+                            <a class="nav-link text-dark "style="font-size: 18px;font:bold" asp-area="Customer" asp-controller="PhongCustomer" asp-action="IndexRoom">ROOM</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="LoaiPhongs" asp-action="Index">Loại phòng</a>
+                            <a class="nav-link text-dark" style="font-size: 18px;font:bold" asp-area="Admin" asp-controller="DatPhongs" asp-action="Index">Reservation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Phongs" asp-action="Index">Phòng</a>
+                            <div class="dropdown show">
+                                <a class="nav-link  text-dark hvr-float dropdown-toggle fas fa-tools fa-2x " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Phongs" asp-action="Index">Phòng</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="LoaiPhongs" asp-action="Index">Loại Phòng</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="DichVus" asp-action="Index">Dịch Vụ</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="LoaiDichVus" asp-action="Index">Loại Dịch Vụ</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="ChuongTrinhs" asp-action="Index">Chương Trình</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="TrangThais" asp-action="Index">Trạng Thái</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="LoaiDichVus" asp-action="Index">Loại dịch vụ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="DichVus" asp-action="Index">Dịch vụ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="DatPhongs" asp-action="Index">Phiếu đặt phòng</a>
-                        </li>
-
-                        @if (HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssPhongCart") != null)
-                        {
-                            <li style="color:white">
-                                <a class="nav-link">
-                                    <i class="fas fa-shopping-cart"></i> &nbsp;
-                                    @{
-                                        var count = HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssPhongCart").Count;
-                                        // count= count + HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssDichVuCart").Count;
-                                    }
-                                    (@count)
-                                </a>
-
-                            </li>
-
-                        }
-                        else
-                        {
-                            <li style="color:white">
-                                <a class="nav-link">
-                                    <i class="fas fa-shopping-cart"></i> &nbsp;
-                                    (0)
-                                </a>
-
-                            </li>
-
-                        }
+                       
                     </ul>
                 </div>
             </div>

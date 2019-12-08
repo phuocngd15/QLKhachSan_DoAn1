@@ -140,18 +140,21 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 #region dichvu
 
                 List<int> lstsDichVuCart = HttpContext.Session.Get<List<int>>("ssDichVuCart");
-
-                foreach (var i in lstsDichVuCart)
+                if (lstsDichVuCart != null)
                 {
-                    var objChiTietDichVuDatPhong = new ChiTietDichVuDatPhong()
+                    foreach (var i in lstsDichVuCart)
                     {
-                        DatPhongId = newDatPhongId,
-                        DichVuId = i,
-                        SoLuong = 1 // đang test mặc định số lượng dịch vụ là 1;
-                    };
-                    _Context.ChiTietDichVuDatPhongs.Add(objChiTietDichVuDatPhong);
-                    await _Context.SaveChangesAsync();
+                        var objChiTietDichVuDatPhong = new ChiTietDichVuDatPhong()
+                        {
+                            DatPhongId = newDatPhongId,
+                            DichVuId = i,
+                            SoLuong = 1 // đang test mặc định số lượng dịch vụ là 1;
+                        };
+                        _Context.ChiTietDichVuDatPhongs.Add(objChiTietDichVuDatPhong);
+                        await _Context.SaveChangesAsync();
+                    }
                 }
+
                 #endregion
             }
             return RedirectToAction("Index", "DatPhongs", new { area = "Admin" });
