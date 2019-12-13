@@ -11,9 +11,11 @@ using Microsoft.AspNetCore.Hosting;
 using CaChepFinal2.Data.DataModel.ViewModel;
 using System.IO;
 using CaChepFinal2.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CaChepFinal2.Areas.Admin.Controllers
 {
+    [Authorize(Roles = SD.SuperAdminEndUser)]
     [Area("Admin")]
     public class PhongsController : Controller
     {

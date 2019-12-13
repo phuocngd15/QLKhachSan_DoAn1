@@ -15,11 +15,9 @@ namespace CaChepFinal2
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            // reset database
+                     // reset database
             /* update-database 00000000000000_CreateIdentitySchema
         remove-migration
-         remove-migration
-          remove-migration
         add-migration ver1
         update-database
          update-database*/

@@ -46,7 +46,7 @@ namespace CaChepFinal2.Data.Migrations
                     TienDatCoc = table.Column<decimal>(type: "Money", nullable: false),
                     ThoiGianNhanPhongDuKien = table.Column<DateTime>(nullable: false),
                     ThoiGianTraPhongDuKien = table.Column<DateTime>(nullable: false),
-                    TongTien = table.Column<decimal>(type: "Money", nullable: true),
+                    TongTien = table.Column<decimal>(type: "Money", nullable: false),
                     AccoutId = table.Column<int>(nullable: true),
                     AccountId = table.Column<string>(nullable: true)
                 },
@@ -81,9 +81,7 @@ namespace CaChepFinal2.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    ShortDescription = table.Column<string>(nullable: true),
-                    HinhUrl = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -137,8 +135,7 @@ namespace CaChepFinal2.Data.Migrations
                     ShortDescription = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(type: "Money", nullable: false),
                     LoaiPhongId = table.Column<int>(nullable: true),
-                    ChuongTrinhId = table.Column<int>(nullable: true),
-                    HinhUrl = table.Column<string>(nullable: true)
+                    ChuongTrinhId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -161,13 +158,15 @@ namespace CaChepFinal2.Data.Migrations
                 name: "ChiTietDichVuDatPhongs",
                 columns: table => new
                 {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     DatPhongId = table.Column<int>(nullable: false),
                     DichVuId = table.Column<int>(nullable: false),
                     SoLuong = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChiTietDichVuDatPhongs", x => new { x.DatPhongId, x.DichVuId });
+                    table.PrimaryKey("PK_ChiTietDichVuDatPhongs", x => x.Id);
                     table.ForeignKey(
                         name: "FK_ChiTietDichVuDatPhongs_DatPhongs_DatPhongId",
                         column: x => x.DatPhongId,
@@ -255,11 +254,11 @@ namespace CaChepFinal2.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "LoaiPhongs",
-                columns: new[] { "Id", "HinhUrl", "Name", "ShortDescription" },
+                columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, null, "Deluxe", null },
-                    { 2, null, "Superior", null }
+                    { 1, "Phong Don" },
+                    { 2, "Phong Doi" }
                 });
 
             migrationBuilder.InsertData(
@@ -283,17 +282,17 @@ namespace CaChepFinal2.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Phongs",
-                columns: new[] { "Id", "ChuongTrinhId", "HinhUrl", "LoaiPhongId", "Name", "Price", "ShortDescription" },
+                columns: new[] { "Id", "ChuongTrinhId", "LoaiPhongId", "Name", "Price", "ShortDescription" },
                 values: new object[,]
                 {
-                    { 1, null, null, 1, "101", 150000m, "notthing" },
-                    { 2, null, null, 1, "102", 150000m, "notthing" },
-                    { 5, null, null, 1, "105", 150000m, "notthing" },
-                    { 3, null, null, 2, "103", 150000m, "notthing" },
-                    { 4, null, null, 2, "104", 0m, "notthing" },
-                    { 6, null, null, 2, "106", 150000m, "notthing" },
-                    { 7, null, null, 2, "107", 150000m, "notthing" },
-                    { 8, null, null, 2, "108", 150000m, "notthing" }
+                    { 1, null, 1, "A101", 150000m, "notthing" },
+                    { 2, null, 1, "A102", 150000m, "notthing" },
+                    { 5, null, 1, "A105", 150000m, "notthing" },
+                    { 3, null, 2, "A103", 150000m, "notthing" },
+                    { 4, null, 2, "A104", 0m, "notthing" },
+                    { 6, null, 2, "A106", 150000m, "notthing" },
+                    { 7, null, 2, "A107", 150000m, "notthing" },
+                    { 8, null, 2, "A108", 150000m, "notthing" }
                 });
 
             migrationBuilder.InsertData(
@@ -325,11 +324,11 @@ namespace CaChepFinal2.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "ChiTietDichVuDatPhongs",
-                columns: new[] { "DatPhongId", "DichVuId", "SoLuong" },
+                columns: new[] { "Id", "DatPhongId", "DichVuId", "SoLuong" },
                 values: new object[,]
                 {
-                    { 1, 2, 2 },
-                    { 1, 1, 2 }
+                    { 2, 1, 2, 2 },
+                    { 1, 1, 1, 2 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -341,6 +340,11 @@ namespace CaChepFinal2.Data.Migrations
                 name: "IX_ChiTietDatPhongs_TrangThaiId",
                 table: "ChiTietDatPhongs",
                 column: "TrangThaiId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChiTietDichVuDatPhongs_DatPhongId",
+                table: "ChiTietDichVuDatPhongs",
+                column: "DatPhongId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ChiTietDichVuDatPhongs_DichVuId",

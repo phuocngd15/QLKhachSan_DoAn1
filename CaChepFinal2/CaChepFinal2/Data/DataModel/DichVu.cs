@@ -27,7 +27,7 @@ namespace CaChepFinal2.Data.DataModel
        
         [Column(TypeName = "Money")]
         public decimal Price { get; set; }
-        public string? ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
         public int? InStock { get; set; }
         public int LoaiDvid { get; set; }
         [NotMapped]

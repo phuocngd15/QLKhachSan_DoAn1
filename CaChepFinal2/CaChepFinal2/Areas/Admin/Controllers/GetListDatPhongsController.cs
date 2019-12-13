@@ -9,9 +9,12 @@ using Microsoft.EntityFrameworkCore;
 using CaChepFinal2.Data;
 using CaChepFinal2.Data.DataModel;
 using CaChepFinal2.Extensions;
+using CaChepFinal2.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CaChepFinal2.Areas.Admin.Controllers
 {
+    [Authorize(Roles = SD.AdminEndUser)]
     [Area("Admin")]
     public class GetListDatPhongsController : Controller
     {

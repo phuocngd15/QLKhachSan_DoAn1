@@ -18,7 +18,7 @@
 <strong>P/s: Cần có ít nhất một phòng để tạo phiếu đặt phòng</strong>
 <h4>Danh sách Phòng</h4>
 <p>
-    <a asp-action="GetListPhong" class="btn btn-primary">Them Phong</a>
+    <a class="btn btn-outline-primary" asp-action="GetListPhong" class="btn btn-primary">Them Phong</a>
 </p>
 @if (Model.LsPhongDatPhongs != null)
 {
@@ -51,7 +51,7 @@
                         1
                     </td>
                     <td>
-                        <a asp-action="RemovePhongFromCart" asp-route-id="@item.Id">Delete</a>
+                        <a class="btn btn-outline-danger" asp-action="RemovePhongFromCart" asp-route-id="@item.Id">Delete</a>
                     </td>
                 </tr>
             }
@@ -61,7 +61,7 @@
 @* Bang DichVu *@
 
 <h4>Danh sách Dịch Vụ</h4>
-<p><a asp-action="GetListDichVu" class="btn btn-primary">Them Dich Vu</a></p>
+<p><a class="btn btn-outline-primary" asp-action="GetListDichVu" class="btn btn-primary">Them Dich Vu</a></p>
 
 @if (Model.LsDichVuDatPhongs != null)
 {
@@ -94,7 +94,7 @@
                         1
                     </td>
                     <td>
-                        <a asp-action="RemoveDVFromCart" asp-route-id="@item.Id">Delete</a>
+                        <a class="btn btn-outline-danger" asp-action="RemoveDVFromCart" asp-route-id="@item.Id">Delete</a>
                     </td>
                 </tr>
             }

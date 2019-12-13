@@ -38,7 +38,7 @@ namespace CaChepFinal2.Data.DataModel
         [Display(Name="Type Room")]
         public int? LoaiPhongId { get; set; }
         public int? ChuongTrinhId { get; set; }
-        public string? HinhUrl { get; set; }
+        public string HinhUrl { get; set; }
 
 
         public virtual ChuongTrinh ChuongTrinh { get; set; }

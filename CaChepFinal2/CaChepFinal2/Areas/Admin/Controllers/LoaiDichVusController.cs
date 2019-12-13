@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CaChepFinal2.Data;
 using CaChepFinal2.Data.DataModel;
+using CaChepFinal2.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CaChepFinal2.Areas.Admin.Controllers
 {
+    [Authorize(Roles = SD.SuperAdminEndUser)]
     [Area("Admin")]
     public class LoaiDichVusController : Controller
     {

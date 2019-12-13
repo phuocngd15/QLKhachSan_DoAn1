@@ -32,17 +32,20 @@ namespace CaChepFinal2
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-                   //     services.AddMvc(options => options.EnableEndpointRouting = false);
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+             .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultUI().AddDefaultTokenProviders();
+            services.AddScoped<IDbInitializer, DbInitializer>();
+            //     services.AddMvc(options => options.EnableEndpointRouting = false);
+            // dùng DI 
+            services.AddTransient<IChiTietDichVuDatPhong, ChiTietDichVuDatPhongService>();
+            services.AddTransient<IDatPhong, DatPhongService>();
+            services.AddTransient<ILoaiDichVu, LoaiDvService>();
+            services.AddTransient<ILoaiPhong, LoaiPhongService>();
+            services.AddTransient<IPhong, PhongService>();
+            services.AddTransient<ITrangThai, TrangThaiService>();
 
-            //services.AddTransient<IChiTietDichVuDatPhong, ChiTietDichVuDatPhongService>();
-            //services.AddTransient<IDatPhong, DatPhongService>();
-            //services.AddTransient<ILoaiDichVu, LoaiDvService>();
-            //services.AddTransient<ILoaiPhong, LoaiPhongService>();
-            //services.AddTransient<IPhong, PhongService>();
-            //services.AddTransient<ITrangThai, TrangThaiService>();
-           
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSession(options =>
@@ -53,7 +56,7 @@ namespace CaChepFinal2
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -74,13 +77,13 @@ namespace CaChepFinal2
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
-           
+            dbInitializer.Initialize();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "areas",
                     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
-       // pattern:  "{controller=Document}/{action=Create}/{id?}");
+                // pattern:  "{controller=Document}/{action=Create}/{id?}");
                 endpoints.MapRazorPages();
             });
             //app.UseMvc(routes =>

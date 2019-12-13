@@ -186,6 +186,11 @@ namespace CaChepFinal2.Data.Migrations
 
             modelBuilder.Entity("CaChepFinal2.Data.DataModel.ChiTietDichVuDatPhong", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("DatPhongId")
                         .HasColumnType("int");
 
@@ -195,7 +200,9 @@ namespace CaChepFinal2.Data.Migrations
                     b.Property<int>("SoLuong")
                         .HasColumnType("int");
 
-                    b.HasKey("DatPhongId", "DichVuId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("DatPhongId");
 
                     b.HasIndex("DichVuId");
 
@@ -204,12 +211,14 @@ namespace CaChepFinal2.Data.Migrations
                     b.HasData(
                         new
                         {
+                            Id = 1,
                             DatPhongId = 1,
                             DichVuId = 1,
                             SoLuong = 2
                         },
                         new
                         {
+                            Id = 2,
                             DatPhongId = 1,
                             DichVuId = 2,
                             SoLuong = 2
@@ -272,7 +281,7 @@ namespace CaChepFinal2.Data.Migrations
                     b.Property<decimal>("TienDatCoc")
                         .HasColumnType("Money");
 
-                    b.Property<decimal?>("TongTien")
+                    b.Property<decimal>("TongTien")
                         .HasColumnType("Money");
 
                     b.HasKey("Id");
@@ -449,12 +458,12 @@ namespace CaChepFinal2.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Deluxe"
+                            Name = "Phong Don"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Superior"
+                            Name = "Phong Doi"
                         });
                 });
 
@@ -497,7 +506,7 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 1,
                             LoaiPhongId = 1,
-                            Name = "101",
+                            Name = "A101",
                             Price = 150000m,
                             ShortDescription = "notthing"
                         },
@@ -505,7 +514,7 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 2,
                             LoaiPhongId = 1,
-                            Name = "102",
+                            Name = "A102",
                             Price = 150000m,
                             ShortDescription = "notthing"
                         },
@@ -513,7 +522,7 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 3,
                             LoaiPhongId = 2,
-                            Name = "103",
+                            Name = "A103",
                             Price = 150000m,
                             ShortDescription = "notthing"
                         },
@@ -521,7 +530,7 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 4,
                             LoaiPhongId = 2,
-                            Name = "104",
+                            Name = "A104",
                             Price = 0m,
                             ShortDescription = "notthing"
                         },
@@ -529,7 +538,7 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 5,
                             LoaiPhongId = 1,
-                            Name = "105",
+                            Name = "A105",
                             Price = 150000m,
                             ShortDescription = "notthing"
                         },
@@ -537,7 +546,7 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 6,
                             LoaiPhongId = 2,
-                            Name = "106",
+                            Name = "A106",
                             Price = 150000m,
                             ShortDescription = "notthing"
                         },
@@ -545,7 +554,7 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 7,
                             LoaiPhongId = 2,
-                            Name = "107",
+                            Name = "A107",
                             Price = 150000m,
                             ShortDescription = "notthing"
                         },
@@ -553,7 +562,7 @@ namespace CaChepFinal2.Data.Migrations
                         {
                             Id = 8,
                             LoaiPhongId = 2,
-                            Name = "108",
+                            Name = "A108",
                             Price = 150000m,
                             ShortDescription = "notthing"
                         });

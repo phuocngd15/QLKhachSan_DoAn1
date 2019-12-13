@@ -63,14 +63,6 @@
     <Compile Remove="Data\Migrations\20191204224942_ver1.Designer.cs" />
     <Compile Remove="Data\Migrations\20191204230819_ver1.cs" />
     <Compile Remove="Data\Migrations\20191204230819_ver1.Designer.cs" />
-    <Compile Remove="Data\Migrations\20191204232407_ver1.cs" />
-    <Compile Remove="Data\Migrations\20191204232407_ver1.Designer.cs" />
-    <Compile Remove="Data\Migrations\20191206045526_addHinhUrl.cs" />
-    <Compile Remove="Data\Migrations\20191206045526_addHinhUrl.Designer.cs" />
-    <Compile Remove="Data\Migrations\20191206081328_addLP.cs" />
-    <Compile Remove="Data\Migrations\20191206081328_addLP.Designer.cs" />
-    <Compile Remove="Data\Migrations\20191208105742_ver1.cs" />
-    <Compile Remove="Data\Migrations\20191208105742_ver1.Designer.cs" />
   </ItemGroup>
 
 
@@ -99,11 +91,6 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="wwwroot\images\RoomImages\" />
   </ItemGroup>
 
 </Project>

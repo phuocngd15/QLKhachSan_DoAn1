@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CaChepFinal2.Data.DataModel
 {
-    public class Account :IdentityUser
+    public class AccountSys :IdentityUser
     {
     public string Name { get; set; }
     [NotMapped] public bool IsSuperAdmin { get; set; }

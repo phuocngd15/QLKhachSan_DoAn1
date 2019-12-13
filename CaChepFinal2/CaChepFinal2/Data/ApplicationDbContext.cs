@@ -18,13 +18,13 @@ namespace CaChepFinal2.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ChiTietDatPhong>(entity =>
             {
-                entity.HasKey(e => new { e.DatPhongId, e.PhongId,e.ThoiGian });
+                entity.HasKey(e => new { e.DatPhongId, e.PhongId, e.ThoiGian });
 
             });
 
             modelBuilder.Entity<ChiTietDichVuDatPhong>(entity =>
             {
-                entity.HasKey(e => new { e.DatPhongId, e.DichVuId });
+
             });
 
             modelBuilder.Entity<ChuongTrinh>(entity =>
@@ -123,13 +123,13 @@ namespace CaChepFinal2.Data
                 new LoaiPhong
                 {
                     Id = 1,
-                    Name = "Deluxe",
-                    
+                    Name = "Phong Don",
+
                 },
                 new LoaiPhong
                 {
                     Id = 2,
-                    Name = "Superior",
+                    Name = "Phong Doi",
 
                 }
             );
@@ -137,7 +137,7 @@ namespace CaChepFinal2.Data
                 new Phong
                 {
                     Id = 1,
-                    Name = "101",
+                    Name = "A101",
                     LoaiPhongId = 1,
                     Price = 150000,
                     ShortDescription = "notthing",
@@ -147,7 +147,7 @@ namespace CaChepFinal2.Data
                 new Phong
                 {
                     Id = 2,
-                    Name = "102",
+                    Name = "A102",
                     LoaiPhongId = 1,
                     Price = 150000,
                     ShortDescription = "notthing",
@@ -156,7 +156,7 @@ namespace CaChepFinal2.Data
                 new Phong
                 {
                     Id = 3,
-                    Name = "103",
+                    Name = "A103",
                     LoaiPhongId = 2,
                     Price = 150000,
                     ShortDescription = "notthing",
@@ -165,7 +165,7 @@ namespace CaChepFinal2.Data
                 new Phong
                 {
                     Id = 4,
-                    Name = "104",
+                    Name = "A104",
                     LoaiPhongId = 2,
                     ShortDescription = "notthing",
                     ChuongTrinhId = null,
@@ -173,7 +173,7 @@ namespace CaChepFinal2.Data
                 new Phong
                 {
                     Id = 5,
-                    Name = "105",
+                    Name = "A105",
                     LoaiPhongId = 1,
                     Price = 150000,
                     ShortDescription = "notthing",
@@ -182,7 +182,7 @@ namespace CaChepFinal2.Data
                 new Phong
                 {
                     Id = 6,
-                    Name = "106",
+                    Name = "A106",
                     LoaiPhongId = 2,
                     Price = 150000,
                     ShortDescription = "notthing",
@@ -191,7 +191,7 @@ namespace CaChepFinal2.Data
                 new Phong
                 {
                     Id = 7,
-                    Name = "107",
+                    Name = "A107",
                     LoaiPhongId = 2,
                     Price = 150000,
                     ShortDescription = "notthing",
@@ -200,7 +200,7 @@ namespace CaChepFinal2.Data
                 new Phong
                 {
                     Id = 8,
-                    Name = "108",
+                    Name = "A108",
                     LoaiPhongId = 2,
                     Price = 150000,
                     ShortDescription = "notthing",
@@ -249,7 +249,7 @@ namespace CaChepFinal2.Data
                     Cmnd = "281212910",
                     Sdt = "01264079973",
                     ThoiGianNhanPhongDuKien = new DateTime(2019, 12, 03),
-                    ThoiGianTraPhongDuKien = new DateTime(2019, 12,06 ),
+                    ThoiGianTraPhongDuKien = new DateTime(2019, 12, 06),
                     TienDatCoc = 50000,
                     TongTien = 4000000,
                 },
@@ -433,7 +433,7 @@ namespace CaChepFinal2.Data
             modelBuilder.Entity<ChiTietDichVuDatPhong>().HasData(
                 new ChiTietDichVuDatPhong
                 {
-                    
+                    Id = 1,
                     DatPhongId = 1,
                     DichVuId = 1,
                     SoLuong = 2
@@ -442,7 +442,7 @@ namespace CaChepFinal2.Data
                 },
                 new ChiTietDichVuDatPhong
                 {
-                    
+                    Id = 2,
                     DatPhongId = 1,
                     DichVuId = 2,
                     SoLuong = 2
@@ -459,8 +459,8 @@ namespace CaChepFinal2.Data
         public virtual DbSet<LoaiPhong> LoaiPhongs { get; set; }
         public virtual DbSet<Phong> Phongs { get; set; }
         public virtual DbSet<TrangThai> TrangThais { get; set; }
-        public virtual DbSet<Account> Accounts { get; set; }
-       
+        public virtual DbSet<AccountSys> Accounts { get; set; }
+
 
     }
 }

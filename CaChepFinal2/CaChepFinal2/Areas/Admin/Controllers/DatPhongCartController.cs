@@ -6,12 +6,15 @@ using CaChepFinal2.Areas.Admin.Models;
 using CaChepFinal2.Data;
 using CaChepFinal2.Data.DataModel;
 using CaChepFinal2.Extensions;
+using CaChepFinal2.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Syncfusion.EJ2.Linq;
 
 namespace CaChepFinal2.Areas.Admin.Controllers
 {
+    [Authorize(Roles = SD.AdminEndUser)]
     [Area("Admin")]
     public class DatPhongCartController : Controller
     {
@@ -51,12 +54,14 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
             return View(_DatPhongCart);
         }
+        //tìm phòng trống
         public async Task<IActionResult> GetListPhong()
         {
             var lsPhongs = _Context.Phongs.Include(p => p.LoaiPhong);
             return RedirectToAction("Index", "GetListDatPhongs", new { area = "Admin" });
 
         }
+        // dùng action xóa phòng ra khỏi giỏ phòng cần đặt
         public IActionResult RemovePhongFromCart(int id)
         {
             List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssPhongCart");
@@ -72,13 +77,14 @@ namespace CaChepFinal2.Areas.Admin.Controllers
             HttpContext.Session.Set("ssPhongCart", lstCartItems);
             return RedirectToAction("Index", "DatPhongCart", new { area = "Admin" });
         }
-
+        // chọn dịch vụ hiện có của khách sạn
         public async Task<IActionResult> GetListDichVu()
         {
             //  var lsDichVus = _dichVusv.GetAll().Include(p => p.GetLoaiDV);
             var lsPhongs = _Context.Phongs.Include(p => p.LoaiPhong);
             return RedirectToAction("Index", "GetListDichVu", new { area = "Admin" });
         }
+        // xóa dịch vụ ra khỏi dịch cart
         public IActionResult RemoveDVFromCart(int id)
         {
             List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssDichVuCart");
@@ -96,6 +102,7 @@ namespace CaChepFinal2.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        // xác nhận đặt phòng
         public async Task<IActionResult> XacNhanDatPhong(DatPhongCartVM ab)
         {
             if (ModelState.IsValid)
@@ -140,21 +147,18 @@ namespace CaChepFinal2.Areas.Admin.Controllers
                 #region dichvu
 
                 List<int> lstsDichVuCart = HttpContext.Session.Get<List<int>>("ssDichVuCart");
-                if (lstsDichVuCart != null)
-                {
-                    foreach (var i in lstsDichVuCart)
-                    {
-                        var objChiTietDichVuDatPhong = new ChiTietDichVuDatPhong()
-                        {
-                            DatPhongId = newDatPhongId,
-                            DichVuId = i,
-                            SoLuong = 1 // đang test mặc định số lượng dịch vụ là 1;
-                        };
-                        _Context.ChiTietDichVuDatPhongs.Add(objChiTietDichVuDatPhong);
-                        await _Context.SaveChangesAsync();
-                    }
-                }
 
+                foreach (var i in lstsDichVuCart)
+                {
+                    var objChiTietDichVuDatPhong = new ChiTietDichVuDatPhong()
+                    {
+                        DatPhongId = newDatPhongId,
+                        DichVuId = i,
+                        SoLuong = 1 // đang test mặc định số lượng dịch vụ là 1;
+                    };
+                    _Context.ChiTietDichVuDatPhongs.Add(objChiTietDichVuDatPhong);
+                    await _Context.SaveChangesAsync();
+                }
                 #endregion
             }
             return RedirectToAction("Index", "DatPhongs", new { area = "Admin" });

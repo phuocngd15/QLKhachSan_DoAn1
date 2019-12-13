@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MyGit\\QLKhachSan_DoAn1\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj": {}
+    "C:\\Users\\JackieLeIV\\Desktop\\Chắc cái cuối\\Chắc cái cuối\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj": {}
   },
   "projects": {
-    "D:\\MyGit\\QLKhachSan_DoAn1\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj": {
+    "C:\\Users\\JackieLeIV\\Desktop\\Chắc cái cuối\\Chắc cái cuối\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyGit\\QLKhachSan_DoAn1\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj",
+        "projectUniqueName": "C:\\Users\\JackieLeIV\\Desktop\\Chắc cái cuối\\Chắc cái cuối\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj",
         "projectName": "CaChepFinal2",
-        "projectPath": "D:\\MyGit\\QLKhachSan_DoAn1\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj",
+        "projectPath": "C:\\Users\\JackieLeIV\\Desktop\\Chắc cái cuối\\Chắc cái cuối\\CaChepFinal2\\CaChepFinal2\\CaChepFinal2.csproj",
         "packagesPath": "C:\\Users\\JackieLeIV\\.nuget\\packages\\",
-        "outputPath": "D:\\MyGit\\QLKhachSan_DoAn1\\CaChepFinal2\\CaChepFinal2\\obj\\",
+        "outputPath": "C:\\Users\\JackieLeIV\\Desktop\\Chắc cái cuối\\Chắc cái cuối\\CaChepFinal2\\CaChepFinal2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

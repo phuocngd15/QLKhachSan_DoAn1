@@ -24,30 +24,30 @@ namespace CaChepFinal2.Data.DataModel
         }
 
         public int Id { get; set; }
-        [Display(Name = "Họ và Tên")]
+        [Display(Name = "Full Name")]
         public string TenNguoiDat { get; set; }
-        [Display(Name = "Địa Chỉ")]
+        [Display(Name = "Address")]
         public string Address { get; set; }
         [Display(Name = "CMND")]
         public string Cmnd { get; set; }
-        [Display(Name = "SĐT")]
+        [Display(Name = "PhoneNumber")]
         public string Sdt { get; set; }
 
         [Column(TypeName = "Money")]
-        [Display(Name = "Tiền Đặt Cọc")]
+        [Display(Name = "Money Reservation")]
         public decimal TienDatCoc { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        [Display(Name = "Thời Gian Nhận")]
+        [Display(Name = "Time Check in")]
         public DateTime ThoiGianNhanPhongDuKien { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        [Display(Name = "Thời Gian Trả")]
+        [Display(Name = "Time Check out")]
         public DateTime ThoiGianTraPhongDuKien { get; set; }
         [Column(TypeName = "Money")]
-        [Display(Name = "Tổng Tiền")]
-        public decimal? TongTien { get; set; }
+        [Display(Name = "Sum Money ")]
+        public decimal TongTien { get; set; }
 
         public int? AccoutId { get; set; }
-        public virtual Account Account { get; set; }
+        public virtual AccountSys Account { get; set; }
 
         public virtual ICollection<ChiTietDatPhong> ChiTietDatPhong { get; set; }
         public virtual ICollection<ChiTietDichVuDatPhong> ChiTietDichVuDatPhong { get; set; }
