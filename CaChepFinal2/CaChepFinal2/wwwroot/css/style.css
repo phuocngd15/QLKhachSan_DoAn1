@@ -89,7 +89,7 @@ ul li a:hover:after {
 }
 
 body.bg {
-    background-image: url("../images/layout/bn1.jpg");
+    /*background-image: url("../images/layout/bn1.jpg");*/
     background-attachment: fixed;
     background-size: cover;
     filter: alpha(opacity=50);
